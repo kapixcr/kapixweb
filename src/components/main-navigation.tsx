@@ -58,7 +58,7 @@ export default function MainNavigation() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-1">
-              <Link href="/inicio" className="px-3 py-2 text-[#191e29] hover:text-[#01c38d] font-medium">
+              <Link href="/" className="px-3 py-2 text-[#191e29] hover:text-[#01c38d] font-medium">
                 Inicio
               </Link>
               <Link href="/sobre-nosotros" className="px-3 py-2 text-[#191e29] hover:text-[#01c38d] font-medium">
