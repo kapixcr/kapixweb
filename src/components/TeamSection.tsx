@@ -2,54 +2,81 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useLanguage } from '@/context/LanguageContext'
 
-const teamMembers = [
-  {
-    name: "Paul Trueman",
-    position: "Head Chef",
-    image: "/team/chef1.jpg"
+const teamMembers = {
+  ES: [
+    {
+      name: "Kenneth Carmona",
+      position: "Desarrollador Senior",
+      image: "img/KENNETH CARMONA.jpg"
+    },
+    {
+      name: "Jill Hernández",
+      position: "Desarrollador Junior",
+      image: "img/JILL HERNANDEZ.jpg"
+    },
+    {
+      name: "Sebastián Rojas",
+      position: "Desarrollador",
+      image: "img/SEBAS ROJAS.jpg"
+    }
+  ],
+  EN: [
+    {
+      name: "Kenneth Carmona",
+      position: "Senior Developer",
+      image: "img/KENNETH CARMONA.jpg"
+    },
+    {
+      name: "Jill Hernández",
+      position: "Junior Developer",
+      image: "img/JILL HERNANDEZ.jpg"
+    },
+    {
+      name: "Sebastián Rojas",
+      position: "Developer",
+      image: "img/SEBAS ROJAS.jpg"
+    }
+  ]
+}
+
+const translations = {
+  ES: {
+    teamLabel: "Nuestro Equipo",
+    title: "Conoce A Nuestros Expertos",
+    description: "Un equipo apasionado dedicado a tu éxito profesional."
   },
-  {
-    name: "Emma Newman",
-    position: "Senior Chef",
-    image: "/team/chef2.jpg"
-  },
-  {
-    name: "Oscar Oldman",
-    position: "Chef de Partie",
-    image: "/team/chef3.jpg"
-  },
-  {
-    name: "Ed Freeman",
-    position: "Pastry Chef",
-    image: "/team/chef4.jpg"
+  EN: {
+    teamLabel: "Our Team",
+    title: "Meet Our Experts",
+    description: "A passionate team dedicated to your professional success."
   }
-]
+}
 
-export default function teamsection() {
+export default function TeamSection() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Glassmorphism Background */}
+    <section className="py-10 relative overflow-hidden">
       <div className="absolute inset-0 bg-white/70 backdrop-blur-xl z-0" />
       
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="text-[#01c38d] font-medium mb-2 block">Our Team</span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#191e29] flex items-center justify-center gap-2">
-            Meet our talented
-            <span className="text-[#01c38d] relative">
-              team
-              <svg className="absolute -bottom-6 left-0 w-full" viewBox="0 0 100 20" preserveAspectRatio="none">
-                <path d="M0 10 Q 25 0, 50 10 Q 75 20, 100 10" stroke="#01c38d" strokeWidth="5" fill="none"/>
-              </svg>
-            </span>
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+        <div className="text-center mb-6">
+          <span className="inline-block px-4 py-2 rounded-full bg-[#191e29] text-white font-medium text-sm mb-2 shadow-sm">
+            {t.teamLabel}
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-[#191e29] to-[#01c38d] bg-clip-text text-transparent">
+            {t.title}
           </h2>
+          <p className="text-gray-600 max-w-xl mx-auto">
+            {t.description}
+          </p>
         </div>
-
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, index) => (
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {teamMembers[language].map((member, index) => (
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 20 }}
@@ -58,12 +85,10 @@ export default function teamsection() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
-                {/* Background Circle */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#01c38d]/20 rounded-full filter blur-xl" />
+              <div className="relative overflow-hidden rounded-xl bg-white shadow-md">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 bg-[#01c38d]/20 rounded-full filter blur-lg" />
                 
-                {/* Member Image */}
-                <div className="relative aspect-[3/4]">
+                <div className="relative aspect-[4/5]">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -72,11 +97,10 @@ export default function teamsection() {
                   />
                 </div>
 
-                {/* Member Info */}
                 <motion.div 
-                  className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm p-4 transform translate-y-0 transition-transform duration-300 group-hover:-translate-y-2"
+                  className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm p-3 transform translate-y-0 transition-transform duration-300 group-hover:-translate-y-2"
                 >
-                  <h3 className="text-lg font-semibold text-slate-800">{member.name}</h3>
+                  <h3 className="text-base font-semibold text-slate-800">{member.name}</h3>
                   <p className="text-sm text-[#01c38d]">{member.position}</p>
                 </motion.div>
               </div>

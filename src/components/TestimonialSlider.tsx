@@ -3,59 +3,97 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
+import { useLanguage } from '@/context/LanguageContext'
 
 const testimonials = [
   {
     id: 1,
     name: "Katie Rose",
-    role: "CEO, Parkview Int. Ltd.",
-    image: "/testimonials/user1.jpg",
-    content: "It generates hundreds of useful copy for your specific product and audience with the minimum effort.",
+    role: {
+      ES: "CEO, Parkview Int. Ltd.",
+      EN: "CEO, Parkview Int. Ltd."
+    },
+    image: "/img/User-girl.jpg",
+    content: {
+      ES: "Genera cientos de copias útiles para tu producto específico y audiencia con el mínimo esfuerzo.",
+      EN: "It generates hundreds of useful copies for your specific product and audience with minimal effort."
+    },
     rating: 4
   },
   {
     id: 2,
     name: "John Smith",
-    role: "Marketing Director",
-    image: "/testimonials/user2.jpg",
-    content: "It generates hundreds of useful copy for your specific product and audience with the minimum effort.",
+    role: {
+      ES: "Director de Marketing",
+      EN: "Marketing Director"
+    },
+    image: "/img/User-man.jpg",
+    content: {
+      ES: "El sistema es muy intuitivo y nos ha ayudado a mejorar significativamente nuestra productividad.",
+      EN: "The system is very intuitive and has helped us significantly improve our productivity."
+    },
     rating: 5
   },
   {
     id: 3,
     name: "Sarah Johnson",
-    role: "Product Manager",
-    image: "/testimonials/user3.jpg",
-    content: "It generates hundreds of useful copy for your specific product and audience with the minimum effort.",
+    role: {
+      ES: "Gerente de Producto",
+      EN: "Product Manager"
+    },
+    image: "/img/User-girl.jpg",
+    content: {
+      ES: "Una herramienta excepcional que ha transformado la manera en que gestionamos nuestros proyectos.",
+      EN: "An exceptional tool that has transformed the way we manage our projects."
+    },
     rating: 4
   },
   {
     id: 4,
     name: "Michael Brown",
-    role: "Lead Developer",
-    image: "/testimonials/user4.jpg",
-    content: "It generates hundreds of useful copy for your specific product and audience with the minimum effort.",
+    role: {
+      ES: "Desarrollador Principal",
+      EN: "Lead Developer"
+    },
+    image: "/img/User-man.jpg",
+    content: {
+      ES: "La integración fue sencilla y el soporte técnico es excelente. Totalmente recomendado.",
+      EN: "Integration was simple and technical support is excellent. Highly recommended."
+    },
     rating: 5
   },
   {
     id: 5,
     name: "Emily Davis",
-    role: "UX Designer",
-    image: "/testimonials/user5.jpg",
-    content: "It generates hundreds of useful copy for your specific product and audience with the minimum effort.",
+    role: {
+      ES: "Diseñadora UX",
+      EN: "UX Designer"
+    },
+    image: "/img/User-girl.jpg",
+    content: {
+      ES: "Una solución completa que ha simplificado enormemente nuestros procesos empresariales.",
+      EN: "A complete solution that has greatly simplified our business processes."
+    },
     rating: 4
   },
   {
     id: 6,
     name: "David Wilson",
-    role: "Tech Lead",
-    image: "/testimonials/user6.jpg",
-    content: "It generates hundreds of useful copy for your specific product and audience with the minimum effort.",
+    role: {
+      ES: "Líder Técnico",
+      EN: "Tech Lead"
+    },
+    image: "/img/User-man.jpg",
+    content: {
+      ES: "La mejor inversión que hemos hecho para mejorar la eficiencia de nuestro equipo.",
+      EN: "The best investment we've made to improve our team's efficiency."
+    },
     rating: 5
   }
 ]
 
 export default function TestimonialSlider() {
+  const { language } = useLanguage()
   const [currentGroup, setCurrentGroup] = useState(0)
   const groupSize = 3
   const totalGroups = Math.ceil(testimonials.length / groupSize)
@@ -84,24 +122,21 @@ export default function TestimonialSlider() {
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#01c38d]/5 to-white" />
       <div className="container mx-auto px-4 relative">
-        <div className="text-center mb-12">
-          <span className="text-[#01c38d] font-medium mb-2 block">Testimonials</span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#191e29] flex items-center justify-center gap-2">
-            What Our Clients 
-            <span className="text-[#01c38d] relative">
-              Say
-              <svg className="absolute -bottom-5 left-0 w-full" viewBox="0 0 100 20" preserveAspectRatio="none">
-                <path
-                  d="M0 10 Q 25 0, 50 10 Q 75 20, 100 10"
-                  stroke="#01c38d"
-                  strokeWidth="7"
-                  fill="none"
-                />
-              </svg>
-            </span>
-          </h2>
-        </div>
+      <div className="text-center mb-8">
+        <span className="inline-block px-4 py-2 rounded-full bg-[#191e29] text-white font-medium text-sm mb-2 shadow-sm">
+          {language === 'ES' ? 'Testimonios' : 'Testimonials'}
+        </span>
+        <h2 className="text-4xl font-bold mb-3 bg-gradient-to-r from-[#191e29] to-[#01c38d] bg-clip-text text-transparent">
+          {language === 'ES' ? 'Lo Que Dicen Nuestros Clientes' : 'What Our Clients Say'}
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          {language === 'ES' 
+            ? 'Descubre las experiencias de quienes ya confían en nosotros.'
+            : 'Discover the experiences of those who already trust us.'}
+        </p>
+      </div>
 
+        {/* Rest of the testimonial slider */}
         <div className="max-w-6xl mx-auto relative">
           <button
             onClick={prevGroup}
@@ -121,7 +156,7 @@ export default function TestimonialSlider() {
               transition={{ duration: 0.5 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
             >
-              {getCurrentGroup().map((testimonial, index) => (
+              {getCurrentGroup().map((testimonial) => (
                 <div
                   key={testimonial.id}
                   className="bg-white/40 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-white/50"
@@ -136,7 +171,7 @@ export default function TestimonialSlider() {
                       />
                     </div>
                     <p className="text-gray-600 text-lg mb-6 italic">
-                      "{testimonial.content}"
+                      "{testimonial.content[language]}"
                     </p>
                     <div className="flex items-center justify-center gap-1 mb-4">
                       {[...Array(5)].map((_, i) => (
@@ -153,7 +188,7 @@ export default function TestimonialSlider() {
                       ))}
                     </div>
                     <h3 className="text-[#191e29] font-bold text-xl">{testimonial.name}</h3>
-                    <p className="text-gray-500">{testimonial.role}</p>
+                    <p className="text-gray-500">{testimonial.role[language]}</p>
                   </div>
                 </div>
               ))}

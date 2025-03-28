@@ -1,145 +1,434 @@
-// Remove "use client" directive since this is a pages directory file
+"use client"
+
 import { ArrowRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Switch } from "@/components/ui/switch"
 import { useState, useEffect } from "react"
 import ModulesTable from "@/components/ModulesTable"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { useLanguage } from "@/context/LanguageContext"
 
 export default function PlanesPage() {
-  const [isAnnual, setIsAnnual] = useState(false)
+  const { language } = useLanguage()
   const [mounted, setMounted] = useState(false)
-  const [planType, setPlanType] = useState("ERP")
+  const [planType, setPlanType] = useState("PERSONAL") // Changed default state
+
+  // Translations object
+  const translations = {
+    ES: {
+      ourPlans: "NUESTROS PLANES",
+      home: "INICIO",
+      price: "PRECIO",
+      personal: "PERSONAL",
+      business: "EMPRESARIAL",
+      month: "/mes",
+      startFree: "Comenzar Gratis",
+      startNow: "Comenzar Ahora",
+      contact: "Contactar",
+      start: "Comenzar",
+      includes: "Incluye",
+      startingFrom: "A partir de",
+      planNames: {
+        lite: "Lite",
+        premium: "Premium",
+        venus: "Venus",
+        tierra: "Tierra",
+        marte: "Marte",
+        personalizado: "Personalizado",
+      },
+      descriptions: {
+        lite: "Comienza Kapix Completamente Gratis",
+        premium: "Accede a más módulos y funcionalidades avanzadas",
+        mars: "Nuestro plan marte es un plan pensado para grandes empresas, donde se personalizará de acuerdo a los módulos, usuarios y espacio que se necesite, ofreciendo un ERP completo y ajustado a la necesidad de las empresas.",
+        custom:
+          "Arma tu plan por medio de nuestro sistema modular, escoge cuáles módulos necesita tu negocio y arma tu plan personalizado",
+      },
+      features: {
+        team: "1 Equipo",
+        clients: "50 Clientes",
+        contacts: "50 Contactos",
+        contracts: "30 Contratos",
+        invoices: "100 Facturas",
+        creditNotes: "100 Notas de Crédito",
+        unlimitedProposals: "Sin límites Propuestas",
+        projects: "5 Proyectos",
+        tasks: "100 Tareas",
+        unlimitedProspects: "Sin límites Prospectos",
+        products: "30 Productos",
+        storage: "1 GB Almacenamiento",
+        documents: "Documentos",
+        reminder: "Recordatorio",
+        expenses: "Gastos",
+        payments: "Pagos",
+        // Premium plan additional features
+        moreClients: "100 Clientes",
+        unlimitedContacts: "Sin límites Contactos",
+        moreContracts: "50 Contratos",
+        moreInvoices: "200 Facturas",
+        unlimitedBudgets: "Sin límites Presupuestos",
+        unlimitedCreditNotes: "Sin límites Notas de Crédito",
+        moreProjects: "20 Proyectos",
+        moreTasks: "200 Tareas",
+        unlimitedSupportTickets: "Sin límites Tickets de Soporte",
+        unlimitedProducts: "Sin límites Productos",
+        moreStorage: "10 GB Almacenamiento",
+        appointments: "Citas",
+        additionalConfig: "Configuración Adicional",
+        emailCanvas: "Email Canvas",
+        objectives: "Objetivos",
+        stateManagement: "Manejo de Estados",
+        tableManagement: "Manejo de Tablas",
+        projectKanban: "Kanban de Proyectos",
+        projectManagementImprovements: "Mejoras de Gestión de Proyectos",
+        spreadsheets: "Hojas de Cálculo en Línea",
+        // Business plan features
+        crm: "CRM",
+        potentialClients: "Clientes Potenciales",
+        reports: "Informes",
+        appointmentsOrAccounting: "Citas o Contabilidad",
+        sales: "Ventas",
+        purchases: "Compras",
+        inventory: "Inventario",
+        pointOfSale: "Punto de Venta",
+        users: "7 usuarios",
+        storageGigas: "50 gigas de almacenamiento",
+        moreStorageGigas: "100 gigas de almacenamiento",
+        supportTickets: "5 tickets de soporte al mes",
+        trainingHours: "Horas de capacitación",
+      },
+    },
+    EN: {
+      ourPlans: "OUR PLANS",
+      home: "HOME",
+      price: "PRICING",
+      personal: "PERSONAL",
+      business: "BUSINESS",
+      month: "/month",
+      startFree: "Start Free",
+      startNow: "Start Now",
+      contact: "Contact Us",
+      start: "Start",
+      includes: "Includes",
+      startingFrom: "Starting from",
+      planNames: {
+        lite: "Lite",
+        premium: "Premium",
+        venus: "Venus",
+        tierra: "Earth",
+        marte: "Mars",
+        personalizado: "Custom",
+      },
+      descriptions: {
+        lite: "Start Kapix Completely Free",
+        premium: "Access more modules and advanced features",
+        mars: "Our Mars plan is designed for large companies, where it will be customized according to the modules, users, and space needed, offering a complete ERP adjusted to the needs of companies.",
+        custom:
+          "Build your plan through our modular system, choose which modules your business needs and create your personalized plan",
+      },
+      features: {
+        team: "1 Team",
+        clients: "50 Clients",
+        contacts: "50 Contacts",
+        contracts: "30 Contracts",
+        invoices: "100 Invoices",
+        creditNotes: "100 Credit Notes",
+        unlimitedProposals: "Unlimited Proposals",
+        projects: "5 Projects",
+        tasks: "100 Tasks",
+        unlimitedProspects: "Unlimited Prospects",
+        products: "30 Products",
+        storage: "1 GB Storage",
+        documents: "Documents",
+        reminder: "Reminder",
+        expenses: "Expenses",
+        payments: "Payments",
+        // Premium plan additional features
+        moreClients: "100 Clients",
+        unlimitedContacts: "Unlimited Contacts",
+        moreContracts: "50 Contracts",
+        moreInvoices: "200 Invoices",
+        unlimitedBudgets: "Unlimited Budgets",
+        unlimitedCreditNotes: "Unlimited Credit Notes",
+        moreProjects: "20 Projects",
+        moreTasks: "200 Tasks",
+        unlimitedSupportTickets: "Unlimited Support Tickets",
+        unlimitedProducts: "Unlimited Products",
+        moreStorage: "10 GB Storage",
+        appointments: "Appointments",
+        additionalConfig: "Additional Configuration",
+        emailCanvas: "Email Canvas",
+        objectives: "Objectives",
+        stateManagement: "State Management",
+        tableManagement: "Table Management",
+        projectKanban: "Project Kanban",
+        projectManagementImprovements: "Project Management Improvements",
+        spreadsheets: "Online Spreadsheets",
+        // Business plan features
+        crm: "CRM",
+        potentialClients: "Potential Clients",
+        reports: "Reports",
+        appointmentsOrAccounting: "Appointments or Accounting",
+        sales: "Sales",
+        purchases: "Purchases",
+        inventory: "Inventory",
+        pointOfSale: "Point of Sale",
+        users: "7 users",
+        storageGigas: "50 GB storage",
+        moreStorageGigas: "100 GB storage",
+        supportTickets: "5 support tickets per month",
+        trainingHours: "Training hours",
+      },
+    },
+  }
 
   // Ensure hydration is complete before rendering
   useEffect(() => {
     setMounted(true)
   }, [])
 
+  // Update getFeatureIcon function to handle more cases in both languages
   const getFeatureIcon = (feature: string) => {
-    switch (feature.toLowerCase().split(" ")[0]) {
-      case "crm":
-        return "fi fi-rr-users"
-      case "proyectos":
-        return "fi fi-rr-boxes"
-      case "clientes":
-        return "fi fi-rr-user"
-      case "informes":
-        return "fi fi-rr-document"
-      case "citas":
-        return "fi fi-rr-calendar"
-      case "ventas":
-        return "fi fi-rr-shopping-cart"
-      case "compras":
-        return "fi fi-rr-shopping-bag"
-      case "inventario":
-        return "fi fi-rr-box"
-      case "punto":
-        return "fi fi-rr-shop"
-      case "7":
-        return "fi fi-rr-users-alt"
-      case "50":
-      case "100":
-        return "fi fi-rr-cloud-upload"
-      case "5":
-        return "fi fi-rr-headset"
-      case "horas":
-        return "fi fi-rr-time-forward"
-      case "nuestro":
-        return "fi fi-rr-building"
+    // Convert to lowercase and remove accents for better matching
+    const normalizedFeature = feature
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+
+    // Check if feature contains these words anywhere in the text (in both languages)
+    if (normalizedFeature.includes("proyecto") || normalizedFeature.includes("project")) return "fi fi-rr-briefcase"
+    if (normalizedFeature.includes("crm")) return "fi fi-rr-users"
+    if (normalizedFeature.includes("tarea") || normalizedFeature.includes("task")) return "fi fi-rr-list-check"
+    if (normalizedFeature.includes("cliente") || normalizedFeature.includes("client")) return "fi fi-rr-user"
+    if (normalizedFeature.includes("contacto") || normalizedFeature.includes("contact")) return "fi fi-rr-address-book"
+    if (normalizedFeature.includes("contrato") || normalizedFeature.includes("contract"))
+      return "fi fi-rr-document-signed"
+    if (normalizedFeature.includes("factura") || normalizedFeature.includes("invoice")) return "fi fi-rr-receipt"
+    if (normalizedFeature.includes("credit") || normalizedFeature.includes("credito")) return "fi fi-rr-receipt"
+    if (normalizedFeature.includes("propuesta") || normalizedFeature.includes("proposal")) return "fi fi-rr-document"
+    if (normalizedFeature.includes("producto") || normalizedFeature.includes("product")) return "fi fi-rr-box"
+    if (normalizedFeature.includes("almacenamiento") || normalizedFeature.includes("storage"))
+      return "fi fi-rr-cloud-upload"
+    if (normalizedFeature.includes("cita") || normalizedFeature.includes("appointment")) return "fi fi-rr-calendar"
+    if (normalizedFeature.includes("configuracion") || normalizedFeature.includes("config")) return "fi fi-rr-settings"
+    if (normalizedFeature.includes("documento") || normalizedFeature.includes("document")) return "fi fi-rr-folder"
+    if (normalizedFeature.includes("email")) return "fi fi-rr-envelope"
+    if (normalizedFeature.includes("goal") || normalizedFeature.includes("objetivo")) return "fi fi-rr-flag"
+    if (normalizedFeature.includes("estado") || normalizedFeature.includes("state")) return "fi fi-rr-settings-sliders"
+    if (normalizedFeature.includes("tabla") || normalizedFeature.includes("table")) return "fi fi-rr-table"
+    if (normalizedFeature.includes("kanban")) return "fi fi-rr-briefcase"
+    if (normalizedFeature.includes("recordatorio") || normalizedFeature.includes("reminder")) return "fi fi-rr-bell"
+    if (normalizedFeature.includes("spreadsheet") || normalizedFeature.includes("hoja")) return "fi fi-rr-table"
+    if (normalizedFeature.includes("lead") || normalizedFeature.includes("prospecto")) return "fi fi-rr-star"
+    if (normalizedFeature.includes("payment") || normalizedFeature.includes("pago")) return "fi fi-rr-credit-card"
+    if (normalizedFeature.includes("venta") || normalizedFeature.includes("sale")) return "fi fi-rr-receipt"
+    if (normalizedFeature.includes("compra") || normalizedFeature.includes("purchase")) return "fi fi-rr-shopping-cart"
+    if (normalizedFeature.includes("inventario") || normalizedFeature.includes("inventory")) return "fi fi-rr-box"
+    if (normalizedFeature.includes("ticket")) return "fi fi-rr-ticket"
+    if (normalizedFeature.includes("usuario") || normalizedFeature.includes("user")) return "fi fi-rr-users"
+    if (normalizedFeature.includes("informe") || normalizedFeature.includes("report")) return "fi fi-rr-document"
+    if (normalizedFeature.includes("sin limite") || normalizedFeature.includes("unlimited")) return "fi fi-rr-infinity"
+    if (normalizedFeature.includes("capacitacion") || normalizedFeature.includes("training"))
+      return "fi fi-rr-time-forward"
+
+    // Default icon for unmatched features
+    return "fi fi-rr-check"
+  }
+
+  // Function to translate plan names
+  const getTranslatedPlanName = (originalName: string) => {
+    const planNameMap: Record<string, keyof typeof translations.ES.planNames> = {
+      Lite: "lite",
+      Premium: "premium",
+      Venus: "venus",
+      Tierra: "tierra",
+      Marte: "marte",
+      Personalizado: "personalizado",
+    }
+
+    const key = planNameMap[originalName]
+    return key ? translations[language].planNames[key] : originalName
+  }
+
+  // Update button text based on plan type
+  const getButtonText = (plan: any) => {
+    const originalTag = plan.originalTag || plan.tag
+
+    switch (originalTag) {
+      case "Lite":
+        return translations[language].startFree
+      case "Venus":
+      case "Tierra":
+        return translations[language].startNow
+      case "Marte":
+      case "Premium":
+      case "Personalizado":
+        return translations[language].contact
       default:
-        return "fi fi-rr-check"
+        return translations[language].start
     }
   }
 
-  const plansData = {
-    ERP: [
+  // Define plan features with translations
+  const getTranslatedFeatures = (planType: string, planTag: string) => {
+    const t = translations[language].features
+
+    if (planType === "PERSONAL") {
+      if (planTag === "Lite" || planTag === translations.EN.planNames.lite) {
+        return [
+          t.team,
+          t.clients,
+          t.contacts,
+          t.contracts,
+          t.invoices,
+          t.creditNotes,
+          t.unlimitedProposals,
+          t.projects,
+          t.tasks,
+          t.unlimitedProspects,
+          t.products,
+          t.storage,
+          t.documents,
+          t.reminder,
+          t.contracts,
+          t.creditNotes,
+          t.expenses,
+          t.invoices,
+          t.products,
+          t.unlimitedProspects,
+          t.payments,
+        ]
+      } else if (planTag === "Premium" || planTag === translations.EN.planNames.premium) {
+        return [
+          t.team,
+          t.moreClients,
+          t.unlimitedContacts,
+          t.moreContracts,
+          t.moreInvoices,
+          t.unlimitedBudgets,
+          t.unlimitedCreditNotes,
+          t.unlimitedProposals,
+          t.moreProjects,
+          t.moreTasks,
+          t.unlimitedSupportTickets,
+          t.unlimitedProspects,
+          t.unlimitedProducts,
+          t.moreStorage,
+          t.appointments,
+          t.additionalConfig,
+          t.documents,
+          t.emailCanvas,
+          t.objectives,
+          t.stateManagement,
+          t.tableManagement,
+          t.projectKanban,
+          t.projectManagementImprovements,
+          t.reminder,
+          t.spreadsheets,
+          t.contracts,
+          t.unlimitedProspects,
+          t.moreProjects,
+          t.moreTasks,
+        ]
+      }
+    } else if (planType === "EMPRESARIAL") {
+      if (planTag === "Venus" || planTag === translations.EN.planNames.venus) {
+        return [
+          t.crm,
+          t.projects,
+          t.potentialClients,
+          t.reports,
+          t.appointmentsOrAccounting,
+          t.sales,
+          t.purchases,
+          t.users,
+          t.storageGigas,
+          t.supportTickets,
+          t.trainingHours,
+        ]
+      } else if (planTag === "Tierra" || planTag === translations.EN.planNames.tierra) {
+        return [
+          t.crm,
+          t.projects,
+          t.potentialClients,
+          t.reports,
+          t.appointmentsOrAccounting,
+          t.sales,
+          t.purchases,
+          t.inventory,
+          t.pointOfSale,
+          t.users,
+          t.moreStorageGigas,
+          t.supportTickets,
+          t.trainingHours,
+        ]
+      } else if (planTag === "Marte" || planTag === translations.EN.planNames.marte) {
+        return [translations[language].descriptions.mars]
+      } else if (planTag === "Personalizado" || planTag === translations.EN.planNames.personalizado) {
+        return [translations[language].descriptions.custom]
+      }
+    }
+
+    return []
+  }
+
+  // Original plan data
+  const originalPlansData = {
+    PERSONAL: [
       {
-        tag: "Venus Plan",
-        price: 150,
-        description: "Incluye",
-        features: [
-          "CRM",
-          "Proyectos",
-          "Clientes Potenciales",
-          "Informes",
-          "Citas o Contabilidad",
-          "Ventas",
-          "Compras",
-          "7 usuarios",
-          "50 gigas de almacenamiento",
-          "5 Tickets de soporte al mes",
-          "Horas de capacitación",
-        ],
+        tag: "Lite",
+        price: 0,
+        popular: false,
+        description: translations[language].descriptions.lite,
       },
       {
-        tag: "Tierra Plan",
+        tag: "Premium",
+        price: 30,
+        popular: true,
+        description: translations[language].descriptions.premium,
+      },
+    ],
+    EMPRESARIAL: [
+      {
+        tag: "Venus",
+        price: 150,
+        popular: false,
+        description: translations[language].includes,
+      },
+      {
+        tag: "Tierra",
         price: 200,
         popular: true,
-        description: "Incluye",
-        features: [
-          "CRM",
-          "Proyectos",
-          "Clientes Potenciales",
-          "Informes",
-          "Citas o Contabilidad",
-          "Ventas",
-          "Compras",
-          "Inventario",
-          "Punto de Venta",
-          "7 usuarios",
-          "100 gigas de almacenamiento",
-          "5 tickets de soporte al mes",
-          "Horas de capacitación",
-        ],
+        description: translations[language].includes,
       },
       {
-        tag: "Plan Marte",
+        tag: "Marte",
         price: 400,
-        description: "Incluye",
-        features: [
-          "Nuestro plan marte es un plan pensado para grandes empresas, donde se personalizará de acuerdo a los módulos, usuarios y espacio que se necesite, ofreciendo un ERP completo y ajustado a la necesidad de las empresas.",
-        ],
+        popular: false,
+        description: translations[language].includes,
       },
-    ],
-    PREMIUM: [
       {
-        tag: "Plan Premium",
-        price: 300,
-        popular: true,
-        description: "Incluye",
-        features: [
-          "Ventas",
-          "Compras",
-          "Inventario",
-          "Punto de Venta",
-          "Contabilidad",
-          "5 usuarios",
-          "80 gigas de almacenamiento",
-          "3 tickets de soporte al mes",
-          "4 Horas de capacitación",
-        ],
-      },
-    ],
-    LITE: [
-      {
-        tag: "Plan Lite",
+        tag: "Personalizado",
         price: 100,
-        popular: true,
-        description: "Incluye",
-        features: [
-          "Ventas",
-          "Compras",
-          "Inventario",
-          "Punto de Venta",
-          "3 usuarios",
-          "50 gigas de almacenamiento",
-          "2 tickets de soporte al mes",
-          "2 Horas de capacitación",
-        ],
+        popular: false,
+        description: translations[language].startingFrom,
       },
     ],
+  }
+
+  // Translate plan data based on current language
+  const plansData = {
+    PERSONAL: originalPlansData.PERSONAL.map((plan) => ({
+      ...plan,
+      originalTag: plan.tag,
+      tag: getTranslatedPlanName(plan.tag),
+      description: plan.description,
+    })),
+    EMPRESARIAL: originalPlansData.EMPRESARIAL.map((plan) => ({
+      ...plan,
+      originalTag: plan.tag,
+      tag: getTranslatedPlanName(plan.tag),
+      description: plan.description,
+    })),
   }
 
   // Loading state
@@ -184,43 +473,62 @@ export default function PlanesPage() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gray-50">
+
+      {/* Nueva sección de Hero con el mismo estilo que Sobre Nosotros */}
+      <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">
+        <div className="absolute inset-0 opacity-30">
+          <img src="/img/PLANS_BG.jpg" alt="Background" className="w-full h-full object-cover" />
+        </div>
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{translations[language].ourPlans}</h1>
+
+            {/* Breadcrumb con el mismo estilo */}
+            <div className="inline-flex items-center bg-black/30 backdrop-blur-md rounded-full px-5 py-2.5 shadow-lg border border-white/10">
+              <a href="/" className="flex items-center text-white hover:text-[#01c38d] transition-colors">
+                <div className="flex items-center justify-center h-6 w-6 mr-2">
+                  <i className="fi fi-rr-house-chimney text-lg leading-none"></i>
+                </div>
+                <span className="font-medium leading-none">{translations[language].home}</span>
+              </a>
+
+              {/* Separador vertical */}
+              <div className="h-5 w-px bg-white/30 mx-3"></div>
+
+              <div className="flex items-center text-[#01c38d]">
+                <div className="flex items-center justify-center h-6 w-6 mr-2">
+                  <i className="fi fi-rr-rocket-lunch text-lg leading-none"></i>
+                </div>
+                <span className="font-medium leading-none">{translations[language].price}</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="bg-gray-50">
         <div className="py-20">
           <div className="container mx-auto px-4">
             {/* Plan Type Switch */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="bg-white p-2 rounded-xl shadow-md flex gap-2">
-                {["ERP", "PREMIUM", "LITE"].map((type) => (
+            <div className="flex items-center justify-center gap-4 mb-16">
+              <div className="bg-white p-1.5 rounded-xl shadow-md flex gap-1">
+                {[
+                  { key: "PERSONAL", label: translations[language].personal },
+                  { key: "EMPRESARIAL", label: translations[language].business },
+                ].map((type) => (
                   <button
-                    key={type}
-                    onClick={() => {
-                      setPlanType(type)
-                      if (type !== "ERP") setIsAnnual(false)
-                    }}
-                    className={`px-8 py-3 rounded-lg transition-all duration-300 font-semibold ${
-                      planType === type
-                        ? "bg-[#01c38d] text-white shadow-lg scale-105"
+                    key={type.key}
+                    onClick={() => setPlanType(type.key)}
+                    className={`px-6 py-2.5 rounded-lg transition-all duration-300 font-semibold min-w-[120px] ${
+                      planType === type.key
+                        ? "bg-[#191e29] text-white shadow-lg"
                         : "bg-transparent text-gray-600 hover:bg-gray-50"
                     }`}
                   >
-                    {type}
+                    {type.label}
                   </button>
                 ))}
               </div>
-            </div>
-
-            {/* Monthly/Annual Switch */}
-            <div
-              className={`flex items-center justify-center gap-4 mb-12 transition-opacity duration-300 ${planType !== "ERP" ? "opacity-50" : ""}`}
-            >
-              <span className={`text-lg ${!isAnnual ? "text-[#01c38d]" : "text-gray-500"}`}>Mensual</span>
-              <Switch
-                checked={isAnnual}
-                onCheckedChange={setIsAnnual}
-                className="data-[state=checked]:bg-[#01c38d]"
-                disabled={planType !== "ERP"}
-              />
-              <span className={`text-lg ${isAnnual ? "text-[#01c38d]" : "text-gray-500"}`}>Anual</span>
             </div>
 
             {/* Pricing Cards Grid */}
@@ -231,21 +539,23 @@ export default function PlanesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="max-w-5xl mx-auto"
+                className="container mx-auto" // Changed from max-w-6xl to container
               >
                 <div
                   className={`grid gap-8 items-stretch mx-auto ${
-                    planType === "ERP" ? "md:grid-cols-3" : "md:grid-cols-1 w-[400px]"
+                    planType === "EMPRESARIAL" 
+                      ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]" // Added max-width to match ModulesTable
+                      : "md:grid-cols-2 max-w-[850px]"
                   }`}
                 >
                   {plansData[planType as keyof typeof plansData].map((plan, index: number) => (
                     <motion.div
-                      key={plan.tag}
+                      key={plan.originalTag}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className={`relative rounded-3xl p-6 h-full flex flex-col ${
-                        plan.popular ? "bg-[#01c38d] text-white transform scale-105 z-10" : "bg-white"
+                      className={`relative rounded-3xl p-8 h-full flex flex-col ${
+                        plan.popular ? "bg-[#191e29] text-white transform scale-105 z-10" : "bg-white"
                       }`}
                     >
                       {/* Logo y título en la izquierda */}
@@ -267,16 +577,16 @@ export default function PlanesPage() {
                       {/* Price */}
                       <div className="mb-6">
                         <span className={`text-5xl font-bold ${plan.popular ? "text-white" : "text-[#191e29]"}`}>
-                          ${isAnnual ? plan.price * 12 : plan.price}
+                          ${plan.price}
                         </span>
                         <span className={`text-sm ml-1 ${plan.popular ? "text-white/90" : "text-gray-600"}`}>
-                          {isAnnual ? "/año" : "/mes"}
+                          {translations[language].month}
                         </span>
                       </div>
 
                       {/* Features con íconos centrados */}
                       <ul className="space-y-4 flex-grow">
-                        {plan.features.map((feature: string, idx: number) => (
+                        {getTranslatedFeatures(planType, plan.tag)?.map((feature: string, idx: number) => (
                           <li key={idx} className="flex items-center gap-3">
                             <div
                               className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
@@ -295,16 +605,29 @@ export default function PlanesPage() {
                       </ul>
 
                       {/* Button */}
-                      <button
+                      <a
+                        href={
+                          plan.originalTag === "Lite"
+                            ? "https://lite.kapix.co.cr/"
+                            : plan.originalTag === "Premium"
+                              ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20premium"
+                              : plan.originalTag === "Marte"
+                                ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20marte"
+                                : plan.originalTag === "Personalizado"
+                                  ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
+                                  : "https://kapix.cl/registro"
+                        }
+                        target="_blank"
                         className={`w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all ${
                           plan.popular
-                            ? "bg-white text-[#01c38d] hover:bg-white/90"
+                            ? "bg-white text-[#191e29] hover:bg-white/90"
                             : "bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20"
                         }`}
+                        rel="noreferrer"
                       >
-                        <span>Click here to get started!</span>
+                        <span>{getButtonText(plan)}</span>
                         <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </a>
                     </motion.div>
                   ))}
                 </div>

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { useLanguage } from '@/context/LanguageContext'
 
 interface SideMenuProps {
   isOpen: boolean
@@ -9,146 +10,120 @@ interface SideMenuProps {
 }
 
 export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
+  const { language } = useLanguage()
+
+  const translations = {
+    ES: {
+      description: "En Kapix ERP, apostamos por un futuro donde la innovación transforme la forma de hacer negocios. Nuestra solución tecnológica está pensada para facilitar la transformación digital, permitiendo a las empresas mejorar su eficiencia y productividad de manera sencilla y efectiva.",
+      home: "Inicio",
+      about: "Sobre Nosotros",
+      pricing: "Precio",
+      testimonials: "Testimonios",
+      blog: "Blog",
+      contact: "Contacto",
+      contactUs: "CONTÁCTANOS",
+      whatsappMessage: "Hola me gustaría obtener más información sobre tu servicio.🚀"
+    },
+    EN: {
+      description: "At Kapix ERP, we bet on a future where innovation transforms the way of doing business. Our technological solution is designed to facilitate digital transformation, allowing companies to improve their efficiency and productivity in a simple and effective way.",
+      home: "Home",
+      about: "About Us",
+      pricing: "Pricing",
+      testimonials: "Testimonials",
+      blog: "Blog",
+      contact: "Contact",
+      contactUs: "CONTACT US",
+      whatsappMessage: "Hello, I would like to get more information about your service.🚀"
+    }
+  }
+
+  const t = translations[language]
+
   return (
     <motion.div
       className="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl"
       initial={{ x: "-100%" }}
       animate={{ x: isOpen ? 0 : "-100%" }}
-      transition={{
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="p-6">
-        <div className="flex justify-between items-center mb-8">
+        {/* Logo and close button remain unchanged */}
+        <div className="flex justify-between items-center mb-3">
           <div className="flex items-center">
-            <div className="w-8 h-8 bg-[#01c38d] rounded-md flex items-center justify-center mr-2">
-              <div className="w-4 h-4 bg-white/30 rounded-sm"></div>
-            </div>
-            <h2 className="text-lg font-bold text-[#191e29]">Company</h2>
+            <a href="/">
+              <img src="/img/Kapix Logo.png" alt="Kapix Icon" className="w-24" />
+            </a>
           </div>
           <motion.button
             onClick={onClose}
-            className="text-gray-500 hover:text-[#01c38d]"
+            className="text-gray-500 hover:text-[#01c38d] flex items-center justify-center w-8 h-8"
             whileHover={{ rotate: 90 }}
             transition={{ duration: 0.3 }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-x"
-            >
-              <path d="M18 6 6 18"></path>
-              <path d="m6 6 12 12"></path>
-            </svg>
+            <i className="fi fi-rr-cross text-xl flex items-center justify-center"></i>
           </motion.button>
         </div>
+        
+        <div className="bg-gray-50 p-3 rounded-lg mb-6">
+          <p className="text-xs leading-relaxed text-gray-600">
+            <span className="font-medium text-[#01c38d]">Kapix ERP</span>, {t.description}
+          </p>
+        </div>
 
-        <nav className="space-y-6">
+        <nav className="space-y-5">
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
             <Link href="/" className="block text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
-              Inicio
+              {t.home}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link
-              href="/sobre-nosotros"
-              className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2"
-            >
-              Sobre Nosotros
+            <Link href="/sobre-nosotros" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+              {t.about}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link
-              href="/planes"
-              className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2"
-            >
-              Planes
+            <Link href="/planes" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+              {t.pricing}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link
-              href="/testimonios"
-              className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2"
-            >
-              Testimonios
+            <Link href="/testimonios" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+              {t.testimonials}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link
-              href="/blog"
-              className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2"
-            >
-              Blog
+            <Link href="/blog" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+              {t.blog}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link
-              href="/contacto"
-              className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2"
-            >
-              Contacto
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link
-              href="/tienda"
-              className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2"
-            >
-              Tienda
+            <Link href="/contacto" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+              {t.contact}
             </Link>
           </motion.div>
         </nav>
 
         <div className="mt-8">
-          <h3 className="text-sm font-bold text-[#191e29] mb-4">GET IN TOUCH</h3>
+          <h3 className="text-sm font-bold text-[#191e29] mb-4">{t.contactUs}</h3>
           <div className="space-y-3">
             <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-              <Link href="tel:+123456789" className="flex items-center text-gray-600 hover:text-[#01c38d]">
-                <span className="w-8 h-8 mr-2 rounded-full bg-[#01c38d]/10 text-[#01c38d] flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                  </svg>
+              <Link 
+                href={`https://wa.me/50660641906?text=${encodeURIComponent(t.whatsappMessage)}`} 
+                target="_blank" 
+                className="flex items-center text-gray-600 hover:text-[#01c38d]"
+              >
+                <span className="w-8 h-8 mr-2 rounded-full bg-[#01c38d]/10 text-[#01c38d] inline-flex items-center justify-center">
+                  <i className="fi fi-rr-circle-phone text-sm flex items-center justify-center w-full h-full"></i>
                 </span>
-                +123 456 789
+                +506 6064-1906
               </Link>
             </motion.div>
             <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-              <Link href="mailto:contact@company.co" className="flex items-center text-gray-600 hover:text-[#01c38d]">
-                <span className="w-8 h-8 mr-2 rounded-full bg-[#01c38d]/10 text-[#01c38d] flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                  </svg>
+              <Link href="mailto:info@kapix.co.cr" target="_blank" className="flex items-center text-gray-600 hover:text-[#01c38d]">
+                <span className="w-8 h-8 mr-2 rounded-full bg-[#01c38d]/10 text-[#01c38d] inline-flex items-center justify-center">
+                  <i className="fi fi-rr-envelope text-sm flex items-center justify-center w-full h-full"></i>
                 </span>
-                contact@company.co
+                info@kapix.co.cr
               </Link>
             </motion.div>
           </div>

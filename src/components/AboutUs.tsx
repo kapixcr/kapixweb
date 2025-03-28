@@ -1,51 +1,65 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { MessageSquare, Check } from "lucide-react"
 import { motion } from "framer-motion"
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function AboutUs() {
+  const { language } = useLanguage()
+
+  const translations = {
+    ES: {
+      yearsExperience: "Años de Experiencia",
+      knowUs: "Conócenos",
+      title: "Innovación en Software ERP",
+      description: "Kapix es una empresa de desarrollo de Software ERP, que busca innovar y colocar tecnología moderna en el sistema empresarial con la ayuda de grandes expertos en el área. Queremos llevar a nuestros clientes a un viaje al futuro mejorando su eficiencia.",
+      features: [
+        'Soluciones personalizadas para cada empresa',
+        'Tecnología moderna e innovadora',
+        'Expertos comprometidos con tu éxito'
+      ],
+      companyCreator: "Creador de Empresa",
+      seeMore: "Ver más"
+    },
+    EN: {
+      yearsExperience: "Years of Experience",
+      knowUs: "About Us",
+      title: "Innovation in ERP Software",
+      description: "Kapix is an ERP Software development company that seeks to innovate and implement modern technology in business systems with the help of great experts in the field. We want to take our clients on a journey to the future by improving their efficiency.",
+      features: [
+        'Customized solutions for each company',
+        'Modern and innovative technology',
+        'Experts committed to your success'
+      ],
+      companyCreator: "Company Creator",
+      seeMore: "See More"
+    }
+  }
+
+  const t = translations[language]
+
   return (
-    <section className="container mx-auto py-20 px-4 md:px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="container mx-auto py-12 px-4 md:px-6 max-w-6xl">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         {/* Left side with images */}
         <div className="relative">
-          <div className="relative h-[450px] w-full md:w-[90%] rounded-2xl overflow-hidden">
-            <Image
-              src="/img/Kapix Logo.png"
-              alt="Kapix Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-
-          {/* Katalva logo */}
-          <div className="absolute -right-4 md:right-0 top-1/4 w-[180px] h-[140px] rounded-xl overflow-hidden border-4 border-white shadow-lg bg-white">
-            <Image
-              src="/img/Katalva.png"
-              alt="Katalva Logo"
-              fill
-              className="object-contain p-2"
-            />
+          <div className="relative h-[400px] w-full md:w-[85%] rounded-3xl overflow-hidden">
+            <div className="absolute inset-0 p-2">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                <Image
+                  src="/img/ABOUT-US.png"
+                  alt="Kapix Logo"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
           </div>
 
           {/* Experience badge */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ 
-              opacity: 1, 
-              scale: 1,
-              y: [0, -8, 0]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute -left-4 bottom-8 bg-[#01c38d] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2"
-          >
+          <div className="absolute -left-4 bottom-8 bg-[#01c38d] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
             <div className="flex items-center gap-2">
               <svg
                 viewBox="0 0 24 24"
@@ -67,33 +81,32 @@ export default function AboutUs() {
                     ease: "easeInOut"
                   }}
                 >
-                  30+
+                  2+
                 </motion.span>
-                <span className="text-xs mt-0.5">Years of experience</span>
+                <span className="text-xs mt-0.5">{t.yearsExperience}</span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Right side content */}
-        <div className="space-y-8 lg:pl-6">
+        <div className="space-y-6 lg:pl-4">
           <div>
-            <span className="text-[#01c38d] font-medium mb-4 block">// Get to Know</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#191e29] leading-tight mb-6">
-              We provide best design solution in town
+            <span className="inline-block px-4 py-2 rounded-full bg-[#191e29] text-white font-medium text-sm mb-2 shadow-sm">
+              {t.knowUs}
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-[#191e29] to-[#01c38d] bg-clip-text text-transparent">
+              {t.title}
             </h2>
-            <p className="text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore
-              et simply free text dolore magna aliqua.
+            <p className="text-gray-600 max-w-xl">
+              {t.description}
             </p>
           </div>
 
-          <ul className="space-y-4">
-            {['Refreshing to get such a personal touch.', 
-              'Duis aute irure dolor in reprehenderit in voluptate.',
-              'Velit esse cillum dolore eu fugiat nulla pariatur.'].map((text, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <div className="mt-1 bg-[#01c38d]/10 p-1.5 rounded-full text-[#01c38d]">
+          <ul className="space-y-3">
+            {t.features.map((text, index) => (
+              <li key={index} className="flex items-center gap-3">
+                <div className="bg-[#01c38d]/10 p-1.5 rounded-full text-[#01c38d]">
                   <Check className="h-4 w-4" />
                 </div>
                 <span className="text-gray-600">{text}</span>
@@ -101,28 +114,28 @@ export default function AboutUs() {
             ))}
           </ul>
 
-          <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 pt-4">
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-full overflow-hidden">
+          <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 pt-3">
+            <div className="flex items-center gap-3">
+              <div className="relative h-12 w-12 rounded-full overflow-hidden">
                 <Image
-                  src="/img/david-hardson.jpg"
-                  alt="David hardson"
-                  width={48}
-                  height={48}
+                  src="/img/User-man.jpg"
+                  alt="Kapix"
+                  fill
                   className="object-cover"
                 />
               </div>
               <div>
-                <div className="font-semibold text-[#191e29]">David hardson</div>
-                <div className="text-sm text-gray-500">Founder of company</div>
+                <div className="font-semibold text-[#191e29]">Kapix</div>
+                <div className="text-sm text-gray-500">{t.companyCreator}</div>
               </div>
             </div>
 
             <motion.button
+              onClick={() => window.location.href = '/sobre-nosotros'}
               whileHover={{ scale: 1.05 }}
-              className="bg-[#01c38d] text-white px-8 py-3.5 rounded-md font-medium hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40"
+              className="bg-[#01c38d] text-white px-6 py-3 rounded-md font-medium hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer"
             >
-              Explore now
+              {t.seeMore}
             </motion.button>
           </div>
         </div>
