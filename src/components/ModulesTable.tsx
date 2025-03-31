@@ -38,50 +38,64 @@ export default function ModulesTable() {
 
   const features = {
     ES: [
-      { name: "CRM", tierra: true, premium: true, lite: true },
-      { name: "Proyectos", tierra: "20", premium: "20", lite: "5" },
+      { name: "Equipo", tierra: "1", premium: "1", lite: "1" },
       { name: "Clientes", tierra: "100", premium: "100", lite: "50" },
       { name: "Contactos", tierra: "Sin límite", premium: "Sin límite", lite: "50" },
       { name: "Contratos", tierra: "50", premium: "50", lite: "30" },
       { name: "Facturas", tierra: "200", premium: "200", lite: "100" },
+      { name: "Presupuestos", tierra: "Sin límite", premium: "Sin límite", lite: false },
       { name: "Notas de Crédito", tierra: "Sin límite", premium: "Sin límite", lite: "100" },
       { name: "Propuestas", tierra: "Sin límite", premium: "Sin límite", lite: "Sin límite" },
+      { name: "Proyectos", tierra: "20", premium: "20", lite: "5" },
       { name: "Tareas", tierra: "200", premium: "200", lite: "100" },
       { name: "Tickets de Soporte", tierra: "Sin límite", premium: "Sin límite", lite: false },
-      { name: "Prospectos", tierra: "Sin límite", premium: "Sin límite", lite: "Sin límite" },
+      { name: "Clientes potenciales", tierra: "Sin límite", premium: "Sin límite", lite: "Sin límite" },
       { name: "Productos", tierra: "Sin límite", premium: "Sin límite", lite: "30" },
       { name: "Almacenamiento", tierra: "100GB", premium: "10GB", lite: "1GB" },
       { name: "Citas", tierra: true, premium: true, lite: false },
       { name: "Configuración Adicional", tierra: true, premium: true, lite: false },
+      { name: "Documentos", tierra: true, premium: true, lite: true },
       { name: "Email Canvas", tierra: true, premium: true, lite: false },
       { name: "Objetivos", tierra: true, premium: true, lite: false },
       { name: "Manejo de Estados", tierra: true, premium: true, lite: false },
+      { name: "Manejo de Tablas", tierra: true, premium: true, lite: false },
       { name: "Kanban de Proyectos", tierra: true, premium: true, lite: false },
+      { name: "Mejoras de Gestión de Proyectos", tierra: true, premium: true, lite: false },
+      { name: "Recordatorio", tierra: true, premium: true, lite: true },
       { name: "Hojas de Cálculo en Línea", tierra: true, premium: true, lite: false },
+      { name: "Gastos", tierra: false, premium: false, lite: true },
+      { name: "Pagos", tierra: false, premium: false, lite: true },
       { name: "Punto de Venta", tierra: true, premium: false, lite: false },
       { name: "Inventario", tierra: true, premium: false, lite: false },
     ],
     EN: [
-      { name: "CRM", tierra: true, premium: true, lite: true },
-      { name: "Projects", tierra: "20", premium: "20", lite: "5" },
+      { name: "Team", tierra: "1", premium: "1", lite: "1" },
       { name: "Clients", tierra: "100", premium: "100", lite: "50" },
       { name: "Contacts", tierra: "Unlimited", premium: "Unlimited", lite: "50" },
       { name: "Contracts", tierra: "50", premium: "50", lite: "30" },
       { name: "Invoices", tierra: "200", premium: "200", lite: "100" },
+      { name: "Budgets", tierra: "Unlimited", premium: "Unlimited", lite: false },
       { name: "Credit Notes", tierra: "Unlimited", premium: "Unlimited", lite: "100" },
       { name: "Proposals", tierra: "Unlimited", premium: "Unlimited", lite: "Unlimited" },
+      { name: "Projects", tierra: "20", premium: "20", lite: "5" },
       { name: "Tasks", tierra: "200", premium: "200", lite: "100" },
       { name: "Support Tickets", tierra: "Unlimited", premium: "Unlimited", lite: false },
-      { name: "Prospects", tierra: "Unlimited", premium: "Unlimited", lite: "Unlimited" },
+      { name: "Leads", tierra: "Unlimited", premium: "Unlimited", lite: "Unlimited" },
       { name: "Products", tierra: "Unlimited", premium: "Unlimited", lite: "30" },
       { name: "Storage", tierra: "100GB", premium: "10GB", lite: "1GB" },
       { name: "Appointments", tierra: true, premium: true, lite: false },
       { name: "Additional Configuration", tierra: true, premium: true, lite: false },
+      { name: "Documents", tierra: true, premium: true, lite: true },
       { name: "Email Canvas", tierra: true, premium: true, lite: false },
       { name: "Goals", tierra: true, premium: true, lite: false },
       { name: "State Management", tierra: true, premium: true, lite: false },
+      { name: "Table Management", tierra: true, premium: true, lite: false },
       { name: "Project Kanban", tierra: true, premium: true, lite: false },
+      { name: "Project Management Enhancements", tierra: true, premium: true, lite: false },
+      { name: "Reminder", tierra: true, premium: true, lite: true },
       { name: "Online Spreadsheets", tierra: true, premium: true, lite: false },
+      { name: "Expenses", tierra: false, premium: false, lite: true },
+      { name: "Payments", tierra: false, premium: false, lite: true },
       { name: "Point of Sale", tierra: true, premium: false, lite: false },
       { name: "Inventory", tierra: true, premium: false, lite: false },
     ]
@@ -91,54 +105,48 @@ export default function ModulesTable() {
   const currentFeatures = features[language]
 
   // Add getFeatureIcon function at the top
+  // Update the getFeatureIconName function to match planes.tsx icons
   const getFeatureIconName = (feature: string) => {
-    const normalizedFeature = feature.toLowerCase().trim()
-    const iconMap = {
-      "crm": "fi fi-rr-users-alt",
-      "proyectos": "fi fi-rr-briefcase",
-      "projects": "fi fi-rr-briefcase",
-      "clientes": "fi fi-rr-user-add",
-      "clients": "fi fi-rr-user-add",
-      "contactos": "fi fi-rr-address-book",
-      "contacts": "fi fi-rr-address-book",
-      "contratos": "fi fi-rr-file-contract",
-      "contracts": "fi fi-rr-file-contract",
-      "facturas": "fi fi-rr-receipt",
-      "invoices": "fi fi-rr-receipt",
-      "notas de crédito": "fi fi-rr-document",
-      "credit notes": "fi fi-rr-document",
-      "propuestas": "fi fi-rr-chart-pie-alt",
-      "proposals": "fi fi-rr-chart-pie-alt",
-      "tareas": "fi fi-rr-list-check",
-      "tasks": "fi fi-rr-list-check",
-      "tickets de soporte": "fi fi-rr-headset",
-      "support tickets": "fi fi-rr-headset",
-      "prospectos": "fi fi-rr-star",
-      "prospects": "fi fi-rr-star",
-      "productos": "fi fi-rr-box-alt",
-      "products": "fi fi-rr-box-alt",
-      "almacenamiento": "fi fi-rr-cloud-upload-alt",
-      "storage": "fi fi-rr-cloud-upload-alt",
-      "citas": "fi fi-rr-calendar-clock",
-      "appointments": "fi fi-rr-calendar-clock",
-      "configuración adicional": "fi fi-rr-settings-sliders",
-      "additional configuration": "fi fi-rr-settings-sliders",
-      "email canvas": "fi fi-rr-envelope-plus",
-      "objetivos": "fi fi-rr-flag-alt",
-      "goals": "fi fi-rr-flag-alt",
-      "manejo de estados": "fi fi-rr-dashboard",
-      "state management": "fi fi-rr-dashboard",
-      "kanban de proyectos": "fi fi-rr-layout-fluid",
-      "project kanban": "fi fi-rr-layout-fluid",
-      "hojas de cálculo en línea": "fi fi-rr-grid-alt",
-      "online spreadsheets": "fi fi-rr-grid-alt",
-      "punto de venta": "fi fi-rr-shopping-cart",
-      "point of sale": "fi fi-rr-shopping-cart",
-      "inventario": "fi fi-rr-boxes",
-      "inventory": "fi fi-rr-boxes"
-    }
-
-    return normalizedFeature in iconMap ? iconMap[normalizedFeature as keyof typeof iconMap] : "fi fi-rr-apps-add"
+    const normalizedFeature = feature.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  
+    if (normalizedFeature.includes("proyecto") || normalizedFeature.includes("project")) return "fi fi-rr-briefcase"
+    if (normalizedFeature.includes("crm")) return "fi fi-rr-users"
+    if (normalizedFeature.includes("tarea") || normalizedFeature.includes("task")) return "fi fi-rr-list-check"
+    if (normalizedFeature.includes("cliente") || normalizedFeature.includes("client")) return "fi fi-rr-user"
+    if (normalizedFeature.includes("contacto") || normalizedFeature.includes("contact")) return "fi fi-rr-address-book"
+    if (normalizedFeature.includes("contrato") || normalizedFeature.includes("contract")) return "fi fi-rr-document-signed"
+    if (normalizedFeature.includes("factura") || normalizedFeature.includes("invoice")) return "fi fi-rr-receipt"
+    if (normalizedFeature.includes("credit") || normalizedFeature.includes("credito")) return "fi fi-rr-receipt"
+    if (normalizedFeature.includes("propuesta") || normalizedFeature.includes("proposal")) return "fi fi-rr-document"
+    if (normalizedFeature.includes("producto") || normalizedFeature.includes("product")) return "fi fi-rr-box"
+    if (normalizedFeature.includes("almacenamiento") || normalizedFeature.includes("storage")) return "fi fi-rr-cloud-upload"
+    if (normalizedFeature.includes("cita") || normalizedFeature.includes("appointment")) return "fi fi-rr-calendar"
+    if (normalizedFeature.includes("configuracion") || normalizedFeature.includes("config")) return "fi fi-rr-settings"
+    if (normalizedFeature.includes("documento") || normalizedFeature.includes("document")) return "fi fi-rr-folder"
+    if (normalizedFeature.includes("email")) return "fi fi-rr-envelope"
+    if (normalizedFeature.includes("objetivo") || normalizedFeature.includes("goal")) return "fi fi-rr-flag"
+    if (normalizedFeature.includes("estado") || normalizedFeature.includes("state")) return "fi fi-rr-settings-sliders"
+    if (normalizedFeature.includes("tabla") || normalizedFeature.includes("table")) return "fi fi-rr-table"
+    if (normalizedFeature.includes("kanban")) return "fi fi-rr-briefcase"
+    if (normalizedFeature.includes("recordatorio") || normalizedFeature.includes("reminder")) return "fi fi-rr-bell"
+    if (normalizedFeature.includes("spreadsheet") || normalizedFeature.includes("hoja")) return "fi fi-rr-table"
+    if (normalizedFeature.includes("lead") || normalizedFeature.includes("prospecto")) return "fi fi-rr-star"
+    if (normalizedFeature.includes("payment") || normalizedFeature.includes("pago")) return "fi fi-rr-credit-card"
+    if (normalizedFeature.includes("venta") || normalizedFeature.includes("sale")) return "fi fi-rr-receipt"
+    if (normalizedFeature.includes("compra") || normalizedFeature.includes("purchase")) return "fi fi-rr-shopping-cart"
+    if (normalizedFeature.includes("inventario") || normalizedFeature.includes("inventory")) return "fi fi-rr-box"
+    if (normalizedFeature.includes("ticket")) return "fi fi-rr-ticket"
+    if (normalizedFeature.includes("usuario") || normalizedFeature.includes("user")) return "fi fi-rr-users"
+    if (normalizedFeature.includes("informe") || normalizedFeature.includes("report")) return "fi fi-rr-document"
+    if (normalizedFeature.includes("sin limite") || normalizedFeature.includes("unlimited")) return "fi fi-rr-infinity"
+    if (normalizedFeature.includes("capacitacion") || normalizedFeature.includes("training")) return "fi fi-rr-time-forward"
+    if (normalizedFeature.includes("gasto") || normalizedFeature.includes("expense")) return "fi fi-rr-receipt"
+    if (normalizedFeature.includes("equipo") || normalizedFeature.includes("team")) return "fi fi-rr-users"
+    if (normalizedFeature.includes("presupuesto") || normalizedFeature.includes("budget")) return "fi fi-rr-document"
+    if (normalizedFeature.includes("mejora") || normalizedFeature.includes("enhancement")) return "fi fi-rr-star"
+  
+    // Default icon for unmatched features
+    return "fi fi-rr-check"
   }
 
   // Update the table header and rows
