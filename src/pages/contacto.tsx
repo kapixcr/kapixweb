@@ -20,7 +20,9 @@ export default function ContactoPage() {
       title: "CONTACTO",
       home: "INICIO",
       contact: "CONTACTO",
-      contactUs: "Contáctanos",
+      contactLabel: "CONTÁCTANOS", 
+      contactUs: "Contáctanos Ahora",
+      contactUsHighlight: "Ahora",
       contactDescription: "Estamos aquí para ayudarte. Contáctanos para cualquier consulta sobre nuestros servicios.",
       address: "Dirección",
       addressValue: "Costa Rica",
@@ -40,7 +42,9 @@ export default function ContactoPage() {
       title: "CONTACT",
       home: "HOME",
       contact: "CONTACT",
-      contactUs: "Contact Us",
+      contactLabel: "CONTACT US",
+      contactUs: "Contact Us Now",
+      contactUsHighlight: "Us",
       contactDescription: "We're here to help. Contact us for any inquiries about our services.",
       address: "Address",
       addressValue: "Costa Rica",
@@ -113,52 +117,60 @@ export default function ContactoPage() {
               className="space-y-6"
             >
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#191e29] mb-3">{t.contactUs}</h2>
-                <p className="text-gray-600">{t.contactDescription}</p>
-              </div>
+                <div className="mb-12">
+                    <span className="inline-block bg-[#191e29] text-white px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+                      {t.contactLabel}
+                    </span>
+                    <h2 className="text-3xl font-bold md:text-4xl bg-gradient-to-r from-[#191e29] to-[#01c38d] bg-clip-text text-transparent mb-4">
+                      {t.contactUs}
+                    </h2>
+                    <p className="text-gray-600 max-w-2xl">
+                      {t.contactDescription}
+                    </p>
+                  </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
+                      <i className="fi fi-rr-marker text-[#01c38d] text-lg flex items-center justify-center w-full h-full"></i>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[#191e29]">{t.address}</h3>
+                      <p className="text-gray-600">{t.addressValue}</p>
+                    </div>
+                  </div>
   
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
-                    <i className="fi fi-rr-marker text-[#01c38d] text-lg flex items-center justify-center w-full h-full"></i>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
+                      <i className="fi fi-rr-phone-call text-[#01c38d] text-lg flex items-center justify-center w-full h-full"></i>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[#191e29]">{t.phone}</h3>
+                      <a 
+                        href="https://wa.me/50660641906?text=Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20tu%20servicio.🚀" 
+                        className="text-gray-600 hover:text-[#01c38d]"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        +506 6064-1906
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-[#191e29]">{t.address}</h3>
-                    <p className="text-gray-600">{t.addressValue}</p>
-                  </div>
-                </div>
   
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
-                    <i className="fi fi-rr-phone-call text-[#01c38d] text-lg flex items-center justify-center w-full h-full"></i>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[#191e29]">{t.phone}</h3>
-                    <a 
-                      href="https://wa.me/50660641906?text=Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20tu%20servicio.🚀" 
-                      className="text-gray-600 hover:text-[#01c38d]"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      +506 6064-1906
-                    </a>
-                  </div>
-                </div>
-  
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
-                    <i className="fi fi-rr-envelope text-[#01c38d] text-lg flex items-center justify-center w-full h-full"></i>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[#191e29]">{t.email}</h3>
-                    <a 
-                      href="mailto:info@kapix.co.cr" 
-                      className="text-gray-600 hover:text-[#01c38d]"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      info@kapix.co.cr
-                    </a>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
+                      <i className="fi fi-rr-envelope text-[#01c38d] text-lg flex items-center justify-center w-full h-full"></i>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[#191e29]">{t.email}</h3>
+                      <a 
+                        href="mailto:info@kapix.co.cr" 
+                        className="text-gray-600 hover:text-[#01c38d]"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        info@kapix.co.cr
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

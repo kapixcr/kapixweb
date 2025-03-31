@@ -22,6 +22,7 @@ export default function PlanesPage() {
       personal: "PERSONAL",
       business: "EMPRESARIAL",
       month: "/mes",
+      tax: "+ IVA",
       startFree: "Comenzar Gratis",
       startNow: "Comenzar Ahora",
       contact: "Contactar",
@@ -104,6 +105,7 @@ export default function PlanesPage() {
       personal: "PERSONAL",
       business: "BUSINESS",
       month: "/month",
+      tax: "+ VAT",
       startFree: "Start Free",
       startNow: "Start Now",
       contact: "Contact Us",
@@ -295,8 +297,8 @@ export default function PlanesPage() {
           t.unlimitedProspects,
           t.payments,
         ]
-      // In the getTranslatedFeatures function, update the Premium plan features
-} else if (planTag === "Premium" || planTag === translations.EN.planNames.premium) {
+        // In the getTranslatedFeatures function, update the Premium plan features
+      } else if (planTag === "Premium" || planTag === translations.EN.planNames.premium) {
         return [
           t.team,
           t.moreClients,
@@ -537,7 +539,7 @@ export default function PlanesPage() {
               >
                 <div
                   className={`grid gap-8 sm:gap-6 gap-y-12 items-stretch mx-auto ${
-                    planType === "EMPRESARIAL" 
+                    planType === "EMPRESARIAL"
                       ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]"
                       : "md:grid-cols-2 max-w-[850px]"
                   }`}
@@ -549,8 +551,8 @@ export default function PlanesPage() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className={`relative rounded-3xl p-6 sm:p-8 h-full flex flex-col ${
-                        plan.popular 
-                          ? "bg-[#191e29] text-white transform scale-105 z-10 shadow-[0_20px_40px_rgb(0,0,0,0.2)] hover:shadow-[0_25px_45px_rgb(0,0,0,0.25)]" 
+                        plan.popular
+                          ? "bg-[#191e29] text-white transform scale-105 z-10 shadow-[0_20px_40px_rgb(0,0,0,0.2)] hover:shadow-[0_25px_45px_rgb(0,0,0,0.25)]"
                           : "bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
                       } transition-all`}
                     >
@@ -575,6 +577,11 @@ export default function PlanesPage() {
                         <span className={`text-5xl font-bold ${plan.popular ? "text-white" : "text-[#191e29]"}`}>
                           ${plan.price}
                         </span>
+                        {plan.price > 0 && (
+                          <span className={`text-sm ${plan.popular ? "text-white/90" : "text-gray-600"}`}>
+                            {" " + translations[language].tax}
+                          </span>
+                        )}
                         <span className={`text-sm ml-1 ${plan.popular ? "text-white/90" : "text-gray-600"}`}>
                           {translations[language].month}
                         </span>

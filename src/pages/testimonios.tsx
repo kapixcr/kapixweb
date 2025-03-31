@@ -24,6 +24,9 @@ export default function TestimoniosPage() {
     ES: {
       testimonials: "TESTIMONIOS",
       home: "INICIO",
+      knowUs: "NUESTROS CLIENTES",
+      title: "Lo Que Dicen Nuestros Clientes",
+      description: "Descubre las experiencias de quienes han confiado en nuestras soluciones y han transformado sus negocios con nuestra tecnología.",
       testimonials_data: [
         {
           name: "Alejandro Ruiz",
@@ -93,6 +96,9 @@ export default function TestimoniosPage() {
     EN: {
       testimonials: "TESTIMONIALS",
       home: "HOME",
+      knowUs: "OUR CLIENTS",
+      title: "What Our Clients Say",
+      description: "Discover the experiences of those who have trusted our solutions and transformed their businesses with our technology.",
       testimonials_data: [
         {
           name: "Alexander Ruiz",
@@ -223,6 +229,7 @@ export default function TestimoniosPage() {
       
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
+          {/* Logo slider section */}
           <div className="mb-16">
             <div className="relative overflow-hidden">
               <div 
@@ -252,6 +259,20 @@ export default function TestimoniosPage() {
             </div>
           </div>
           
+          {/* Centered title section */}
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 rounded-full bg-[#191e29] text-white font-medium text-sm mb-2 shadow-sm">
+              {t.knowUs}
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-[#191e29] to-[#01c38d] bg-clip-text text-transparent">
+              {t.title}
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              {t.description}
+            </p>
+          </div>
+          
+          {/* Testimonials grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {t.testimonials_data.map((testimonial, index) => (
               <motion.div

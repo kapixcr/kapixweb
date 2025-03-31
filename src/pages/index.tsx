@@ -544,6 +544,7 @@ export default function Home() {
               {/* Price */}
               <div className="mb-6">
                 <span className="text-5xl font-bold text-white">$30</span>
+                <span className="text-base ml-1 text-white/90">+ {language === 'ES' ? 'IVA' : 'VAT'}</span>
                 <span className="text-sm ml-1 text-white/90">{translations[language].month}</span>
               </div>
 
@@ -607,6 +608,7 @@ export default function Home() {
               {/* Price */}
               <div className="mb-6">
                 <span className="text-5xl font-bold text-[#191e29]">$200</span>
+                <span className="text-base ml-1 text-gray-600">+ {language === 'ES' ? 'IVA' : 'VAT'}</span>
                 <span className="text-sm ml-1 text-gray-600">{translations[language].month}</span>
               </div>
 
