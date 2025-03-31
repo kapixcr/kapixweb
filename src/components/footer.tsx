@@ -4,14 +4,14 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from '@/context/LanguageContext'
-import { usePathname } from 'next/navigation'  // Add this import at the top
+import { usePathname } from 'next/navigation'  
 
 const translations = {
   ES: {
     description: "Transformamos ideas en soluciones digitales excepcionales. Diseño web y desarrollo a medida para hacer crecer tu negocio.",
     schedule: {
-      weekdays: "Lun - Vie: 8 Am - 5 Pm,",
-      weekends: "Sáb - Dom:",
+      weekdays: "Lunes - Viernes: 8:00 AM - 5:00 PM,",
+      weekends: "Sábado - Domingo:",
       closed: "CERRADO"
     },
     menu: "Menú",
@@ -35,8 +35,8 @@ const translations = {
   EN: {
     description: "We transform ideas into exceptional digital solutions. Custom web design and development to grow your business.",
     schedule: {
-      weekdays: "Mon - Fri: 8 Am - 5 Pm,",
-      weekends: "Sat - Sun:",
+      weekdays: "Monday - Friday: 8:00 AM - 5:00 PM,",
+      weekends: "Saturday - Sunday:",
       closed: "CLOSED"
     },
     menu: "Menu",
@@ -55,7 +55,8 @@ const translations = {
       placeholder: "Enter your email",
       subscribe: "Subscribe"
     },
-    copyright: "Copyright © Kapix | All Rights Reserved"
+    copyright: "Copyright © Kapix | All Rights Reserved",
+    termsAndConditions: "Terms and Conditions"
   }
 }
 
@@ -89,7 +90,11 @@ export default function Footer() {
             </p>
 
             <div className="flex items-center text-slate-700 mb-2">
-              <a href="https://wa.me/50660641906?text=Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20tu%20servicio.🚀" target="_blank" className="flex items-center">
+              <a 
+                href="https://wa.me/50660641906?text=Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20tu%20servicio.🚀" 
+                target="_blank" 
+                className="flex items-center hover:text-[#01c38d] transition-colors"
+              >
                 <i className="fi fi-rr-circle-phone-flip mr-2 text-[#01c38d] flex items-center justify-center w-5 h-5"></i>
                 <span className="text-sm">+506 6064-1906</span>
               </a>
@@ -276,18 +281,28 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-200/50 py-4 flex justify-between items-center">
-          <p className="text-slate-600 text-sm">{t.copyright}</p>
-          <Link 
-            href="#" 
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="w-8 h-8 bg-[#191e29] text-white inline-flex items-center justify-center rounded-md hover:bg-[#191e29]/90 transition-all shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40 hover:-translate-y-0.5"
-          >
-            <i className="fi fi-rr-arrow-up text-base flex items-center justify-center w-full h-full"></i>
-          </Link>
+        <div className="border-t border-gray-200/50 py-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-slate-600 text-sm order-1 md:order-1">{t.copyright}</p>
+            
+            <Link 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="w-8 h-8 bg-[#191e29] text-white inline-flex items-center justify-center rounded-md hover:bg-[#191e29]/90 transition-all shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40 hover:-translate-y-0.5 order-3 md:order-2"
+            >
+              <i className="fi fi-rr-arrow-up text-base flex items-center justify-center w-full h-full"></i>
+            </Link>
+
+            <Link 
+              href="/terminos-y-condiciones" 
+              className="text-sm text-slate-600 hover:text-[#01c38d] transition-colors order-2 md:order-3"
+            >
+              {language === 'ES' ? 'Términos & Condiciones' : 'Terms & Conditions'}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

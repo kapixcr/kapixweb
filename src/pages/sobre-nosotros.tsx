@@ -221,7 +221,7 @@ export default function SobreNosotros() {
             <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
               <div className="absolute inset-0">
                 <InstagramEmbed 
-                  url="https://www.instagram.com/p/DHrv344PAx8/?igsh=MWFqYjE3OHFseWU4aA=="
+                  url="https://www.instagram.com/reel/DHcaAtwstnd/?igsh=MXc3OWlkMW0yZXlsag=="
                   width="100%"
                   height="100%"
                 />
@@ -230,7 +230,7 @@ export default function SobreNosotros() {
             <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
               <div className="absolute inset-0">
                 <InstagramEmbed 
-                  url="https://www.instagram.com/reel/DHcaAtwstnd/?igsh=MXc3OWlkMW0yZXlsag=="
+                  url="https://www.instagram.com/reel/DGqZbvXpcBS/?igsh=MTcyM3VoNGFlMm1tZQ=="
                   width="100%"
                   height="100%"
                 />
