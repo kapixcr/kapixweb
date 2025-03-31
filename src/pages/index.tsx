@@ -479,14 +479,15 @@ export default function Home() {
             <p className="text-gray-600 max-w-xl mx-auto">{translations[language].planDescription}</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid md:grid-cols-3 mb-8 sm:gap-6 gap-12">
             {/* Lite Plan */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative rounded-3xl p-8 h-full flex flex-col bg-white"
+              className="relative rounded-3xl p-6 sm:p-8 h-full flex flex-col bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow"
             >
+              {/* Lite Plan Content */}
               {/* Logo y título en la izquierda */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
@@ -533,8 +534,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative rounded-3xl p-8 h-full flex flex-col bg-[#191e29] text-white transform scale-105 z-10"
+              className="relative rounded-3xl p-8 h-full flex flex-col bg-[#191e29] text-white transform scale-105 z-10 shadow-[0_20px_40px_rgb(0,0,0,0.2)] hover:shadow-[0_25px_45px_rgb(0,0,0,0.25)] transition-shadow"
             >
+              {/* Premium Plan Content */}
               {/* Logo y título en la izquierda */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -595,8 +597,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative rounded-3xl p-8 h-full flex flex-col bg-white"
+              className="relative rounded-3xl p-8 h-full flex flex-col bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow"
             >
+              {/* Tierra Plan Content */}
               {/* Logo y título en la izquierda */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">

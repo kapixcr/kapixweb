@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useLanguage } from '@/context/LanguageContext'
+import { usePathname } from 'next/navigation'  // Add this import at the top
 
 interface SideMenuProps {
   isOpen: boolean
@@ -39,6 +40,10 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
 
   const t = translations[language]
 
+  const pathname = usePathname()  // Add this
+  
+  const isActive = (path: string) => pathname === path
+
   return (
     <motion.div
       className="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl"
@@ -72,32 +77,62 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
 
         <nav className="space-y-5">
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link href="/" className="block text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+            <Link 
+              href="/" 
+              className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                isActive('/') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+              } transition-colors`}
+            >
               {t.home}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link href="/sobre-nosotros" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+            <Link 
+              href="/sobre-nosotros" 
+              className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                isActive('/sobre-nosotros') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+              } transition-colors`}
+            >
               {t.about}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link href="/planes" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+            <Link 
+              href="/planes" 
+              className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                isActive('/planes') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+              } transition-colors`}
+            >
               {t.pricing}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link href="/testimonios" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+            <Link 
+              href="/testimonios" 
+              className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                isActive('/testimonios') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+              } transition-colors`}
+            >
               {t.testimonials}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link href="/blog" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+            <Link 
+              href="/blog" 
+              className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                isActive('/blog') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+              } transition-colors`}
+            >
               {t.blog}
             </Link>
           </motion.div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link href="/contacto" className="block text-[#191e29] hover:text-[#01c38d] font-medium text-lg border-b border-gray-100 pb-2">
+            <Link 
+              href="/contacto" 
+              className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                isActive('/contacto') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+              } transition-colors`}
+            >
               {t.contact}
             </Link>
           </motion.div>

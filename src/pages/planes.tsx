@@ -542,9 +542,9 @@ export default function PlanesPage() {
                 className="container mx-auto" // Changed from max-w-6xl to container
               >
                 <div
-                  className={`grid gap-8 items-stretch mx-auto ${
+                  className={`grid gap-8 sm:gap-6 gap-y-12 items-stretch mx-auto ${
                     planType === "EMPRESARIAL" 
-                      ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]" // Added max-width to match ModulesTable
+                      ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]"
                       : "md:grid-cols-2 max-w-[850px]"
                   }`}
                 >
@@ -554,9 +554,11 @@ export default function PlanesPage() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className={`relative rounded-3xl p-8 h-full flex flex-col ${
-                        plan.popular ? "bg-[#191e29] text-white transform scale-105 z-10" : "bg-white"
-                      }`}
+                      className={`relative rounded-3xl p-6 sm:p-8 h-full flex flex-col ${
+                        plan.popular 
+                          ? "bg-[#191e29] text-white transform scale-105 z-10 shadow-[0_20px_40px_rgb(0,0,0,0.2)] hover:shadow-[0_25px_45px_rgb(0,0,0,0.25)]" 
+                          : "bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+                      } transition-all`}
                     >
                       {/* Logo y título en la izquierda */}
                       <div className="flex items-center gap-3 mb-6">

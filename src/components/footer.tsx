@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import { useLanguage } from '@/context/LanguageContext'
+import { usePathname } from 'next/navigation'  // Add this import at the top
 
 const translations = {
   ES: {
@@ -62,6 +63,9 @@ const translations = {
 export default function Footer() {
   const { language } = useLanguage()
   const t = translations[language]
+  const pathname = usePathname()  // Add this
+
+  const isActive = (path: string) => pathname === path
 
   return (
     <footer className="w-full bg-white/70 border-t border-gray-200/50 shadow-sm z-50">
@@ -109,32 +113,62 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-slate-700 hover:text-[#01c38d] transition-colors text-sm">
+                <Link 
+                  href="/" 
+                  className={`text-sm ${
+                    isActive('/') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                  } transition-colors`}
+                >
                   {t.menuItems.home}
                 </Link>
               </li>
               <li>
-                <Link href="/sobre-nosotros" className="text-slate-700 hover:text-[#01c38d] transition-colors text-sm">
+                <Link 
+                  href="/sobre-nosotros" 
+                  className={`text-sm ${
+                    isActive('/sobre-nosotros') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                  } transition-colors`}
+                >
                   {t.menuItems.aboutUs}
                 </Link>
               </li>
               <li>
-                <Link href="/planes" className="text-slate-700 hover:text-[#01c38d] transition-colors text-sm">
+                <Link 
+                  href="/planes" 
+                  className={`text-sm ${
+                    isActive('/planes') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                  } transition-colors`}
+                >
                   {t.menuItems.pricing}
                 </Link>
               </li>
               <li>
-                <Link href="/testimonios" className="text-slate-700 hover:text-[#01c38d] transition-colors text-sm">
+                <Link 
+                  href="/testimonios" 
+                  className={`text-sm ${
+                    isActive('/testimonios') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                  } transition-colors`}
+                >
                   {t.menuItems.testimonials}
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-slate-700 hover:text-[#01c38d] transition-colors text-sm">
+                <Link 
+                  href="/blog" 
+                  className={`text-sm ${
+                    isActive('/blog') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                  } transition-colors`}
+                >
                   {t.menuItems.blog}
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-slate-700 hover:text-[#01c38d] transition-colors text-sm">
+                <Link 
+                  href="/contacto" 
+                  className={`text-sm ${
+                    isActive('/contacto') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                  } transition-colors`}
+                >
                   {t.menuItems.contact}
                 </Link>
               </li>
@@ -149,17 +183,32 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/testimonios" className="text-slate-700 hover:text-[#01c38d] transition-colors text-sm">
+                <Link 
+                  href="/testimonios" 
+                  className={`text-sm ${
+                    isActive('/testimonios') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                  } transition-colors`}
+                >
                   {t.menuItems.testimonials}
                 </Link>
               </li>
               <li>
-                <Link href="/planes" className="text-slate-700 hover:text-[#01c38d] transition-colors text-sm">
+                <Link 
+                  href="/planes" 
+                  className={`text-sm ${
+                    isActive('/planes') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                  } transition-colors`}
+                >
                   {t.menuItems.pricing}
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-slate-700 hover:text-[#01c38d] transition-colors text-sm">
+                <Link 
+                  href="/contacto" 
+                  className={`text-sm ${
+                    isActive('/contacto') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                  } transition-colors`}
+                >
                   {t.menuItems.contact}
                 </Link>
               </li>

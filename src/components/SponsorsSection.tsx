@@ -5,22 +5,22 @@ import Image from "next/image"
 
 const sponsors = [
   {
-    name: "Duolingo",
+    name: "Katalva",
     logo: "/img/Katalva.png",
     width: 160
   },
   {
-    name: "Khan Academy",
+    name: "Katalva",
     logo: "/img/Katalva.png",
     width: 180
   },
   {
-    name: "Udemy",
+    name: "Katalva",
     logo: "/img/Katalva.png",
     width: 140
   },
   {
-    name: "Google",
+    name: "Katalva",
     logo: "/img/Katalva.png",
     width: 160
   },

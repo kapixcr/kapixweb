@@ -59,7 +59,7 @@ export default function AboutUs() {
           </div>
 
           {/* Experience badge */}
-          <div className="absolute -left-4 bottom-8 bg-[#01c38d] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+          <div className="absolute left-4 md:-left-4 bottom-8 bg-[#01c38d] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
             <div className="flex items-center gap-2">
               <svg
                 viewBox="0 0 24 24"

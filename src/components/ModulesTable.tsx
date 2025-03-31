@@ -230,7 +230,7 @@ export default function ModulesTable() {
                       <X className="w-5 h-5 text-gray-300 mx-auto" />
                     )
                   ) : (
-                    <span className="inline-block bg-[#01c38d]/10 text-[#191e29] px-3 py-1 rounded-full text-sm">
+                    <span className="inline-block bg-[#191e29]/10 text-[#191e29] px-3 py-1 rounded-full text-sm">
                       {feature.tierra}
                     </span>
                   )}
@@ -243,7 +243,7 @@ export default function ModulesTable() {
                       <X className="w-5 h-5 text-gray-300 mx-auto" />
                     )
                   ) : (
-                    <span className="inline-block bg-[#01c38d]/10 text-[#191e29] px-3 py-1 rounded-full text-sm">
+                    <span className="inline-block bg-[#191e29]/10 text-[#191e29] px-3 py-1 rounded-full text-sm">
                       {feature.premium}
                     </span>
                   )}
@@ -256,7 +256,7 @@ export default function ModulesTable() {
                       <X className="w-5 h-5 text-gray-300 mx-auto" />
                     )
                   ) : (
-                    <span className="inline-block bg-[#01c38d]/10 text-[#191e29] px-3 py-1 rounded-full text-sm">
+                    <span className="inline-block bg-[#191e29]/10 text-[#191e29] px-3 py-1 rounded-full text-sm">
                       {feature.lite}
                     </span>
                   )}

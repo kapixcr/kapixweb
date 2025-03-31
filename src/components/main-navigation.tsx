@@ -7,6 +7,7 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import dynamic from 'next/dynamic'
 import { useLanguage } from '@/context/LanguageContext'
+import { usePathname } from 'next/navigation'  
 
 const SideMenu = dynamic(() => import("./side-menu"), { ssr: false })
 
@@ -64,6 +65,10 @@ export default function MainNavigation() {
     }
   }
 
+  const pathname = usePathname()  
+
+  const isActive = (path: string) => pathname === path
+
   return (
     <div className="bg-white">
       <header
@@ -76,27 +81,57 @@ export default function MainNavigation() {
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center">
               <div className="w-20 h-20 rounded-md flex items-center justify-center mr-2">
-                <img src="/img/Kapix Logo.png" alt="Logo" className="w-50 h-50 object-contain" />
+                <img src="/img/Kapix Logo.png" alt="Logo" className="w-50 object-contain" />
               </div>
             </Link>
 
             <nav className="hidden md:flex items-center space-x-1">
-              <Link href="/" className="px-3 py-2 text-[#191e29] hover:text-[#01c38d] font-medium">
+              <Link 
+                href="/" 
+                className={`px-3 py-2 font-medium ${
+                  isActive('/') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                }`}
+              >
                 {navigationLinks[language].home}
               </Link>
-              <Link href="/sobre-nosotros" className="px-3 py-2 text-[#191e29] hover:text-[#01c38d] font-medium">
+              <Link 
+                href="/sobre-nosotros" 
+                className={`px-3 py-2 font-medium ${
+                  isActive('/sobre-nosotros') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                }`}
+              >
                 {navigationLinks[language].about}
               </Link>
-              <Link href="/planes" className="px-3 py-2 text-[#191e29] hover:text-[#01c38d] font-medium">
+              <Link 
+                href="/planes" 
+                className={`px-3 py-2 font-medium ${
+                  isActive('/planes') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                }`}
+              >
                 {navigationLinks[language].pricing}
               </Link>
-              <Link href="/testimonios" className="px-3 py-2 text-[#191e29] hover:text-[#01c38d] font-medium">
+              <Link 
+                href="/testimonios" 
+                className={`px-3 py-2 font-medium ${
+                  isActive('/testimonios') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                }`}
+              >
                 {navigationLinks[language].testimonials}
               </Link>
-              <Link href="/blog" className="px-3 py-2 text-[#191e29] hover:text-[#01c38d] font-medium">
+              <Link 
+                href="/blog" 
+                className={`px-3 py-2 font-medium ${
+                  isActive('/blog') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                }`}
+              >
                 {navigationLinks[language].blog}
               </Link>
-              <Link href="/contacto" className="px-3 py-2 text-[#191e29] hover:text-[#01c38d] font-medium">
+              <Link 
+                href="/contacto" 
+                className={`px-3 py-2 font-medium ${
+                  isActive('/contacto') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                }`}
+              >
                 {navigationLinks[language].contact}
               </Link>
             </nav>

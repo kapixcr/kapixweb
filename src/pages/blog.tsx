@@ -175,16 +175,45 @@ export default function BlogPage() {
               <div className="bg-white/70 backdrop-blur-lg rounded-xl p-5 shadow-md">
                 <h3 className="text-sm font-medium text-gray-600 mb-3">{t.followUs}</h3>
                 <div className="flex gap-3">
-                  {['facebook', 'twitter', 'instagram', 'linkedin'].map((social) => (
-                    <motion.a
-                      key={social}
-                      href={`#${social}`}
-                      whileHover={{ scale: 1.1 }}
-                      className="w-8 h-8 rounded-full bg-white/70 backdrop-blur-lg shadow-md inline-flex items-center justify-center text-[#01c38d] hover:bg-[#01c38d] hover:text-white transition-colors"
-                    >
-                      <i className={`fi fi-brands-${social} text-sm flex items-center justify-center w-full h-full`}></i>
-                    </motion.a>
-                  ))}
+                  <motion.a
+                    href="https://www.facebook.com/p/KAPIX-61558702651954/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-8 h-8 rounded-full bg-white/70 backdrop-blur-lg shadow-md inline-flex items-center justify-center text-[#01c38d] hover:bg-[#01c38d] hover:text-white transition-colors"
+                  >
+                    <i className="fi fi-brands-facebook text-sm flex items-center justify-center w-full h-full"></i>
+                  </motion.a>
+                  
+                  <motion.a
+                    href="https://www.instagram.com/kapixlatam?igsh=eWtwODhhZ3ViOHhk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-8 h-8 rounded-full bg-white/70 backdrop-blur-lg shadow-md inline-flex items-center justify-center text-[#01c38d] hover:bg-[#01c38d] hover:text-white transition-colors"
+                  >
+                    <i className="fi fi-brands-instagram text-sm flex items-center justify-center w-full h-full"></i>
+                  </motion.a>
+
+                  <motion.a
+                    href="https://wa.me/50660641906?text=Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20tu%20servicio.🚀"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-8 h-8 rounded-full bg-white/70 backdrop-blur-lg shadow-md inline-flex items-center justify-center text-[#01c38d] hover:bg-[#01c38d] hover:text-white transition-colors"
+                  >
+                    <i className="fi fi-brands-whatsapp text-sm flex items-center justify-center w-full h-full"></i>
+                  </motion.a>
+
+                  <motion.a
+                    href="https://www.youtube.com/@Kapix-s6d"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-8 h-8 rounded-full bg-white/70 backdrop-blur-lg shadow-md inline-flex items-center justify-center text-[#01c38d] hover:bg-[#01c38d] hover:text-white transition-colors"
+                  >
+                    <i className="fi fi-brands-youtube text-sm flex items-center justify-center w-full h-full"></i>
+                  </motion.a>
                 </div>
               </div>
             </div>

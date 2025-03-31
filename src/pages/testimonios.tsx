@@ -7,12 +7,12 @@ import Footer from "@/components/footer"
 import { useLanguage } from '@/context/LanguageContext'
 
 const companyLogos = [
-  { id: 1, src: "/logos/logo1.png", alt: "Company 1" },
-  { id: 2, src: "/logos/logo2.png", alt: "Company 2" },
-  { id: 3, src: "/logos/logo3.png", alt: "Company 3" },
-  { id: 4, src: "/logos/logo4.png", alt: "Company 4" },
-  { id: 5, src: "/logos/logo5.png", alt: "Company 5" },
-  { id: 6, src: "/logos/logo6.png", alt: "Company 6" },
+  { id: 1, src: "/img/Katalva.png", alt: "Katalva" },
+  { id: 2, src: "/img/Katalva.png", alt: "Katalva" },
+  { id: 3, src: "/img/Katalva.png", alt: "Katalva" },
+  { id: 4, src: "/img/Katalva.png", alt: "Katalva" },
+  { id: 5, src: "/img/Katalva.png", alt: "Katalva" },
+  { id: 6, src: "/img/Katalva.png", alt: "Katalva" },
 ]
 
 export default function TestimoniosPage() {
@@ -238,12 +238,12 @@ export default function TestimoniosPage() {
                     <motion.div
                       key={`${logo.id}-${index}`}
                       whileHover={{ scale: 1.1 }}
-                      className="min-w-[150px] flex items-center justify-center"
+                      className="min-w-[300px] flex items-center justify-center p-4" // Increased width and added padding
                     >
                       <img
                         src={logo.src}
                         alt={logo.alt}
-                        className="max-h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+                        className="max-h-32 w-auto grayscale hover:grayscale-0 transition-all duration-300" // Increased height significantly
                       />
                     </motion.div>
                   ))}
