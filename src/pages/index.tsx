@@ -210,7 +210,7 @@ export default function Home() {
     if (normalizedFeature.includes("sin limite") || normalizedFeature.includes("unlimited")) return "fi fi-rr-infinity"
     if (normalizedFeature.includes("capacitacion") || normalizedFeature.includes("training"))
       return "fi fi-rr-time-forward"
-    if (normalizedFeature.includes("gasto") || normalizedFeature.includes("expense")) return "fi fi-rr-money-bill"
+    if (normalizedFeature.includes("gasto") || normalizedFeature.includes("expense")) return "fi fi-rr-check"
 
     // Default icon for unmatched features
     return "fi fi-rr-check"
@@ -232,8 +232,6 @@ export default function Home() {
     translations[language].features.storage,
     translations[language].features.documents,
     translations[language].features.reminder,
-    translations[language].features.contracts,
-    translations[language].features.creditNotes,
     translations[language].features.expenses,
     translations[language].features.invoices,
     translations[language].features.products,
@@ -267,10 +265,6 @@ export default function Home() {
     translations[language].features.projectManagementImprovements,
     translations[language].features.reminder,
     translations[language].features.spreadsheets,
-    translations[language].features.contracts,
-    translations[language].features.unlimitedProspects,
-    translations[language].features.moreProjects,
-    translations[language].features.moreTasks,
   ]
 
   const tierraPlanFeatures = [

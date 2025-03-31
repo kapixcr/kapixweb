@@ -289,15 +289,14 @@ export default function PlanesPage() {
           t.storage,
           t.documents,
           t.reminder,
-          t.contracts,
-          t.creditNotes,
           t.expenses,
           t.invoices,
           t.products,
           t.unlimitedProspects,
           t.payments,
         ]
-      } else if (planTag === "Premium" || planTag === translations.EN.planNames.premium) {
+      // In the getTranslatedFeatures function, update the Premium plan features
+} else if (planTag === "Premium" || planTag === translations.EN.planNames.premium) {
         return [
           t.team,
           t.moreClients,
@@ -324,16 +323,11 @@ export default function PlanesPage() {
           t.projectManagementImprovements,
           t.reminder,
           t.spreadsheets,
-          t.contracts,
-          t.unlimitedProspects,
-          t.moreProjects,
-          t.moreTasks,
         ]
       }
     } else if (planType === "EMPRESARIAL") {
       if (planTag === "Venus" || planTag === translations.EN.planNames.venus) {
         return [
-          t.crm,
           t.projects,
           t.potentialClients,
           t.reports,
