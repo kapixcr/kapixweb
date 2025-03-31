@@ -568,7 +568,7 @@ export default function Home() {
 
               {/* Button */}
               <a
-                href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20premium"
+                href="https://kpixs.com/authentication/register?kx_plan"
                 target="_blank"
                 className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-white text-[#191e29] hover:bg-white/90"
                 rel="noreferrer"
@@ -631,7 +631,7 @@ export default function Home() {
 
               {/* Button */}
               <a
-                href="#"
+                href="https://kpixs.com/authentication/register?kx_plan"
                 target="_blank"
                 className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20"
                 rel="noreferrer"

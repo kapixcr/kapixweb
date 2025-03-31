@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
 import { Check, X } from "lucide-react"
 import { useLanguage } from '@/context/LanguageContext'
 

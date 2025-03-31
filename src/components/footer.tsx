@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import { useLanguage } from '@/context/LanguageContext'
 import { usePathname } from 'next/navigation'  // Add this import at the top
@@ -238,9 +237,40 @@ export default function Footer() {
               </motion.button>
             </div>
 
-            {/* Social Links remain unchanged */}
+            {/* Social Links */}
             <div className="flex gap-3 mt-6">
-              {/* ... social links remain the same ... */}
+              <a
+                href="https://www.facebook.com/p/KAPIX-61558702651954/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+              >
+                <i className="fi fi-brands-facebook text-base flex items-center justify-center"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/kapixlatam?igsh=eWtwODhhZ3ViOHhk"
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+              >
+                <i className="fi fi-brands-instagram text-base flex items-center justify-center"></i>
+              </a>
+              <a
+                href="https://wa.me/50660641906?text=Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20tu%20servicio.🚀"
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+              >
+                <i className="fi fi-brands-whatsapp text-base flex items-center justify-center"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/@Kapix-s6d"
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+              >
+                <i className="fi fi-brands-youtube text-base flex items-center justify-center"></i>
+              </a>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { MessageSquare, Check } from "lucide-react"
+import { Check } from "lucide-react"
 import { motion } from "framer-motion"
 import { useLanguage } from '@/context/LanguageContext'
 

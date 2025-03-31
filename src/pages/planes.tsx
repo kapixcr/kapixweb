@@ -258,9 +258,9 @@ export default function PlanesPage() {
         return translations[language].startFree
       case "Venus":
       case "Tierra":
-        return translations[language].startNow
       case "Marte":
       case "Premium":
+        return translations[language].startNow
       case "Personalizado":
         return translations[language].contact
       default:
@@ -612,12 +612,12 @@ export default function PlanesPage() {
                           plan.originalTag === "Lite"
                             ? "https://lite.kapix.co.cr/"
                             : plan.originalTag === "Premium"
-                              ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20premium"
+                              ? "https://kpixs.com/authentication/register?kx_plan"
                               : plan.originalTag === "Marte"
-                                ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20marte"
+                                ? "https://kpixs.com/authentication/register?kx_plan"
                                 : plan.originalTag === "Personalizado"
                                   ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
-                                  : "https://kapix.cl/registro"
+                                  : "https://kpixs.com/authentication/register?kx_plan"
                         }
                         target="_blank"
                         className={`w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all ${

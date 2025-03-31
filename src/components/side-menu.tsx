@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useLanguage } from '@/context/LanguageContext'
-import { usePathname } from 'next/navigation'  // Add this import at the top
+import { usePathname } from 'next/navigation'  
 
 interface SideMenuProps {
   isOpen: boolean
