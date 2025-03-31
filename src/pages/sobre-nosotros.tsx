@@ -9,6 +9,7 @@ import { useLanguage } from '@/context/LanguageContext'
 import { InstagramEmbed } from 'react-social-media-embed';
 
 const slides = [
+
   {
     title: "Misión",
     content: "Transformar la gestión empresarial a través de soluciones tecnológicas innovadoras que impulsen el crecimiento y éxito de nuestros clientes.",
@@ -23,45 +24,6 @@ const slides = [
     title: "Valores",
     content: "Innovación, Excelencia, Integridad, Colaboración, Compromiso con el Cliente",
     icon: "fi fi-rr-star"
-  }
-]
-
-const instagramPosts = [
-  {
-    id: 1,
-    image: "/img/POST ONE.jpg",
-    link: "https://www.instagram.com/p/DEiQsQDNrSH/?igsh=Mno0cGd1amVqZWRu",
-    caption: "Kapix"
-  },
-  {
-    id: 2,
-    image: "/img/POST TWO.jpg",
-    link: "https://www.instagram.com/p/DCrgBGop53S/?igsh=bGtsaGN2Z3FxaHM0",
-    caption: "Kapix"
-  },
-  {
-    id: 3,
-    image: "/img/POST THREE.jpg",
-    link: "https://www.instagram.com/p/C9vs1JztQdV/?igsh=OXU3YzhhdjNmOTQx",
-    caption: "Kapix"
-  },
-  {
-    id: 4,
-    image: "/img/POST FOUR.jpg",
-    link: "https://www.instagram.com/p/C6gyM9_PYnW/?igsh=c2tyODVnc3Bjb2Q4",
-    caption: "Kapix"
-  },
-  {
-    id: 5,
-    image: "/img/POST FIVE.jpg",
-    link: "https://www.instagram.com/p/DAGspuEJ-Dq/?igsh=MTlycWEwc2FleW1pMw==",
-    caption: "Kapix"
-  },
-  {
-    id: 6,
-    image: "/img/POST SIX.jpg",
-    link: "https://www.instagram.com/reel/DGqZbvXpcBS/?igsh=MTcyM3VoNGFlMm1tZQ==",
-    caption: "Kapix"
   }
 ]
 
@@ -246,23 +208,33 @@ export default function SobreNosotros() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div style={{ width: '100%' }}>
-              <InstagramEmbed 
-                url="https://www.instagram.com/p/DEiQsQDNrSH/?igsh=Mno0cGd1amVqZWRu"
-                width="100%"
-              />
+            {/* Added a wrapper div with fixed aspect ratio and overflow handling */}
+            <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
+              <div className="absolute inset-0">
+                <InstagramEmbed 
+                  url="https://www.instagram.com/reel/DH3m5MiOx6N/?igsh=MW5paTIxa3dzbG1n"
+                  width="100%"
+                  height="100%"
+                />
+              </div>
             </div>
-            <div style={{ width: '100%' }}>
-              <InstagramEmbed 
-                url="https://www.instagram.com/p/DCrgBGop53S/?igsh=bGtsaGN2Z3FxaHM0"
-                width="100%"
-              />
+            <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
+              <div className="absolute inset-0">
+                <InstagramEmbed 
+                  url="https://www.instagram.com/p/DHrv344PAx8/?igsh=MWFqYjE3OHFseWU4aA=="
+                  width="100%"
+                  height="100%"
+                />
+              </div>
             </div>
-            <div style={{ width: '100%' }}>
-              <InstagramEmbed 
-                url="https://www.instagram.com/p/C9vs1JztQdV/?igsh=OXU3YzhhdjNmOTQx"
-                width="100%"
-              />
+            <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
+              <div className="absolute inset-0">
+                <InstagramEmbed 
+                  url="https://www.instagram.com/reel/DHcaAtwstnd/?igsh=MXc3OWlkMW0yZXlsag=="
+                  width="100%"
+                  height="100%"
+                />
+              </div>
             </div>
           </div>
         </div>
