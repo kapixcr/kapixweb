@@ -146,6 +146,7 @@ export default function Footer() {
                   {t.menuItems.pricing}
                 </Link>
               </li>
+              {/* Testimonials link temporarily disabled
               <li>
                 <Link 
                   href="/testimonios" 
@@ -156,6 +157,7 @@ export default function Footer() {
                   {t.menuItems.testimonials}
                 </Link>
               </li>
+              */}
               <li>
                 <Link 
                   href="/blog" 
@@ -186,6 +188,7 @@ export default function Footer() {
               <span className="absolute -bottom-2 left-0 w-12 h-1 bg-[#01c38d]"></span>
             </h3>
             <ul className="space-y-2">
+              {/* Testimonials link temporarily disabled
               <li>
                 <Link 
                   href="/testimonios" 
@@ -196,6 +199,7 @@ export default function Footer() {
                   {t.menuItems.testimonials}
                 </Link>
               </li>
+              */}
               <li>
                 <Link 
                   href="/planes" 
@@ -228,15 +232,15 @@ export default function Footer() {
             <p className="mb-4 text-slate-700 text-sm">
               {t.newsletter.description}
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-col sm:flex-row w-full">
               <input
                 type="email"
                 placeholder={t.newsletter.placeholder}
-                className="flex-1 px-4 py-3 rounded-l-md border border-gray-200 focus:outline-none focus:border-[#01c38d]"
+                className="w-full px-4 py-2.5 rounded-md sm:rounded-l-md sm:rounded-r-none border border-gray-200 focus:outline-none focus:border-[#01c38d] text-sm"
               />
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="bg-[#191e29] text-white px-8 py-3.5 rounded-r-md font-medium hover:bg-[#191e29]/90 transition-all shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40 hover:-translate-y-0.5"
+                whileHover={{ scale: 1.02 }}
+                className="whitespace-nowrap bg-[#191e29] text-white px-4 py-2.5 rounded-md sm:rounded-l-none sm:rounded-r-md text-sm font-medium hover:bg-[#191e29]/90 transition-all"
               >
                 {t.newsletter.subscribe}
               </motion.button>

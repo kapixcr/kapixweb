@@ -106,6 +106,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
               {t.pricing}
             </Link>
           </motion.div>
+          {/* Testimonials link temporarily disabled
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
             <Link 
               href="/testimonios" 
@@ -116,6 +117,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
               {t.testimonials}
             </Link>
           </motion.div>
+          */}
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
             <Link 
               href="/blog" 

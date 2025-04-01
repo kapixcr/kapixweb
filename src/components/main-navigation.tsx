@@ -110,6 +110,7 @@ export default function MainNavigation() {
               >
                 {navigationLinks[language].pricing}
               </Link>
+              {/* Testimonials link temporarily disabled
               <Link 
                 href="/testimonios" 
                 className={`px-3 py-2 font-medium ${
@@ -118,6 +119,7 @@ export default function MainNavigation() {
               >
                 {navigationLinks[language].testimonials}
               </Link>
+              */}
               <Link 
                 href="/blog" 
                 className={`px-3 py-2 font-medium ${

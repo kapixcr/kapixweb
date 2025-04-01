@@ -19,7 +19,7 @@ export default function AboutUs() {
         'Tecnología moderna e innovadora',
         'Expertos comprometidos con tu éxito'
       ],
-      companyCreator: "Creador de Empresa",
+      companyCreator: "Equipo Kapix",
       seeMore: "Ver más"
     },
     EN: {
@@ -32,7 +32,7 @@ export default function AboutUs() {
         'Modern and innovative technology',
         'Experts committed to your success'
       ],
-      companyCreator: "Company Creator",
+      companyCreator: "Team Kapix",
       seeMore: "See More"
     }
   }
@@ -44,7 +44,7 @@ export default function AboutUs() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         {/* Left side with images */}
         <div className="relative">
-          <div className="relative h-[400px] w-full md:w-[85%] rounded-3xl overflow-hidden">
+          <div className="relative h-[400px] w-full rounded-3xl overflow-hidden">
             <div className="absolute inset-0 p-2">
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
                 <Image
@@ -59,7 +59,7 @@ export default function AboutUs() {
           </div>
 
           {/* Experience badge */}
-          <div className="absolute left-4 md:-left-4 bottom-8 bg-[#01c38d] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+          <div className="absolute left-4 -bottom-4 md:bottom-8 bg-[#01c38d] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
             <div className="flex items-center gap-2">
               <svg
                 viewBox="0 0 24 24"

@@ -7,12 +7,40 @@ import Footer from "@/components/footer"
 import Image from "next/image"
 import { ThumbsUp, ThumbsDown, Reply, MoreVertical } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
+import { useSearchParams } from "next/navigation"
+import { type BlogPost, fetchBlogPostById, formatDate, safeParseInt } from "@/lib/api"
 
 export default function BlogDetailPage() {
   const { language } = useLanguage()
   const [searchQuery, setSearchQuery] = useState("")
   const [commentText, setCommentText] = useState("")
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null)
+  const [blogPost, setBlogPost] = useState<BlogPost | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  const searchParams = useSearchParams()
+  const postId = safeParseInt(searchParams?.get("id") || null)
+
+  useEffect(() => {
+    const loadPost = async () => {
+      if (postId === null) {
+        setLoading(false)
+        return
+      }
+
+      setLoading(true)
+      try {
+        const post = await fetchBlogPostById(postId)
+        setBlogPost(post)
+      } catch (error) {
+        console.error("Error loading blog post:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadPost()
+  }, [postId])
 
   const toggleDropdown = (id: number) => {
     setActiveDropdown(activeDropdown === id ? null : id)
@@ -42,6 +70,7 @@ export default function BlogDetailPage() {
         readTime: "5 min de lectura",
         content:
           "En el mundo digital actual, la velocidad y el rendimiento de un sitio web son factores cruciales para el éxito. Los usuarios esperan que las páginas se carguen rápidamente, y los motores de búsqueda como Google consideran la velocidad de carga como un factor importante en sus algoritmos de clasificación. En este artículo, exploraremos estrategias efectivas para optimizar el rendimiento de tu sitio web, desde la compresión de imágenes hasta la implementación de técnicas avanzadas de caché. Sigue leyendo para descubrir cómo puedes mejorar significativamente la experiencia de usuario y el posicionamiento SEO de tu sitio.",
+        image: "/img/BLACK-NOVEMBER.jpg", // Add image property to ensure it exists
       },
       comments_data: [
         {
@@ -96,6 +125,7 @@ export default function BlogDetailPage() {
         readTime: "5 min read",
         content:
           "In today's digital world, the speed and performance of a website are crucial factors for success. Users expect pages to load quickly, and search engines like Google consider loading speed as an important factor in their ranking algorithms. In this article, we'll explore effective strategies to optimize your website's performance, from image compression to implementing advanced caching techniques. Keep reading to discover how you can significantly improve the user experience and SEO ranking of your site.",
+        image: "/img/BLACK-NOVEMBER.jpg", // Add image property to ensure it exists
       },
       comments_data: [
         {
@@ -143,6 +173,22 @@ export default function BlogDetailPage() {
       ? ["Desarrollo Web", "React", "Next.js", "TypeScript", "Tailwind CSS"]
       : ["Web Development", "React", "Next.js", "TypeScript", "Tailwind CSS"]
 
+  // Ensure the displayContent always has an image property
+  const displayContent = blogPost
+    ? {
+        category: "Blog",
+        title: blogPost.titulo,
+        author: "Kapix",
+        date: formatDate(blogPost.created_at),
+        readTime: "5 min de lectura",
+        content: blogPost.descripcion,
+        image: blogPost.url_imagen || "/img/BLACK-NOVEMBER.jpg", // Use fallback image
+      }
+    : {
+        ...t.blogContent,
+        image: "/img/BLACK-NOVEMBER.jpg", // Add image to the default content
+      }
+
   return (
     <>
       <Navbar />
@@ -184,37 +230,63 @@ export default function BlogDetailPage() {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Main Content - Left Side */}
             <div className="flex-1 space-y-6">
-              {/* Blog Content Card */}
-              <div className="bg-white rounded-xl overflow-hidden shadow-md">
-                {/* Hero Image */}
-                <div className="relative h-[350px] w-full">
-                  <Image src="/img/BLACK-NOVEMBER.jpg" alt="Blog Hero" fill className="object-cover" />
-                </div>
-
-                {/* Blog Content */}
-                <div className="p-6">
-                  <div className="mb-5">
-                    <span className="bg-[#191e29] text-white font-medium text-xs px-3 py-1 rounded-lg">
-                      {t.blogContent.category}
-                    </span>
-                    <h1 className="text-2xl md:text-3xl font-bold text-[#191e29] mt-4 mb-2">{t.blogContent.title}</h1>
-                    <div className="flex flex-wrap items-center gap-2 text-gray-500 text-xs">
-                      <span>
-                        {t.by} {t.blogContent.author}
-                      </span>
-                      <span>•</span>
-                      <span>{t.blogContent.date}</span>
-                      <span>•</span>
-                      <span>{t.blogContent.readTime}</span>
+              {loading ? (
+                // Loading skeleton
+                <div className="bg-white rounded-xl overflow-hidden shadow-md animate-pulse">
+                  <div className="h-[350px] w-full bg-gray-200"></div>
+                  <div className="p-6">
+                    <div className="h-6 bg-gray-200 rounded w-1/4 mb-4"></div>
+                    <div className="h-8 bg-gray-200 rounded w-3/4 mb-3"></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/2 mb-6"></div>
+                    <div className="space-y-2">
+                      <div className="h-4 bg-gray-200 rounded w-full"></div>
+                      <div className="h-4 bg-gray-200 rounded w-full"></div>
+                      <div className="h-4 bg-gray-200 rounded w-3/4"></div>
                     </div>
                   </div>
+                </div>
+              ) : (
+                /* Blog Content Card */
+                <div className="bg-white rounded-xl overflow-hidden shadow-md">
+                  {/* Hero Image */}
+                  <div className="relative h-[350px] w-full">
+                    <Image
+                      src={displayContent.image || "/img/BLACK-NOVEMBER.jpg"}
+                      alt="Blog Hero"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
 
-                  {/* Blog Text */}
-                  <div className="prose prose-base max-w-none">
-                    <p>{t.blogContent.content}</p>
+                  {/* Blog Content */}
+                  <div className="p-6">
+                    <div className="mb-5">
+                      <span className="bg-[#191e29] text-white font-medium text-xs px-3 py-1 rounded-lg">
+                        {displayContent.category}
+                      </span>
+                      <h1 className="text-2xl md:text-3xl font-bold text-[#191e29] mt-4 mb-2">
+                        {displayContent.title}
+                      </h1>
+                      <div className="flex flex-wrap items-center gap-2 text-gray-500 text-xs">
+                        <span>
+                          {t.by} {displayContent.author}
+                        </span>
+                        <span>•</span>
+                        <span>{displayContent.date}</span>
+                        <span>•</span>
+                        <span>{displayContent.readTime}</span>
+                      </div>
+                    </div>
+
+                    {/* Blog Text */}
+                    <div className="prose prose-base max-w-none">
+                      <div
+                        dangerouslySetInnerHTML={{ __html: displayContent.content.replace(/\u003Cbr\u003E/g, "<br>") }}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
 
               {/* Comments Section Card */}
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
@@ -263,14 +335,18 @@ export default function BlogDetailPage() {
                               <div className="absolute right-0 top-6 bg-white rounded-lg shadow-lg py-2 min-w-[150px] z-10 border border-gray-100">
                                 <button
                                   className="w-full px-4 py-2 text-left text-xs hover:bg-red-50 text-red-500 flex items-center gap-2 transition-colors"
-                                  onClick={() => {/* Add delete handler */}}
+                                  onClick={() => {
+                                    /* Add delete handler */
+                                  }}
                                 >
                                   <i className="fi fi-rr-trash text-sm"></i>
                                   {t.delete}
                                 </button>
                                 <button
                                   className="w-full px-4 py-2 text-left text-xs hover:bg-orange-50 text-orange-500 flex items-center gap-2 transition-colors"
-                                  onClick={() => {/* Add report handler */}}
+                                  onClick={() => {
+                                    /* Add report handler */
+                                  }}
                                 >
                                   <i className="fi fi-rr-flag text-sm"></i>
                                   {t.report}
@@ -297,11 +373,36 @@ export default function BlogDetailPage() {
                       </div>
 
                       {/* Apply similar styles to replies */}
-                      {comment.replies && comment.replies.map((reply) => (
-                        <div key={reply.id} className="ml-6 bg-gradient-to-r from-gray-50 to-white rounded-lg p-4 border border-gray-100 hover:shadow-md transition-all duration-300">
-                          {/* ... Similar changes for replies ... */}
-                        </div>
-                      ))}
+                      {comment.replies &&
+                        comment.replies.map((reply) => (
+                          <div
+                            key={reply.id}
+                            className="ml-6 bg-gradient-to-r from-gray-50 to-white rounded-lg p-4 border border-gray-100 hover:shadow-md transition-all duration-300"
+                          >
+                            <div className="flex justify-between items-start mb-3">
+                              <div>
+                                <h4 className="font-semibold text-[#191e29] text-sm flex items-center gap-2">
+                                  <span className="w-8 h-8 rounded-full bg-[#01c38d]/10 flex items-center justify-center text-[#01c38d]">
+                                    {reply.author.charAt(0)}
+                                  </span>
+                                  {reply.author}
+                                </h4>
+                                <span className="text-xs text-gray-500">{reply.timestamp}</span>
+                              </div>
+                            </div>
+                            <p className="text-gray-600 mb-3 text-sm">{reply.content}</p>
+                            <div className="flex items-center gap-4">
+                              <button className="flex items-center gap-1 text-gray-500 hover:text-[#01c38d] text-xs bg-gray-50 px-3 py-1.5 rounded-full transition-colors">
+                                <ThumbsUp className="w-3 h-3" />
+                                <span>{reply.likes}</span>
+                              </button>
+                              <button className="flex items-center gap-1 text-gray-500 hover:text-red-500 text-xs bg-gray-50 px-3 py-1.5 rounded-full transition-colors">
+                                <ThumbsDown className="w-3 h-3" />
+                                <span>{reply.dislikes}</span>
+                              </button>
+                            </div>
+                          </div>
+                        ))}
                     </div>
                   ))}
                 </div>
@@ -353,7 +454,7 @@ export default function BlogDetailPage() {
                   >
                     <i className="fi fi-brands-facebook text-sm flex items-center justify-center w-full h-full"></i>
                   </motion.a>
-                  
+
                   <motion.a
                     href="https://www.instagram.com/kapixlatam?igsh=eWtwODhhZ3ViOHhk"
                     target="_blank"

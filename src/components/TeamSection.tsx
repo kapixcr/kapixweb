@@ -8,34 +8,34 @@ const teamMembers = {
   ES: [
     {
       name: "Kenneth Carmona",
-      position: "Desarrollador Senior",
+      position: "Director de Desarrollo",
       image: "img/KENNETH CARMONA.jpg"
     },
     {
       name: "Jill Hernández",
-      position: "Desarrollador Junior",
+      position: "Desarrollador",
       image: "img/JILL HERNANDEZ.jpg"
     },
     {
       name: "Sebastián Rojas",
-      position: "Desarrollador",
+      position: "Desarrollador Front End",
       image: "img/SEBAS ROJAS.jpg"
     }
   ],
   EN: [
     {
       name: "Kenneth Carmona",
-      position: "Senior Developer",
+      position: "Development Director",
       image: "img/KENNETH CARMONA.jpg"
     },
     {
       name: "Jill Hernández",
-      position: "Junior Developer",
+      position: "Developer",
       image: "img/JILL HERNANDEZ.jpg"
     },
     {
       name: "Sebastián Rojas",
-      position: "Developer",
+      position: "Front End Developer",
       image: "img/SEBAS ROJAS.jpg"
     }
   ]
@@ -98,10 +98,10 @@ export default function TeamSection() {
                 </div>
 
                 <motion.div 
-                  className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm p-3 transform translate-y-0 transition-transform duration-300 group-hover:-translate-y-2"
+                  className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-3 transform translate-y-0 transition-transform duration-300 group-hover:-translate-y-2"
                 >
-                  <h3 className="text-base font-semibold text-slate-800">{member.name}</h3>
-                  <p className="text-sm text-[#01c38d]">{member.position}</p>
+                  <h3 className="text-lg font-semibold text-slate-800">{member.name}</h3>
+                  <p className="text-sm font-medium text-[#01c38d] drop-shadow-sm">{member.position}</p>
                 </motion.div>
               </div>
             </motion.div>

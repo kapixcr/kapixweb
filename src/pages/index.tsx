@@ -49,6 +49,7 @@ export default function Home() {
         creditNotes: "100 Notas de Crédito",
         unlimitedProposals: "Sin límites Propuestas",
         projects: "5 Proyectos",
+        projectsEarth: "Proyectos",
         tasks: "100 Tareas",
         unlimitedProspects: "Sin límites Prospectos",
         products: "30 Productos",
@@ -120,6 +121,7 @@ export default function Home() {
         creditNotes: "100 Credit Notes",
         unlimitedProposals: "Unlimited Proposals",
         projects: "5 Projects",
+        projectsEarth: "Projects",
         tasks: "100 Tasks",
         unlimitedProspects: "Unlimited Prospects",
         products: "30 Products",
@@ -233,9 +235,6 @@ export default function Home() {
     translations[language].features.documents,
     translations[language].features.reminder,
     translations[language].features.expenses,
-    translations[language].features.invoices,
-    translations[language].features.products,
-    translations[language].features.unlimitedProspects,
     translations[language].features.payments,
   ]
 
@@ -269,7 +268,7 @@ export default function Home() {
 
   const tierraPlanFeatures = [
     translations[language].features.crm,
-    translations[language].features.projects,
+    translations[language].features.projectsEarth,  
     translations[language].features.potentialClients,
     translations[language].features.reports,
     translations[language].features.appointmentsOrAccounting,
@@ -473,7 +472,8 @@ export default function Home() {
             <p className="text-gray-600 max-w-xl mx-auto">{translations[language].planDescription}</p>
           </div>
 
-          <div className="grid md:grid-cols-3 mb-8 sm:gap-6 gap-12">
+          {/* Pricing Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 gap-12 sm:gap-8">
             {/* Lite Plan */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -563,7 +563,7 @@ export default function Home() {
 
               {/* Button */}
               <a
-                href="https://kpixs.com/authentication/register?kx_plan"
+                href="https://kpixs.com/authentication/register?kx_plan=premium"
                 target="_blank"
                 className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-white text-[#191e29] hover:bg-white/90"
                 rel="noreferrer"
@@ -627,7 +627,7 @@ export default function Home() {
 
               {/* Button */}
               <a
-                href="https://kpixs.com/authentication/register?kx_plan"
+                href="https://kpixs.com/authentication/register?kx_plan=tierra"
                 target="_blank"
                 className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20"
                 rel="noreferrer"
@@ -672,7 +672,7 @@ export default function Home() {
       <TextSlider />
 
       {/* Agregar el Testimonial Slider */}
-      <TestimonialSlider />
+      {/* <TestimonialSlider /> */}
 
       {/* Agregar el Blog Section */}
       <BlogSection />

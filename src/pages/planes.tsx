@@ -40,7 +40,7 @@ export default function PlanesPage() {
       descriptions: {
         lite: "Comienza Kapix Completamente Gratis",
         premium: "Accede a más módulos y funcionalidades avanzadas",
-        mars: "Nuestro plan marte es un plan pensado para grandes empresas, donde se personalizará de acuerdo a los módulos, usuarios y espacio que se necesite, ofreciendo un ERP completo y ajustado a la necesidad de las empresas.",
+        mars: "Nuestro plan marte es un plan pensado para grandes empresas, donde se personalizará de acuerdo a los módulos, usuarios y espacio que se necesite, ofreciendo un ERP completo y ajustado a la necesidad de las empresas",
         custom:
           "Arma tu plan por medio de nuestro sistema modular, escoge cuáles módulos necesita tu negocio y arma tu plan personalizado",
       },
@@ -123,7 +123,7 @@ export default function PlanesPage() {
       descriptions: {
         lite: "Start Kapix Completely Free",
         premium: "Access more modules and advanced features",
-        mars: "Our Mars plan is designed for large companies, where it will be customized according to the modules, users, and space needed, offering a complete ERP adjusted to the needs of companies.",
+        mars: "Our Mars plan is designed for large companies, where it will be customized according to the modules, users, and space needed, offering a complete ERP adjusted to the needs of companies",
         custom:
           "Build your plan through our modular system, choose which modules your business needs and create your personalized plan",
       },
@@ -292,12 +292,8 @@ export default function PlanesPage() {
           t.documents,
           t.reminder,
           t.expenses,
-          t.invoices,
-          t.products,
-          t.unlimitedProspects,
           t.payments,
         ]
-        // In the getTranslatedFeatures function, update the Premium plan features
       } else if (planTag === "Premium" || planTag === translations.EN.planNames.premium) {
         return [
           t.team,
@@ -330,7 +326,7 @@ export default function PlanesPage() {
     } else if (planType === "EMPRESARIAL") {
       if (planTag === "Venus" || planTag === translations.EN.planNames.venus) {
         return [
-          t.projects,
+          t.projects.replace("5 ", ""),
           t.potentialClients,
           t.reports,
           t.appointmentsOrAccounting,
@@ -344,7 +340,7 @@ export default function PlanesPage() {
       } else if (planTag === "Tierra" || planTag === translations.EN.planNames.tierra) {
         return [
           t.crm,
-          t.projects,
+          t.projects.replace("5 ", ""), 
           t.potentialClients,
           t.reports,
           t.appointmentsOrAccounting,
@@ -405,7 +401,7 @@ export default function PlanesPage() {
       {
         tag: "Personalizado",
         price: 100,
-        popular: false,
+        popular: true,  
         description: translations[language].startingFrom,
       },
     ],
@@ -538,7 +534,7 @@ export default function PlanesPage() {
                 className="container mx-auto" // Changed from max-w-6xl to container
               >
                 <div
-                  className={`grid gap-8 sm:gap-6 gap-y-12 items-stretch mx-auto ${
+                  className={`grid gap-8 sm:gap-8 md:gap-12 lg:gap-16 items-stretch mx-auto ${
                     planType === "EMPRESARIAL"
                       ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]"
                       : "md:grid-cols-2 max-w-[850px]"
@@ -613,12 +609,16 @@ export default function PlanesPage() {
                           plan.originalTag === "Lite"
                             ? "https://lite.kapix.co.cr/"
                             : plan.originalTag === "Premium"
-                              ? "https://kpixs.com/authentication/register?kx_plan"
-                              : plan.originalTag === "Marte"
-                                ? "https://kpixs.com/authentication/register?kx_plan"
-                                : plan.originalTag === "Personalizado"
-                                  ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
-                                  : "https://kpixs.com/authentication/register?kx_plan"
+                              ? "https://kpixs.com/authentication/register?kx_plan=premium"
+                              : plan.originalTag === "Venus"
+                                ? "https://kpixs.com/authentication/register?kx_plan=venus"
+                              : plan.originalTag === "Tierra"
+                                ? "https://kpixs.com/authentication/register?kx_plan=tierra"
+                                : plan.originalTag === "Marte"
+                                  ? "https://kpixs.com/authentication/register?kx_plan=marte"
+                                  : plan.originalTag === "Personalizado"
+                                    ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
+                                    : "https://kpixs.com/authentication/register?kx_plan"
                         }
                         target="_blank"
                         className={`w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all ${
