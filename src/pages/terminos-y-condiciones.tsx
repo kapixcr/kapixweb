@@ -123,7 +123,7 @@ const translations = {
         {
           title: "3. Data We Process",
           content:
-            "We collect and process only the data necessary for the established purposes:\n• **Registration data**: Name, email and password (stored in encrypted form).\n• **Technical data**: IP address, browser type, operating system and platform activity data.\n• **Usage data**: Information about invoices, tasks, projects and any other data you enter into the platform.\n\n**Note**: We do not process special categories of personal data (such as health data, racial or ethnic origin, etc.).",
+            "We collect and process only the data necessary for the established purposes:\n• **Registration data**: Name, email and password (stored in encrypted form).\n• **Technical data**: IP address, browser type, operating system and platform activity data.\n• **Usage data**: Information about invoices, tasks, projects and any other data you enter into the platform.\n\nNote: We do not process special categories of personal data (such as health data, racial or ethnic origin, etc.).",
           icon: "fi fi-rr-database",
         },
         {
