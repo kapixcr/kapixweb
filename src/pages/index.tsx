@@ -7,6 +7,7 @@ import dynamic from "next/dynamic"
 import Navbar from "@/components/navbar"
 import TypeWriter from "@/components/TypeWriter"
 import { useLanguage } from "@/context/LanguageContext"
+import Loader from '@/components/Loader'
 
 const Footer = dynamic(() => import("@/components/footer"), { ssr: false })
 const TextSlider = dynamic(() => import("@/components/TextSlider"), { ssr: false })
@@ -20,6 +21,15 @@ export default function Home() {
   const { language } = useLanguage()
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 3000) // 3 seconds of loading time
+
+    return () => clearTimeout(timer)
+  }, [])
 
   // Complete translations object with all needed text
   const translations = {
@@ -79,21 +89,18 @@ export default function Home() {
         projectKanban: "Kanban de Proyectos",
         projectManagementImprovements: "Mejoras de Gestión de Proyectos",
         spreadsheets: "Hojas de Cálculo en Línea",
-        // Tierra plan features
-        earth: "Tierra",
-        crm: "CRM",
-        potentialClients: "Clientes Potenciales",
-        reports: "Informes",
-        appointmentsOrAccounting: "Citas o Contabilidad",
-        sales: "Ventas",
-        purchases: "Compras",
-        inventory: "Inventario",
-        pointOfSale: "Punto de Venta",
-        users: "7 usuarios",
-        storageGigas: "100 gigas de almacenamiento",
-        supportTickets: "5 tickets de soporte al mes",
-        trainingHours: "Horas de capacitación",
       },
+      custom:
+        "Arma tu plan por medio de nuestro sistema modular, escoge cuáles módulos necesita tu negocio y arma tu plan personalizado",
+      planNames: {
+        lite: "Lite",
+        premium: "Premium",
+        venus: "Venus",
+        // tierra: "Tierra",
+        marte: "Marte",
+        personalizado: "Personalizado",
+      },
+      contact: "Contactar",
     },
     EN: {
       welcome: "Welcome to",
@@ -151,21 +158,18 @@ export default function Home() {
         projectKanban: "Project Kanban",
         projectManagementImprovements: "Project Management Improvements",
         spreadsheets: "Online Spreadsheets",
-        // Tierra plan features
-        earth: "Earth",
-        crm: "CRM",
-        potentialClients: "Potential Clients",
-        reports: "Reports",
-        appointmentsOrAccounting: "Appointments or Accounting",
-        sales: "Sales",
-        purchases: "Purchases",
-        inventory: "Inventory",
-        pointOfSale: "Point of Sale",
-        users: "7 users",
-        storageGigas: "100 GB storage",
-        supportTickets: "5 support tickets per month",
-        trainingHours: "Training hours",
       },
+      custom:
+        "Build your plan through our modular system, choose which modules your business needs and create your personalized plan",
+      planNames: {
+        lite: "Lite",
+        premium: "Premium",
+        venus: "Venus",
+        // tierra: "Earth",
+        marte: "Mars",
+        personalizado: "Custom",
+      },
+      contact: "Contact Us",
     },
   }
 
@@ -246,40 +250,19 @@ export default function Home() {
     translations[language].features.moreInvoices,
     translations[language].features.unlimitedBudgets,
     translations[language].features.unlimitedCreditNotes,
-    translations[language].features.unlimitedProposals,
+    "100 Propuestas",
     translations[language].features.moreProjects,
     translations[language].features.moreTasks,
-    translations[language].features.unlimitedSupportTickets,
+    "3 Tickets de soporte por mes",
     translations[language].features.unlimitedProspects,
-    translations[language].features.unlimitedProducts,
+    "200 Productos",
     translations[language].features.moreStorage,
-    translations[language].features.appointments,
-    translations[language].features.additionalConfig,
-    translations[language].features.documents,
-    translations[language].features.emailCanvas,
-    translations[language].features.objectives,
-    translations[language].features.stateManagement,
-    translations[language].features.tableManagement,
-    translations[language].features.projectKanban,
-    translations[language].features.projectManagementImprovements,
     translations[language].features.reminder,
-    translations[language].features.spreadsheets,
   ]
 
-  const tierraPlanFeatures = [
-    translations[language].features.crm,
-    translations[language].features.projectsEarth,  
-    translations[language].features.potentialClients,
-    translations[language].features.reports,
-    translations[language].features.appointmentsOrAccounting,
-    translations[language].features.sales,
-    translations[language].features.purchases,
-    translations[language].features.inventory,
-    translations[language].features.pointOfSale,
-    translations[language].features.users,
-    translations[language].features.storageGigas,
-    translations[language].features.supportTickets,
-    translations[language].features.trainingHours,
+  const customPlanFeatures = [
+    translations[language].custom ||
+      "Arma tu plan por medio de nuestro sistema modular, escoge cuáles módulos necesita tu negocio y arma tu plan personalizado",
   ]
 
   useEffect(() => {
@@ -291,6 +274,8 @@ export default function Home() {
   }
 
   return (
+    <>
+      {isLoading && <Loader />}
     <div className="bg-white">
       {/* Agregar el Navbar */}
       <Navbar />
@@ -372,6 +357,9 @@ export default function Home() {
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-x"
                         >
                           <path d="M18 6L6 18M6 6l12 12" />
                         </svg>
@@ -544,7 +532,7 @@ export default function Home() {
               {/* Price */}
               <div className="mb-6">
                 <span className="text-5xl font-bold text-white">$30</span>
-                <span className="text-base ml-1 text-white/90">+ {language === 'ES' ? 'IVA' : 'VAT'}</span>
+                <span className="text-base ml-1 text-white/90">+ {language === "ES" ? "IVA" : "VAT"}</span>
                 <span className="text-sm ml-1 text-white/90">{translations[language].month}</span>
               </div>
 
@@ -587,33 +575,35 @@ export default function Home() {
               </a>
             </motion.div>
 
-            {/* Tierra Plan */}
+            {/* Custom Plan */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative rounded-3xl p-8 h-full flex flex-col bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow"
             >
-              {/* Tierra Plan Content */}
+              {/* Custom Plan Content */}
               {/* Logo y título en la izquierda */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
                   <i className="fi fi-rr-diamond text-[#01c38d] text-xl flex items-center justify-center"></i>
                 </div>
                 <div className="px-3 py-1.5 rounded-full bg-[#01c38d]/10">
-                  <h3 className="text-lg font-semibold text-[#191e29]">{translations[language].features.earth}</h3>
+                  <h3 className="text-lg font-semibold text-[#191e29]">
+                    {translations[language].planNames?.personalizado || "Personalizado"}
+                  </h3>
                 </div>
               </div>
 
               {/* Price */}
               <div className="mb-6">
-                <span className="text-5xl font-bold text-[#191e29]">$200</span>
-                <span className="text-base ml-1 text-gray-600">+ {language === 'ES' ? 'IVA' : 'VAT'}</span>
+                <span className="text-5xl font-bold text-[#191e29]">$100</span>
+                <span className="text-base ml-1 text-gray-600">+ {language === "ES" ? "IVA" : "VAT"}</span>
                 <span className="text-sm ml-1 text-gray-600">{translations[language].month}</span>
               </div>
 
               <ul className="space-y-4 flex-grow">
-                {tierraPlanFeatures.map((feature, idx) => (
+                {customPlanFeatures.map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-[#01c38d]/10 flex items-center justify-center flex-shrink-0">
                       <i
@@ -627,12 +617,12 @@ export default function Home() {
 
               {/* Button */}
               <a
-                href="https://kpixs.com/authentication/register?kx_plan=tierra"
+                href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
                 target="_blank"
                 className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20"
                 rel="noreferrer"
               >
-                <span>{translations[language].startNow}</span>
+                <span>{translations[language].contact || "Contactar"}</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
             </motion.div>
@@ -680,6 +670,7 @@ export default function Home() {
       {/* Agregar el Footer */}
       <Footer />
     </div>
+    </>
   )
 }
 

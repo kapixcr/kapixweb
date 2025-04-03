@@ -6,23 +6,23 @@ import Image from "next/image"
 const sponsors = [
   {
     name: "Katalva",
-    logo: "/img/Katalva.png",
-    width: 160
-  },
-  {
-    name: "Katalva",
-    logo: "/img/Katalva.png",
+    logo: "/img/KATALVA.png",
     width: 180
   },
   {
-    name: "Katalva",
-    logo: "/img/Katalva.png",
-    width: 140
+    name: "Novosti",
+    logo: "/img/NOVOSTI.png",
+    width: 100
   },
   {
-    name: "Katalva",
-    logo: "/img/Katalva.png",
-    width: 160
+    name: "Makala",
+    logo: "/img/PLAGAS QUINTERO.png",
+    width: 180
+  },
+  {
+    name: "Plagas Quintero",
+    logo: "/img/MAKALA.png",
+    width: 180
   },
 ]
 
@@ -39,15 +39,15 @@ export default function SponsorsSection() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <div className="relative w-36 h-28 sm:w-44 sm:h-32 md:w-48 md:h-36 transition-transform duration-300 group-hover:-translate-y-2 flex items-center justify-center">
+              <div className="relative w-40 h-32 sm:w-44 sm:h-36 md:w-48 md:h-40 transition-transform duration-300 group-hover:-translate-y-2 flex items-center justify-center">
                 <Image
                   src={sponsor.logo}
                   alt={sponsor.name}
                   width={sponsor.width}
-                  height={sponsor.width * 0.6}
+                  height={sponsor.width * 0.75}
                   priority
                   className="object-contain filter grayscale opacity-50 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
-                  style={{ maxWidth: '90%', maxHeight: '90%' }}
+                  style={{ maxWidth: '85%', maxHeight: '85%', objectFit: 'contain' }}
                 />
                 <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-xl transition-all duration-300" />
               </div>

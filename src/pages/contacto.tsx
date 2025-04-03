@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useLanguage } from "@/context/LanguageContext"
+import Loader from '@/components/Loader'
+import { useState, useEffect } from 'react'
 
 // Import motion components dynamically with ssr disabled
 const MotionDiv = dynamic(
@@ -14,6 +16,14 @@ const MotionDiv = dynamic(
 
 export default function ContactoPage() {
   const { language } = useLanguage()
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
 
   const translations = {
     ES: {
@@ -66,6 +76,7 @@ export default function ContactoPage() {
 
   return (
     <>
+      {loading && <Loader />}
       <Navbar />
       
       <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">

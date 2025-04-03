@@ -5,20 +5,29 @@ import { motion } from "framer-motion"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useLanguage } from '@/context/LanguageContext'
+import Loader from '@/components/Loader'
 
 const companyLogos = [
-  { id: 1, src: "/img/Katalva.png", alt: "Katalva" },
-  { id: 2, src: "/img/Katalva.png", alt: "Katalva" },
-  { id: 3, src: "/img/Katalva.png", alt: "Katalva" },
-  { id: 4, src: "/img/Katalva.png", alt: "Katalva" },
-  { id: 5, src: "/img/Katalva.png", alt: "Katalva" },
-  { id: 6, src: "/img/Katalva.png", alt: "Katalva" },
+  { id: 1, src: "/img/KATALVA.png", alt: "Katalva" },
+  { id: 2, src: "/img/NOVOSTI.png", alt: "Novosti" },
+  { id: 3, src: "/img/MAKALA.png", alt: "Makala" },
+  { id: 4, src: "/img/PLAGAS QUINTERO.png", alt: "Plagas Quintero" },
+  { id: 5, src: "/img/LA GATA CR.png", alt: "La Gata CR" },
 ]
 
 export default function TestimoniosPage() {
   const { language } = useLanguage()
   const [isPaused, setIsPaused] = useState(false)
   const [sliderPosition, setSliderPosition] = useState(0)
+  const [loading, setLoading] = useState(true)
+
+  // Add loading state to useEffect
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
 
   const translations = {
     ES: {
@@ -189,6 +198,7 @@ export default function TestimoniosPage() {
 
   return (
     <>
+      {loading && <Loader />}
       <Navbar />
       <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">
         <div className="absolute inset-0 opacity-30">

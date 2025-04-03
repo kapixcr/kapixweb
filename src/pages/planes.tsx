@@ -7,11 +7,22 @@ import ModulesTable from "@/components/ModulesTable"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useLanguage } from "@/context/LanguageContext"
+import Loader from '@/components/Loader'
 
 export default function PlanesPage() {
   const { language } = useLanguage()
   const [mounted, setMounted] = useState(false)
   const [planType, setPlanType] = useState("PERSONAL") // Changed default state
+  const [loading, setLoading] = useState(true)
+
+  // Modify useEffect to include loading
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setMounted(true)
+      setLoading(false)
+    }, 3000)
+  }, [])
 
   // Translations object
   const translations = {
@@ -303,24 +314,14 @@ export default function PlanesPage() {
           t.moreInvoices,
           t.unlimitedBudgets,
           t.unlimitedCreditNotes,
-          t.unlimitedProposals,
+          "100 Propuestas",
           t.moreProjects,
           t.moreTasks,
-          t.unlimitedSupportTickets,
+          "3 Tickets de soporte por mes",
           t.unlimitedProspects,
-          t.unlimitedProducts,
+          "200 Productos",
           t.moreStorage,
-          t.appointments,
-          t.additionalConfig,
-          t.documents,
-          t.emailCanvas,
-          t.objectives,
-          t.stateManagement,
-          t.tableManagement,
-          t.projectKanban,
-          t.projectManagementImprovements,
           t.reminder,
-          t.spreadsheets,
         ]
       }
     } else if (planType === "EMPRESARIAL") {
@@ -381,6 +382,12 @@ export default function PlanesPage() {
     ],
     EMPRESARIAL: [
       {
+        tag: "Personalizado",
+        price: 100,
+        popular: true,  
+        description: translations[language].startingFrom,
+      },
+      {
         tag: "Venus",
         price: 150,
         popular: false,
@@ -397,12 +404,6 @@ export default function PlanesPage() {
         price: 400,
         popular: false,
         description: translations[language].includes,
-      },
-      {
-        tag: "Personalizado",
-        price: 100,
-        popular: true,  
-        description: translations[language].startingFrom,
       },
     ],
   }
@@ -464,6 +465,7 @@ export default function PlanesPage() {
   // Actual content
   return (
     <>
+      {loading && <Loader />}
       <Navbar />
 
       {/* Nueva sección de Hero con el mismo estilo que Sobre Nosotros */}
