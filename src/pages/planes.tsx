@@ -24,7 +24,6 @@ export default function PlanesPage() {
     }, 3000)
   }, [])
 
-  // Translations object
   const translations = {
     ES: {
       ourPlans: "NUESTROS PLANES",
@@ -43,6 +42,8 @@ export default function PlanesPage() {
       planNames: {
         lite: "Lite",
         premium: "Premium",
+        sol: "Sol",
+        mercurio: "Mercurio",
         venus: "Venus",
         tierra: "Tierra",
         marte: "Marte",
@@ -51,9 +52,10 @@ export default function PlanesPage() {
       descriptions: {
         lite: "Comienza Kapix Completamente Gratis",
         premium: "Accede a más módulos y funcionalidades avanzadas",
-        mars: "Nuestro plan marte es un plan pensado para grandes empresas, donde se personalizará de acuerdo a los módulos, usuarios y espacio que se necesite, ofreciendo un ERP completo y ajustado a la necesidad de las empresas",
-        custom:
-          "Arma tu plan por medio de nuestro sistema modular, escoge cuáles módulos necesita tu negocio y arma tu plan personalizado",
+        sol: "Plan ideal para pequeñas empresas que necesitan gestión básica",
+        mercurio: "Solución completa para empresas en crecimiento",
+        mars: "Nuestro plan marte es un plan pensado para grandes empresas...",
+        custom: "Arma tu plan por medio de nuestro sistema modular...",
       },
       features: {
         team: "1 Equipo",
@@ -126,6 +128,8 @@ export default function PlanesPage() {
       planNames: {
         lite: "Lite",
         premium: "Premium",
+        sol: "Sun", 
+        mercurio: "Mercury",
         venus: "Venus",
         tierra: "Earth",
         marte: "Mars",
@@ -134,6 +138,8 @@ export default function PlanesPage() {
       descriptions: {
         lite: "Start Kapix Completely Free",
         premium: "Access more modules and advanced features",
+        sol: "Ideal plan for small businesses that need basic management",
+        mercurio: "Complete solution for growing businesses",
         mars: "Our Mars plan is designed for large companies, where it will be customized according to the modules, users, and space needed, offering a complete ERP adjusted to the needs of companies",
         custom:
           "Build your plan through our modular system, choose which modules your business needs and create your personalized plan",
@@ -248,10 +254,13 @@ export default function PlanesPage() {
   }
 
   // Function to translate plan names
+  // Update the planNameMap in getTranslatedPlanName function
   const getTranslatedPlanName = (originalName: string) => {
     const planNameMap: Record<string, keyof typeof translations.ES.planNames> = {
       Lite: "lite",
       Premium: "premium",
+      Sol: "sol",
+      Mercurio: "mercurio",
       Venus: "venus",
       Tierra: "tierra",
       Marte: "marte",
@@ -259,7 +268,10 @@ export default function PlanesPage() {
     }
 
     const key = planNameMap[originalName]
-    return key ? translations[language].planNames[key] : originalName
+    if (!key) return originalName
+  
+    const planNames = translations[language].planNames
+    return (key in planNames) ? planNames[key as keyof typeof planNames] : originalName
   }
 
   // Update button text based on plan type
@@ -282,9 +294,10 @@ export default function PlanesPage() {
   }
 
   // Define plan features with translations
+  // Update getTranslatedFeatures function to include Sol and Mercurio features
   const getTranslatedFeatures = (planType: string, planTag: string) => {
     const t = translations[language].features
-
+  
     if (planType === "PERSONAL") {
       if (planTag === "Lite" || planTag === translations.EN.planNames.lite) {
         return [
@@ -322,6 +335,36 @@ export default function PlanesPage() {
           "200 Productos",
           t.moreStorage,
           t.reminder,
+        ]
+      } else if (planTag === "Sol" || planTag === translations.EN.planNames.sol) {
+        return [
+          t.crm,
+          t.projects.replace("5 ", ""),
+          t.potentialClients,
+          t.reports,
+          t.sales,
+          "1 " + t.users.replace("7 ", ""),
+          "10 GB " + t.storage.replace("1 GB ", ""),
+          "3 " + t.supportTickets.replace("5 ", ""),
+          t.trainingHours,
+          t.expenses,
+          "5 " + t.documents,
+        ]
+      } else if (planTag === "Mercurio" || planTag === translations.EN.planNames.mercurio) {
+        return [
+          t.crm,
+          t.projects.replace("5 ", ""),
+          t.potentialClients,
+          t.reports,
+          t.sales,
+          t.purchases,
+          t.expenses,
+          t.inventory,
+          "5 " + t.documents,
+          "3 " + t.supportTickets.replace("5 ", ""),
+          "20 GB " + t.storage.replace("1 GB ", ""),
+          "1 " + t.users.replace("7 ", ""),
+          t.trainingHours,
         ]
       }
     } else if (planType === "EMPRESARIAL") {
@@ -378,6 +421,18 @@ export default function PlanesPage() {
         price: 30,
         popular: true,
         description: translations[language].descriptions.premium,
+      },
+      {
+        tag: "Sol",
+        price: 50,
+        popular: false,
+        description: translations[language].descriptions.sol,
+      },
+      {
+        tag: "Mercurio",
+        price: 80,
+        popular: false,
+        description: translations[language].descriptions.mercurio,
       },
     ],
     EMPRESARIAL: [
@@ -539,7 +594,7 @@ export default function PlanesPage() {
                   className={`grid gap-8 sm:gap-8 md:gap-12 lg:gap-16 items-stretch mx-auto ${
                     planType === "EMPRESARIAL"
                       ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]"
-                      : "md:grid-cols-2 max-w-[850px]"
+                      : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]"
                   }`}
                 >
                   {plansData[planType as keyof typeof plansData].map((plan, index: number) => (
@@ -612,6 +667,10 @@ export default function PlanesPage() {
                             ? "https://lite.kapix.co.cr/"
                             : plan.originalTag === "Premium"
                               ? "https://kpixs.com/authentication/register?kx_plan=premium"
+                                : plan.originalTag === "Sol"
+                              ? "https://kpixs.com/authentication/register?kx_plan=sol"
+                              : plan.originalTag === "Mercurio"
+                              ? "https://kpixs.com/authentication/register?kx_plan=mercurio"
                               : plan.originalTag === "Venus"
                                 ? "https://kpixs.com/authentication/register?kx_plan=venus"
                               : plan.originalTag === "Tierra"
