@@ -13,7 +13,7 @@ const teamMembers = {
     },
     {
       name: "Jill Hernández",
-      position: "Desarrollador",
+      position: "Desarrolladora",
       image: "img/JILL HERNANDEZ.jpg"
     },
     {

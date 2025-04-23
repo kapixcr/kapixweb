@@ -7,22 +7,12 @@ import ModulesTable from "@/components/ModulesTable"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useLanguage } from "@/context/LanguageContext"
-import Loader from '@/components/Loader'
 
 export default function PlanesPage() {
   const { language } = useLanguage()
   const [mounted, setMounted] = useState(false)
   const [planType, setPlanType] = useState("PERSONAL") // Changed default state
-  const [loading, setLoading] = useState(true)
 
-  // Modify useEffect to include loading
-  useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      setMounted(true)
-      setLoading(false)
-    }, 3000)
-  }, [])
 
   const translations = {
     ES: {
@@ -520,7 +510,6 @@ export default function PlanesPage() {
   // Actual content
   return (
     <>
-      {loading && <Loader />}
       <Navbar />
 
       {/* Nueva sección de Hero con el mismo estilo que Sobre Nosotros */}

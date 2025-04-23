@@ -8,7 +8,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/context/LanguageContext"
 import { type BlogPost, fetchBlogPosts, formatDate } from "@/lib/api"
-import Loader from '@/components/Loader'
 
 export default function BlogPage() {
   const { language } = useLanguage()
@@ -25,9 +24,7 @@ export default function BlogPage() {
       } catch (error) {
         console.error("Error loading blog posts:", error)
       } finally {
-        setTimeout(() => {
-          setLoading(false)
-        }, 3000) 
+        setLoading(false)
       }
     }
 
@@ -80,7 +77,6 @@ export default function BlogPage() {
 
   return (
     <>
-      {loading && <Loader />}
       <Navbar />
       <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">
         <div className="absolute inset-0 opacity-30">

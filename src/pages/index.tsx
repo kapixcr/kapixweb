@@ -7,7 +7,6 @@ import dynamic from "next/dynamic"
 import Navbar from "@/components/navbar"
 import TypeWriter from "@/components/TypeWriter"
 import { useLanguage } from "@/context/LanguageContext"
-import Loader from '@/components/Loader'
 
 const Footer = dynamic(() => import("@/components/footer"), { ssr: false })
 const TextSlider = dynamic(() => import("@/components/TextSlider"), { ssr: false })
@@ -21,15 +20,6 @@ export default function Home() {
   const { language } = useLanguage()
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 3000) // 3 seconds of loading time
-
-    return () => clearTimeout(timer)
-  }, [])
 
   // Complete translations object with all needed text
   const translations = {
@@ -274,8 +264,6 @@ export default function Home() {
   }
 
   return (
-    <>
-      {isLoading && <Loader />}
     <div className="bg-white">
       {/* Agregar el Navbar */}
       <Navbar />
@@ -670,7 +658,6 @@ export default function Home() {
       {/* Agregar el Footer */}
       <Footer />
     </div>
-    </>
   )
 }
 

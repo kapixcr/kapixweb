@@ -7,7 +7,6 @@ import Footer from "@/components/footer"
 import TeamSection from "@/components/TeamSection"
 import { useLanguage } from '@/context/LanguageContext'
 import { InstagramEmbed } from 'react-social-media-embed'
-import Loader from '@/components/Loader'
 
 const slides = [
 
@@ -91,15 +90,6 @@ export default function SobreNosotros() {
   const t = translations[language]
   const [activeSlide, setActiveSlide] = useState(0)
   const [mounted, setMounted] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 3000)
-
-    return () => clearTimeout(timer)
-  }, [])
 
   useEffect(() => {
     setMounted(true)
@@ -110,8 +100,6 @@ export default function SobreNosotros() {
   }
 
   return (
-    <>
-      {isLoading && <Loader />}
       
       <div className="bg-white">
         <Navbar />
@@ -247,7 +235,6 @@ export default function SobreNosotros() {
 
         <Footer />
       </div>
-    </>
   )
 }
 

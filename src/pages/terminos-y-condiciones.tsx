@@ -4,8 +4,7 @@ import { motion } from "framer-motion"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useLanguage } from "@/context/LanguageContext"
-import { useState, useEffect } from 'react'
-import Loader from '@/components/Loader'
+import { useState } from 'react'
 
 // Helper function to format important text in bold with proper TypeScript typing
 function formatBoldText(text: string): string {
@@ -195,14 +194,7 @@ type Section = {
 export default function TermsAndConditions() {
   const { language } = useLanguage()
   const t = translations[language]
-  const [pageLoading, setPageLoading] = useState(true)
-
-  useEffect(() => {
-    setPageLoading(true)
-    setTimeout(() => {
-      setPageLoading(false)
-    }, 3000)
-  }, [])
+  const [pageLoading] = useState(true)
 
   // Function to create HTML for bullet points and bold text
   const createMarkup = (text: string) => {
@@ -244,7 +236,6 @@ export default function TermsAndConditions() {
 
   return (
     <>
-      {pageLoading && <Loader />}
       <Navbar />
 
       {/* Hero Section */}

@@ -9,7 +9,6 @@ import { ThumbsUp, ThumbsDown, Reply, MoreVertical } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
 import { useSearchParams } from "next/navigation"
 import { type BlogPost, fetchBlogPostById, formatDate, safeParseInt } from "@/lib/api"
-import Loader from '@/components/Loader'
 
 export default function BlogDetailPage() {
   const { language } = useLanguage()
@@ -18,14 +17,7 @@ export default function BlogDetailPage() {
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null)
   const [blogPost, setBlogPost] = useState<BlogPost | null>(null)
   const [loading, setLoading] = useState(true)
-  const [pageLoading, setPageLoading] = useState(true)
 
-  useEffect(() => {
-    setPageLoading(true)
-    setTimeout(() => {
-      setPageLoading(false)
-    }, 3000)
-  }, [])
 
   const searchParams = useSearchParams()
   const postId = safeParseInt(searchParams?.get("id") || null)
@@ -201,7 +193,6 @@ export default function BlogDetailPage() {
 
   return (
     <>
-      {pageLoading && <Loader />}
       <Navbar />
 
       {/* Nueva sección Hero con el mismo estilo que las otras páginas */}

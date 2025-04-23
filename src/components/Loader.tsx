@@ -11,11 +11,19 @@ export default function Loader() {
 
   useEffect(() => {
 
-    const timer = setTimeout(() => {
+    const handleLoad = () => {
       setIsVisible(false)
-    }, 8000) // Increased initial display time
+    }
 
-    return () => clearTimeout(timer)
+    if (document.readyState === 'complete') {
+      setIsVisible(false)
+    } else {
+      window.addEventListener('load', handleLoad)
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad)
+    }
   }, [])
 
   return (
@@ -26,7 +34,7 @@ export default function Loader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ 
-            duration: 8,
+            duration: 0.5,
             ease: [0.22, 1, 0.36, 1]
           }}
         >
