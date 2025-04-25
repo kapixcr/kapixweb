@@ -8,6 +8,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/context/LanguageContext"
 import { type BlogPost, fetchBlogPosts, formatDate } from "@/lib/api"
+import Head from 'next/head'
 
 export default function BlogPage() {
   const { language } = useLanguage()
@@ -77,6 +78,16 @@ export default function BlogPage() {
 
   return (
     <>
+      <Head>
+        <title>{language === 'ES' ? 'Blog | Kapix' : 'Blog | Kapix'}</title>
+        <meta
+          name="description"
+          content={language === 'ES'
+            ? 'Explora nuestro blog para obtener las últimas noticias, consejos y tendencias en tecnología, desarrollo web y soluciones empresariales.'
+            : 'Explore our blog for the latest news, tips, and trends in technology, web development, and business solutions.'
+          }
+        />
+      </Head>
       <Navbar />
       <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">
         <div className="absolute inset-0 opacity-30">

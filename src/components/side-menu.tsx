@@ -4,6 +4,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { useLanguage } from '@/context/LanguageContext'
 import { usePathname } from 'next/navigation'  
+import { useState } from "react"
 
 interface SideMenuProps {
   isOpen: boolean
@@ -23,7 +24,10 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
       blog: "Blog",
       contact: "Contacto",
       contactUs: "CONTÁCTANOS",
-      whatsappMessage: "Hola me gustaría obtener más información sobre tu servicio.🚀"
+      whatsappMessage: "Hola me gustaría obtener más información sobre tu servicio.🚀",
+      services: "Servicios",
+      hosting: "Hosting",
+      system: "Sistema"
     },
     EN: {
       description: "At Kapix ERP, we bet on a future where innovation transforms the way of doing business. Our technological solution is designed to facilitate digital transformation, allowing companies to improve their efficiency and productivity in a simple and effective way.",
@@ -34,7 +38,10 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
       blog: "Blog",
       contact: "Contact",
       contactUs: "CONTACT US",
-      whatsappMessage: "Hello, I would like to get more information about your service.🚀"
+      whatsappMessage: "Hello, I would like to get more information about your service.🚀",
+      services: "Services",
+      hosting: "Hosting",
+      system: "System"
     }
   }
 
@@ -44,12 +51,18 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
   
   const isActive = (path: string) => pathname === path
 
+  const [servicesOpen, setServicesOpen] = useState(false)
+
   return (
     <motion.div
-      className="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl"
+      className="fixed inset-y-0 left-0 z-[9999] w-64 bg-white shadow-xl overflow-y-auto [&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#191e29] [&::-webkit-scrollbar-thumb]:rounded-[20px]"
       initial={{ x: "-100%" }}
       animate={{ x: isOpen ? 0 : "-100%" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        scrollbarWidth: 'thin',
+        scrollbarColor: '#191e29 transparent',
+      }}
     >
       <div className="p-6">
         {/* Logo and close button remain unchanged */}
@@ -96,6 +109,47 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
               {t.about}
             </Link>
           </motion.div>
+          <div>
+            <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
+              <div className="relative">
+                <button 
+                  onClick={() => setServicesOpen(!servicesOpen)} 
+                  className={`px-3 py-2 font-medium ${
+                    isActive('/hosting') || isActive('/sistema') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                  } flex items-center`}
+                >
+                  {t.services}
+                  <i className={`fi fi-rr-angle-small-down text-sm transition-transform ${servicesOpen ? 'rotate-180' : ''} flex items-center`}></i>
+                </button>
+                <motion.div 
+                  className="overflow-hidden"
+                  animate={{ height: servicesOpen ? 'auto' : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="py-2 space-y-2 pl-4">
+                    <Link 
+                      href="/hosting" 
+                      className={`block px-4 py-2 text-sm ${
+                        isActive('/hosting') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
+                      }`}
+                    >
+                      {t.hosting}
+                    </Link>
+                    {/* System link temporarily disabled
+                    <Link 
+                      href="/sistema" 
+                      className={`block px-4 py-2 text-sm ${
+                        isActive('/sistema') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
+                      }`}
+                    >
+                      {t.system}
+                    </Link>
+                    */}
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
             <Link 
               href="/planes" 
@@ -106,18 +160,6 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
               {t.pricing}
             </Link>
           </motion.div>
-          {/* Testimonials link temporarily disabled
-          <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-            <Link 
-              href="/testimonios" 
-              className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
-                isActive('/testimonios') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
-              } transition-colors`}
-            >
-              {t.testimonials}
-            </Link>
-          </motion.div>
-          */}
           <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
             <Link 
               href="/blog" 

@@ -7,6 +7,7 @@ import ModulesTable from "@/components/ModulesTable"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useLanguage } from "@/context/LanguageContext"
+import Head from 'next/head'
 
 export default function PlanesPage() {
   const { language } = useLanguage()
@@ -511,6 +512,16 @@ export default function PlanesPage() {
   return (
     <>
       <Navbar />
+      <Head>
+        <title>{language === 'ES' ? 'Precios | Kapix' : 'Prices | Kapix'}</title>
+        <meta
+          name="description"
+          content={language === 'ES'
+            ? 'Descubre los planes que mejor se adaptan a las necesidades de tu negocio. Ofrecemos soluciones flexibles y escalables para acompañarte en cada etapa de tu crecimiento, con herramientas diseñadas para optimizar tu gestión empresarial.'
+            : 'Discover the plans that best fit your business needs. We offer flexible and scalable solutions to support you at every stage of your growth, with tools designed to optimize your business management.'
+          }
+        />
+      </Head>
 
       {/* Nueva sección de Hero con el mismo estilo que Sobre Nosotros */}
       <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">

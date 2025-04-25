@@ -7,6 +7,7 @@ import Footer from "@/components/footer"
 import TeamSection from "@/components/TeamSection"
 import { useLanguage } from '@/context/LanguageContext'
 import { InstagramEmbed } from 'react-social-media-embed'
+import Head from 'next/head'
 
 const slides = [
 
@@ -100,9 +101,18 @@ export default function SobreNosotros() {
   }
 
   return (
-      
-      <div className="bg-white">
-        <Navbar />
+    <div className="bg-white">
+      <Head>
+        <title>{language === 'ES' ? 'Sobre Nosotros | Kapix' : 'About Us | Kapix'}</title>
+        <meta
+          name="description"
+          content={language === 'ES'
+            ? 'Conoce más sobre Kapix, nuestra misión, visión y el equipo detrás de nuestras soluciones tecnológicas innovadoras.'
+            : 'Learn more about Kapix, our mission, vision, and the team behind our innovative technological solutions.'
+          }
+        />
+      </Head>
+      <Navbar />
         
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">

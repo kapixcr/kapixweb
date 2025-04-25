@@ -20,6 +20,7 @@ export default function MainNavigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [sideMenuOpen, setSideMenuOpen] = useState(false)
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false)
+  const [servicesMenuOpen, setServicesMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -53,7 +54,10 @@ export default function MainNavigation() {
       pricing: "Precio",
       testimonials: "Testimonios",
       blog: "Blog",
-      contact: "Contacto"
+      contact: "Contacto",
+      services: "Servicios",
+      hosting: "Hosting",
+      system: "Sistema"
     },
     EN: {
       home: "Home",
@@ -61,7 +65,10 @@ export default function MainNavigation() {
       pricing: "Pricing",
       testimonials: "Testimonials",
       blog: "Blog",
-      contact: "Contact"
+      contact: "Contact",
+      services: "Services",
+      hosting: "Hosting",
+      system: "System"
     }
   }
 
@@ -102,6 +109,51 @@ export default function MainNavigation() {
               >
                 {navigationLinks[language].about}
               </Link>
+              
+              {/* Nuevo dropdown de Servicios */}
+              <div className="relative">
+                <button 
+                  onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
+                  className={`px-3 py-2 font-medium ${
+                    isActive('/hosting') || isActive('/sistema') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                  } flex items-center`}
+                >
+                  {navigationLinks[language].services}
+                  <i className={`fi fi-rr-angle-small-down ml-1 text-sm transition-transform ${servicesMenuOpen ? 'rotate-180' : ''} flex items-center`}></i>
+                </button>
+                <AnimatePresence>
+                  {servicesMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg z-50"
+                    >
+                      <div className="py-2">
+                        <Link 
+                          href="/hosting" 
+                          className={`block px-4 py-2 text-sm ${
+                            isActive('/hosting') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
+                          }`}
+                        >
+                          {navigationLinks[language].hosting}
+                        </Link>
+                        {/* System link temporarily disabled
+                        <Link 
+                          href="/sistema" 
+                          className={`block px-4 py-2 text-sm ${
+                            isActive('/sistema') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
+                          }`}
+                        >
+                          {navigationLinks[language].system}
+                        </Link>
+                        */}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
               <Link 
                 href="/planes" 
                 className={`px-3 py-2 font-medium ${
@@ -210,4 +262,3 @@ export default function MainNavigation() {
     </div>
   )
 }
-

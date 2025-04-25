@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useLanguage } from "@/context/LanguageContext"
+import Head from 'next/head'
 
 // Import motion components dynamically with ssr disabled
 const MotionDiv = dynamic(
@@ -67,6 +68,16 @@ export default function ContactoPage() {
   return (
     <>
       <Navbar />
+      <Head>
+        <title>{language === 'ES' ? 'Contacto | Kapix' : 'Contact | Kapix'}</title>
+        <meta
+          name="description"
+          content={language === 'ES'
+            ? 'Comunícate con nuestro equipo para recibir atención personalizada, soporte o información sobre nuestros servicios. Estamos disponibles para ayudarte de forma rápida y eficiente.'
+            : 'Contact our team for personalized attention, support, or information about our services. We are available to help you quickly and efficiently.'
+          }
+        />
+      </Head>
       
       <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">
         <div className="absolute inset-0 opacity-30">

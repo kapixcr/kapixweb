@@ -9,6 +9,7 @@ import { ThumbsUp, ThumbsDown, Reply, MoreVertical } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
 import { useSearchParams } from "next/navigation"
 import { type BlogPost, fetchBlogPostById, formatDate, safeParseInt } from "@/lib/api"
+import Head from 'next/head'
 
 export default function BlogDetailPage() {
   const { language } = useLanguage()
@@ -193,6 +194,16 @@ export default function BlogDetailPage() {
 
   return (
     <>
+      <Head>
+        <title>{language === 'ES' ? 'Detalles del Blog | Kapix' : 'Blog Details | Kapix'}</title>
+        <meta
+          name="description"
+          content={language === 'ES'
+            ? 'Explora nuestro blog para obtener las últimas noticias, consejos y tendencias en tecnología, desarrollo web y soluciones empresariales.'
+            : 'Explore our blog for the latest news, tips, and trends in technology, web development, and business solutions.'
+          }
+        />
+      </Head>
       <Navbar />
 
       {/* Nueva sección Hero con el mismo estilo que las otras páginas */}

@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useLanguage } from "@/context/LanguageContext"
 import { useState } from 'react'
+import Head from 'next/head'
 
 // Helper function to format important text in bold with proper TypeScript typing
 function formatBoldText(text: string): string {
@@ -237,6 +238,16 @@ export default function TermsAndConditions() {
   return (
     <>
       <Navbar />
+      <Head>
+        <title>{language === 'ES' ? 'Detalles del Blog | Kapix' : 'Blog Details | Kapix'}</title>
+        <meta
+          name="description"
+          content={language === 'ES'
+            ? 'Aquí se detallan los términos y condiciones que rigen el uso de este sitio web. Al navegar en esta plataforma, aceptas las disposiciones legales que aseguran un uso responsable, transparente y seguro del contenido y los servicios ofrecidos.'
+            : 'The terms and conditions governing the use of this website are detailed here. By browsing this platform, you accept the legal provisions that ensure responsible, transparent, and safe use of the content and services offered.'
+          }
+        />
+      </Head>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">

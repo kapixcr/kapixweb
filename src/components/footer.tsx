@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from '@/context/LanguageContext'
 import { usePathname } from 'next/navigation'  
+import { useState } from "react"
 
 const translations = {
   ES: {
@@ -21,7 +22,10 @@ const translations = {
       pricing: "Precio",
       testimonials: "Testimonios",
       blog: "Blog",
-      contact: "Contacto"
+      contact: "Contacto",
+      services: "Servicios",
+      hosting: "Hosting",
+      system: "Sistema"
     },
     quickLinks: "Enlaces Rápidos",
     newsletter: {
@@ -46,7 +50,10 @@ const translations = {
       pricing: "Pricing",
       testimonials: "Testimonials",
       blog: "Blog",
-      contact: "Contact"
+      contact: "Contact",
+      services: "Services",
+      hosting: "Hosting",
+      system: "System"
     },
     quickLinks: "Quick Links",
     newsletter: {
@@ -66,9 +73,10 @@ export default function Footer() {
   const pathname = usePathname()  // Add this
 
   const isActive = (path: string) => pathname === path
+  const [servicesOpen, setServicesOpen] = useState(false)
 
   return (
-    <footer className="w-full bg-white/70 border-t border-gray-200/50 shadow-sm z-50">
+    <footer className="w-full bg-white/70 border-t border-gray-200/50 shadow-sm z-30">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap md:flex-nowrap justify-between items-start py-8 gap-8">
           {/* Logo and Contact Info */}
@@ -135,6 +143,45 @@ export default function Footer() {
                 >
                   {t.menuItems.aboutUs}
                 </Link>
+              </li>
+              <li>
+                <div className="relative">
+                  <button 
+                    onClick={() => setServicesOpen(!servicesOpen)} 
+                    className={`px-3 py-2 font-medium ${
+                      isActive('/hosting') || isActive('/sistema') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                    } flex items-center`}
+                  >
+                    {t.menuItems.services}
+                    <i className={`fi fi-rr-angle-small-down text-sm transition-transform ${servicesOpen ? 'rotate-180' : ''} flex items-center`}></i>
+                  </button>
+                  <motion.div 
+                    className="overflow-hidden"
+                    animate={{ height: servicesOpen ? 'auto' : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="mt-2 space-y-2 pl-4">
+                      <Link 
+                        href="/hosting" 
+                        className={`block px-4 py-2 text-sm ${
+                          isActive('/hosting') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
+                        }`}
+                      >
+                        {t.menuItems.hosting}
+                      </Link>
+                      {/* System link temporarily disabled
+                      <Link 
+                        href="/sistema" 
+                        className={`block px-4 py-2 text-sm ${
+                          isActive('/sistema') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
+                        }`}
+                      >
+                        {t.menuItems.system}
+                      </Link>
+                      */}
+                    </div>
+                  </motion.div>
+                </div>
               </li>
               <li>
                 <Link 

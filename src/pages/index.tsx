@@ -7,6 +7,7 @@ import dynamic from "next/dynamic"
 import Navbar from "@/components/navbar"
 import TypeWriter from "@/components/TypeWriter"
 import { useLanguage } from "@/context/LanguageContext"
+import Head from 'next/head'
 
 const Footer = dynamic(() => import("@/components/footer"), { ssr: false })
 const TextSlider = dynamic(() => import("@/components/TextSlider"), { ssr: false })
@@ -266,6 +267,16 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* Agregar el Navbar */}
+      <Head>
+        <title>{language === 'ES' ? 'Inicio | Kapix' : 'Home | Kapix'}</title>
+        <meta
+          name="description"
+          content={language === 'ES'
+            ? 'Kapix ofrece soluciones tecnológicas innovadoras para empresas. Desarrollo web, sistemas personalizados y servicios de hosting de alta calidad.'
+            : 'Kapix offers innovative technology solutions for businesses. Web development, custom systems, and high-quality hosting services.'
+          }
+        />
+      </Head>
       <Navbar />
       <section className="container mx-auto px-4 py-12 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -406,7 +417,7 @@ export default function Home() {
                     repeatType: "reverse",
                     delay: 0.5,
                   }}
-                  className="bg-white/90 backdrop-blur-sm rounded-lg shadow-md p-2 sm:p-3 w-fit self-end"
+                  className="bg-white/90 backdrop-blur-sm rounded-lg shadow-md p-2 sm:p-3 w-fit self-end mb-3"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#01c38d]/10 flex items-center justify-center">

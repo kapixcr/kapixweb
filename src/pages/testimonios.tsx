@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { useLanguage } from '@/context/LanguageContext'
+import Head from 'next/head'
 
 const companyLogos = [
   { id: 1, src: "/img/KATALVA.png", alt: "Katalva" },
@@ -189,6 +190,16 @@ export default function TestimoniosPage() {
 
   return (
     <>
+      <Head>
+        <title>{language === 'ES' ? 'Testimonios | Kapix' : 'Testimonials | Kapix'}</title>
+        <meta
+          name="description"
+          content={language === 'ES'
+            ? 'Descubre lo que nuestros clientes dicen sobre nuestros servicios. Testimonios reales de empresas que han transformado su negocio con Kapix.'
+            : 'Discover what our clients say about our services. Real testimonials from businesses that have transformed with Kapix.'
+          }
+        />
+      </Head>
       <Navbar />
       <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">
         <div className="absolute inset-0 opacity-30">
