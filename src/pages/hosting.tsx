@@ -615,7 +615,7 @@ export default function HostingPage() {
 
               <div className="flex items-center text-[#01c38d]">
                 <div className="flex items-center justify-center h-6 w-6 mr-2">
-                  <i className="fi fi-rr-server text-lg leading-none"></i>
+                  <i className="fi fi-rr-database text-lg leading-none"></i>
                 </div>
                 <span className="font-medium leading-none">{translations[language].price}</span>
               </div>
