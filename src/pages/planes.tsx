@@ -605,7 +605,7 @@ export default function PlanesPage() {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className={`relative rounded-3xl p-6 sm:p-8 h-full flex flex-col ${
                         plan.popular
-                          ? "bg-[#191e29] text-white transform scale-105 z-10 shadow-[0_20px_40px_rgb(0,0,0,0.2)] hover:shadow-[0_25px_45px_rgb(0,0,0,0.25)]"
+                          ? "relative rounded-3xl p-8 bg-[#191e29] text-white shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full max-w-full"
                           : "bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
                       } transition-all`}
                     >

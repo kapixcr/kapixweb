@@ -515,7 +515,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative rounded-3xl p-8 h-full flex flex-col bg-[#191e29] text-white transform scale-105 z-10 shadow-[0_20px_40px_rgb(0,0,0,0.2)] hover:shadow-[0_25px_45px_rgb(0,0,0,0.25)] transition-shadow"
+              className="relative rounded-3xl p-8 bg-[#191e29] text-white shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full max-w-full"
             >
               {/* Premium Plan Content */}
               {/* Logo y título en la izquierda */}
