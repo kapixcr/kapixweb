@@ -114,12 +114,12 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
               <div className="relative">
                 <button 
                   onClick={() => setServicesOpen(!servicesOpen)} 
-                  className={`px-3 py-2 font-medium ${
+                  className={`font-medium text-lg border-b border-gray-100 pb-2 w-full text-left flex items-center justify-between ${
                     isActive('/hosting') || isActive('/sistema') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
-                  } flex items-center`}
+                  } transition-colors`}
                 >
                   {t.services}
-                  <i className={`fi fi-rr-angle-small-down text-sm transition-transform ${servicesOpen ? 'rotate-180' : ''} flex items-center`}></i>
+                  <i className={`fi fi-rr-angle-small-down text-sm transition-transform ${servicesOpen ? 'rotate-180' : ''} flex items-center ml-1`}></i>
                 </button>
                 <motion.div 
                   className="overflow-hidden"

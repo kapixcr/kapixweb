@@ -148,12 +148,12 @@ export default function Footer() {
                 <div className="relative">
                   <button 
                     onClick={() => setServicesOpen(!servicesOpen)} 
-                    className={`px-3 py-2 font-medium ${
-                      isActive('/hosting') || isActive('/sistema') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
-                    } flex items-center`}
+                    className={`text-sm ${
+                      isActive('/hosting') || isActive('/sistema') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                    } transition-colors flex items-center gap-1`}
                   >
                     {t.menuItems.services}
-                    <i className={`fi fi-rr-angle-small-down text-sm transition-transform ${servicesOpen ? 'rotate-180' : ''} flex items-center`}></i>
+                    <i className={`fi fi-rr-angle-small-down text-xs transition-transform ${servicesOpen ? 'rotate-180' : ''}`}></i>
                   </button>
                   <motion.div 
                     className="overflow-hidden"
@@ -163,18 +163,18 @@ export default function Footer() {
                     <div className="mt-2 space-y-2 pl-4">
                       <Link 
                         href="/hosting" 
-                        className={`block px-4 py-2 text-sm ${
-                          isActive('/hosting') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
-                        }`}
+                        className={`block text-sm ${
+                          isActive('/hosting') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                        } transition-colors`}
                       >
                         {t.menuItems.hosting}
                       </Link>
                       {/* System link temporarily disabled
                       <Link 
                         href="/sistema" 
-                        className={`block px-4 py-2 text-sm ${
-                          isActive('/sistema') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
-                        }`}
+                        className={`block text-sm ${
+                          isActive('/sistema') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                        } transition-colors`}
                       >
                         {t.menuItems.system}
                       </Link>
