@@ -33,19 +33,21 @@ export default function PlanesPage() {
       planNames: {
         lite: "Lite",
         premium: "Premium",
-        sol: "Sol",
-        mercurio: "Mercurio",
-        venus: "Venus",
-        tierra: "Tierra",
-        marte: "Marte",
+        nexus: "NEXUS",
+        vibe: "VIBE",
+        craft: "CRAFT",
+        hub: "HUB",
+        zone: "ZONE",
         personalizado: "Personalizado",
       },
       descriptions: {
         lite: "Comienza Kapix Completamente Gratis",
         premium: "Accede a más módulos y funcionalidades avanzadas",
-        sol: "Plan ideal para pequeñas empresas que necesitan gestión básica",
-        mercurio: "Solución completa para empresas en crecimiento",
-        mars: "Nuestro plan marte es un plan pensado para grandes empresas...",
+        nexus: "Plan básico para gestión de clientes y ventas",
+        vibe: "Solución completa con panel de cliente",
+        craft: "Plan completo para gestión empresarial",
+        hub: "Solución integral con punto de venta e inventario",
+        zone: "Plan avanzado para gestión de proyectos y ventas",
         custom: "Arma tu plan por medio de nuestro sistema modular...",
       },
       features: {
@@ -91,15 +93,43 @@ export default function PlanesPage() {
         potentialClients: "Clientes Potenciales",
         reports: "Informes",
         appointmentsOrAccounting: "Citas o Contabilidad",
+        accounting: "Contabilidad",
         sales: "Ventas",
         purchases: "Compras",
         inventory: "Inventario",
         pointOfSale: "Punto de Venta",
         users: "7 usuarios",
+        oneUser: "1 usuario",
+        threeUsers: "3 usuarios",
         storageGigas: "50 gigas de almacenamiento",
-        moreStorageGigas: "100 gigas de almacenamiento",
+        moreStorageGigas: "75 gigas de almacenamiento",
+        smallStorage: "10 gigas de almacenamiento",
+        mediumStorage: "30 gigas de almacenamiento",
         supportTickets: "5 tickets de soporte al mes",
-        trainingHours: "Horas de capacitación",
+        fewerSupportTickets: "3 tickets de soporte al mes",
+        trainingHours: "Horas de capacitación iniciales",
+        clientPanel: "Panel Cliente",
+        // Nuevas traducciones para planes específicos
+        nexusFeatures: {
+          title: "Plan básico para gestión de clientes y ventas",
+          description: "Ideal para pequeñas empresas que necesitan gestionar clientes y ventas de manera eficiente"
+        },
+        vibeFeatures: {
+          title: "Solución completa con panel de cliente",
+          description: "Perfecto para empresas que necesitan ofrecer un portal a sus clientes"
+        },
+        craftFeatures: {
+          title: "Plan completo para gestión empresarial",
+          description: "Solución integral para la gestión de proyectos y tareas empresariales"
+        },
+        hubFeatures: {
+          title: "Solución integral con punto de venta e inventario",
+          description: "Ideal para negocios con ventas físicas que necesitan control de inventario"
+        },
+        zoneFeatures: {
+          title: "Plan avanzado para gestión de proyectos y ventas",
+          description: "Para empresas que requieren gestión avanzada de proyectos y ventas"
+        }
       },
     },
     EN: {
@@ -119,21 +149,22 @@ export default function PlanesPage() {
       planNames: {
         lite: "Lite",
         premium: "Premium",
-        sol: "Sun", 
-        mercurio: "Mercury",
-        venus: "Venus",
-        tierra: "Earth",
-        marte: "Mars",
+        nexus: "NEXUS",
+        vibe: "VIBE",
+        craft: "CRAFT",
+        hub: "HUB",
+        zone: "ZONE",
         personalizado: "Custom",
       },
       descriptions: {
         lite: "Start Kapix Completely Free",
         premium: "Access more modules and advanced features",
-        sol: "Ideal plan for small businesses that need basic management",
-        mercurio: "Complete solution for growing businesses",
-        mars: "Our Mars plan is designed for large companies, where it will be customized according to the modules, users, and space needed, offering a complete ERP adjusted to the needs of companies",
-        custom:
-          "Build your plan through our modular system, choose which modules your business needs and create your personalized plan",
+        nexus: "Basic plan for client and sales management",
+        vibe: "Complete solution with client panel",
+        craft: "Complete plan for business management",
+        hub: "Comprehensive solution with point of sale and inventory",
+        zone: "Advanced plan for project and sales management",
+        custom: "Build your plan through our modular system, choose which modules your business needs and create your personalized plan",
       },
       features: {
         team: "1 Team",
@@ -178,15 +209,43 @@ export default function PlanesPage() {
         potentialClients: "Potential Clients",
         reports: "Reports",
         appointmentsOrAccounting: "Appointments or Accounting",
+        accounting: "Accounting",
         sales: "Sales",
         purchases: "Purchases",
         inventory: "Inventory",
         pointOfSale: "Point of Sale",
         users: "7 users",
+        oneUser: "1 user",
+        threeUsers: "3 users",
         storageGigas: "50 GB storage",
-        moreStorageGigas: "100 GB storage",
+        moreStorageGigas: "75 GB storage",
+        smallStorage: "10 GB storage",
+        mediumStorage: "30 GB storage",
         supportTickets: "5 support tickets per month",
-        trainingHours: "Training hours",
+        fewerSupportTickets: "3 support tickets per month",
+        trainingHours: "Initial training hours",
+        clientPanel: "Client Panel",
+        // New translations for specific plans
+        nexusFeatures: {
+          title: "Basic plan for client and sales management",
+          description: "Ideal for small businesses that need to efficiently manage clients and sales"
+        },
+        vibeFeatures: {
+          title: "Complete solution with client panel",
+          description: "Perfect for businesses that need to offer a portal to their clients"
+        },
+        craftFeatures: {
+          title: "Complete plan for business management",
+          description: "Comprehensive solution for business project and task management"
+        },
+        hubFeatures: {
+          title: "Comprehensive solution with point of sale and inventory",
+          description: "Ideal for businesses with physical sales that need inventory control"
+        },
+        zoneFeatures: {
+          title: "Advanced plan for project and sales management",
+          description: "For businesses requiring advanced project and sales management"
+        }
       },
     },
   }
@@ -239,6 +298,11 @@ export default function PlanesPage() {
     if (normalizedFeature.includes("sin limite") || normalizedFeature.includes("unlimited")) return "fi fi-rr-infinity"
     if (normalizedFeature.includes("capacitacion") || normalizedFeature.includes("training"))
       return "fi fi-rr-time-forward"
+    if (normalizedFeature.includes("panel")) return "fi fi-rr-dashboard"
+    if (normalizedFeature.includes("contabilidad") || normalizedFeature.includes("accounting"))
+      return "fi fi-rr-calculator"
+    if (normalizedFeature.includes("pos") || normalizedFeature.includes("punto de venta"))
+      return "fi fi-rr-shop"
 
     // Default icon for unmatched features
     return "fi fi-rr-check"
@@ -250,11 +314,11 @@ export default function PlanesPage() {
     const planNameMap: Record<string, keyof typeof translations.ES.planNames> = {
       Lite: "lite",
       Premium: "premium",
-      Sol: "sol",
-      Mercurio: "mercurio",
-      Venus: "venus",
-      Tierra: "tierra",
-      Marte: "marte",
+      NEXUS: "nexus",
+      VIBE: "vibe",
+      CRAFT: "craft",
+      HUB: "hub",
+      ZONE: "zone",
       Personalizado: "personalizado",
     }
 
@@ -272,9 +336,11 @@ export default function PlanesPage() {
     switch (originalTag) {
       case "Lite":
         return translations[language].startFree
-      case "Venus":
-      case "Tierra":
-      case "Marte":
+      case "NEXUS":
+      case "VIBE":
+      case "CRAFT":
+      case "HUB":
+      case "ZONE":
       case "Premium":
         return translations[language].startNow
       case "Personalizado":
@@ -285,7 +351,7 @@ export default function PlanesPage() {
   }
 
   // Define plan features with translations
-  // Update getTranslatedFeatures function to include Sol and Mercurio features
+  // Update getTranslatedFeatures function to include new plans
   const getTranslatedFeatures = (planType: string, planTag: string) => {
     const t = translations[language].features
   
@@ -327,69 +393,70 @@ export default function PlanesPage() {
           t.moreStorage,
           t.reminder,
         ]
-      } else if (planTag === "Sol" || planTag === translations.EN.planNames.sol) {
+      } else if (planTag === "NEXUS" || planTag === translations.EN.planNames.nexus) {
         return [
-          t.crm,
-          t.projects.replace("5 ", ""),
-          t.potentialClients,
-          t.reports,
+          language === "ES" ? "Clientes" : "Clients",
           t.sales,
-          "1 " + t.users.replace("7 ", ""),
-          "10 GB " + t.storage.replace("1 GB ", ""),
-          "3 " + t.supportTickets.replace("5 ", ""),
+          t.appointments,
+          t.oneUser,
+          t.fewerSupportTickets,
           t.trainingHours,
-          t.expenses,
-          "5 " + t.documents,
+          t.smallStorage,
         ]
-      } else if (planTag === "Mercurio" || planTag === translations.EN.planNames.mercurio) {
+      } else if (planTag === "VIBE" || planTag === translations.EN.planNames.vibe) {
         return [
-          t.crm,
-          t.projects.replace("5 ", ""),
-          t.potentialClients,
-          t.reports,
+          language === "ES" ? "Clientes" : "Clients",
           t.sales,
-          t.purchases,
-          t.expenses,
-          t.inventory,
-          "5 " + t.documents,
-          "3 " + t.supportTickets.replace("5 ", ""),
-          "20 GB " + t.storage.replace("1 GB ", ""),
-          "1 " + t.users.replace("7 ", ""),
+          t.appointments,
+          t.clientPanel,
+          t.threeUsers,
+          t.fewerSupportTickets,
+          t.mediumStorage,
           t.trainingHours,
         ]
       }
     } else if (planType === "EMPRESARIAL") {
-      if (planTag === "Venus" || planTag === translations.EN.planNames.venus) {
+      if (planTag === "CRAFT" || planTag === translations.EN.planNames.craft) {
         return [
-          t.projects.replace("5 ", ""),
+          language === "ES" ? "Proyectos" : "Projects",
+          language === "ES" ? "Tareas" : "Tasks",
+          language === "ES" ? "Clientes" : "Clients",
           t.potentialClients,
-          t.reports,
-          t.appointmentsOrAccounting,
-          t.sales,
+          t.accounting,
           t.purchases,
+          t.sales,
           t.users,
           t.storageGigas,
           t.supportTickets,
           t.trainingHours,
         ]
-      } else if (planTag === "Tierra" || planTag === translations.EN.planNames.tierra) {
+      } else if (planTag === "HUB" || planTag === translations.EN.planNames.hub) {
         return [
-          t.crm,
-          t.projects.replace("5 ", ""), 
-          t.potentialClients,
-          t.reports,
-          t.appointmentsOrAccounting,
+          language === "ES" ? "Clientes" : "Clients",
           t.sales,
-          t.purchases,
-          t.inventory,
+          t.accounting,
           t.pointOfSale,
+          t.inventory,
           t.users,
+          t.purchases,
           t.moreStorageGigas,
           t.supportTickets,
           t.trainingHours,
         ]
-      } else if (planTag === "Marte" || planTag === translations.EN.planNames.marte) {
-        return [translations[language].descriptions.mars]
+      } else if (planTag === "ZONE" || planTag === translations.EN.planNames.zone) {
+        return [
+          language === "ES" ? "Proyectos" : "Projects",
+          language === "ES" ? "Tareas" : "Tasks",
+          language === "ES" ? "Clientes" : "Clients",
+          t.potentialClients,
+          t.accounting,
+          t.purchases,
+          t.sales,
+          t.users,
+          t.storageGigas,
+          t.supportTickets,
+          t.trainingHours,
+        ]
       } else if (planTag === "Personalizado" || planTag === translations.EN.planNames.personalizado) {
         return [translations[language].descriptions.custom]
       }
@@ -414,16 +481,16 @@ export default function PlanesPage() {
         description: translations[language].descriptions.premium,
       },
       {
-        tag: "Sol",
+        tag: "NEXUS",
         price: 50,
         popular: false,
-        description: translations[language].descriptions.sol,
+        description: translations[language].descriptions.nexus,
       },
       {
-        tag: "Mercurio",
-        price: 80,
+        tag: "VIBE",
+        price: 100,
         popular: false,
-        description: translations[language].descriptions.mercurio,
+        description: translations[language].descriptions.vibe,
       },
     ],
     EMPRESARIAL: [
@@ -434,20 +501,20 @@ export default function PlanesPage() {
         description: translations[language].startingFrom,
       },
       {
-        tag: "Venus",
+        tag: "CRAFT",
         price: 150,
         popular: false,
         description: translations[language].includes,
       },
       {
-        tag: "Tierra",
+        tag: "HUB",
         price: 200,
         popular: true,
         description: translations[language].includes,
       },
       {
-        tag: "Marte",
-        price: 400,
+        tag: "ZONE",
+        price: 150,
         popular: false,
         description: translations[language].includes,
       },
@@ -667,19 +734,19 @@ export default function PlanesPage() {
                             ? "https://lite.kapix.co.cr/"
                             : plan.originalTag === "Premium"
                               ? "https://kpixs.com/authentication/register?kx_plan=premium"
-                                : plan.originalTag === "Sol"
-                              ? "https://kpixs.com/authentication/register?kx_plan=sol"
-                              : plan.originalTag === "Mercurio"
-                              ? "https://kpixs.com/authentication/register?kx_plan=mercurio"
-                              : plan.originalTag === "Venus"
-                                ? "https://kpixs.com/authentication/register?kx_plan=venus"
-                              : plan.originalTag === "Tierra"
-                                ? "https://kpixs.com/authentication/register?kx_plan=tierra"
-                                : plan.originalTag === "Marte"
-                                  ? "https://kpixs.com/authentication/register?kx_plan=marte"
-                                  : plan.originalTag === "Personalizado"
-                                    ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
-                                    : "https://kpixs.com/authentication/register?kx_plan"
+                              : plan.originalTag === "NEXUS"
+                                ? "https://kpixs.com/authentication/register?kx_plan=sol"
+                                : plan.originalTag === "VIBE"
+                                  ? "https://kpixs.com/authentication/register?kx_plan=vibe"
+                                  : plan.originalTag === "CRAFT"
+                                    ? "https://kpixs.com/authentication/register?kx_plan=venus"
+                                    : plan.originalTag === "HUB"
+                                      ? "https://kpixs.com/authentication/register?kx_plan=tierra"
+                                      : plan.originalTag === "ZONE"
+                                        ? "https://kpixs.com/authentication/register?kx_plan=zone"
+                                        : plan.originalTag === "Personalizado"
+                                          ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
+                                          : "https://kpixs.com/authentication/register?kx_plan"
                         }
                         target="_blank"
                         className={`w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all ${

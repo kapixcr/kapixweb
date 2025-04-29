@@ -13,7 +13,7 @@ export default function ModulesTable() {
       modules: "Módulos",
       free: "Gratis",
       month: "/mes",
-      earth: "Tierra",
+      earth: "HUB",
       // Add these new translations
       tableHeader: {
         label: "Tabla Comparativa",
@@ -26,7 +26,7 @@ export default function ModulesTable() {
       modules: "Modules",
       free: "Free",
       month: "/month",
-      earth: "Earth",
+      earth: "HUB",
       // Add these new translations
       tableHeader: {
         label: "Comparison Table",
@@ -39,21 +39,21 @@ export default function ModulesTable() {
   const features = {
     ES: [
       { name: "Equipo", lite: "1", premium: "1", tierra: "7" },
-      { name: "Clientes", lite: "50", premium: "100", tierra: false },
+      { name: "Clientes", lite: "50", premium: "100", tierra: true },
       { name: "Contactos", lite: "50", premium: "Sin límites", tierra: false },
       { name: "Contratos", lite: "30", premium: "50", tierra: false },
       { name: "Facturas", lite: "100", premium: "200", tierra: false },
       { name: "Presupuestos", lite: false, premium: "Sin límites", tierra: false },
       { name: "Notas de Crédito", lite: "100", premium: "Sin límites", tierra: false },
       { name: "Propuestas", lite: "Sin límites", premium: "100", tierra: false },
-      { name: "Proyectos", lite: "5", premium: "20", tierra: true },
+      { name: "Proyectos", lite: "5", premium: "20", tierra: false },
       { name: "Tareas", lite: "100", premium: "200", tierra: false },
       { name: "Tickets de Soporte", lite: false, premium: "3", tierra: "5" },
-      { name: "Clientes potenciales", lite: "Sin límites", premium: "Sin límites", tierra: true },
+      { name: "Clientes potenciales", lite: "Sin límites", premium: "Sin límites", tierra: false },
       { name: "Productos", lite: "30", premium: "200", tierra: false },
-      { name: "Almacenamiento", lite: "1GB", premium: "10GB", tierra: "100GB" },
-      { name: "CRM", lite: false, premium: false, tierra: true },
-      { name: "Citas o Contabilidad", lite: false, premium: false, tierra: true },
+      { name: "Almacenamiento", lite: "1GB", premium: "10GB", tierra: "75GB" },
+      { name: "CRM", lite: false, premium: false, tierra: false },
+      { name: "Contabilidad", lite: false, premium: false, tierra: true },
       { name: "Ventas", lite: false, premium: false, tierra: true },
       { name: "Compras", lite: false, premium: false, tierra: true },
       { name: "Inventario", lite: false, premium: false, tierra: true },
@@ -63,25 +63,25 @@ export default function ModulesTable() {
       { name: "Gastos", lite: true, premium: false, tierra: false },
       { name: "Pagos", lite: true, premium: false, tierra: false },
       { name: "Horas de capacitación", lite: false, premium: false, tierra: true },
-      { name: "Informes", lite: false, premium: false, tierra: true }
+      { name: "Informes", lite: false, premium: false, tierra: false }
     ],
     EN: [
       { name: "Team", lite: "1", premium: "1", tierra: "7" },
-      { name: "Clients", lite: "50", premium: "100", tierra: false },
+      { name: "Clients", lite: "50", premium: "100", tierra: true },
       { name: "Contacts", lite: "50", premium: "Unlimited", tierra: false },
       { name: "Contracts", lite: "30", premium: "50", tierra: false },
       { name: "Invoices", lite: "100", premium: "200", tierra: false },
       { name: "Budgets", lite: false, premium: "Unlimited", tierra: false },
       { name: "Credit Notes", lite: "100", premium: "Unlimited", tierra: false },
       { name: "Proposals", lite: "Unlimited", premium: "100", tierra: false },
-      { name: "Projects", lite: "5", premium: "20", tierra: true },
+      { name: "Projects", lite: "5", premium: "20", tierra: false },
       { name: "Tasks", lite: "100", premium: "200", tierra: false },
       { name: "Support Tickets", lite: false, premium: "3", tierra: "5" },
-      { name: "Leads", lite: "Unlimited", premium: "Unlimited", tierra: true },
+      { name: "Leads", lite: "Unlimited", premium: "Unlimited", tierra: false },
       { name: "Products", lite: "30", premium: "200", tierra: false },
-      { name: "Storage", lite: "1GB", premium: "10GB", tierra: "100GB" },
-      { name: "CRM", lite: false, premium: false, tierra: true },
-      { name: "Appointments or Accounting", lite: false, premium: false, tierra: true },
+      { name: "Storage", lite: "1GB", premium: "10GB", tierra: "75GB" },
+      { name: "CRM", lite: false, premium: false, tierra: false },
+      { name: "Accounting", lite: false, premium: false, tierra: true },
       { name: "Sales", lite: false, premium: false, tierra: true },
       { name: "Purchases", lite: false, premium: false, tierra: true },
       { name: "Inventory", lite: false, premium: false, tierra: true },
@@ -91,7 +91,7 @@ export default function ModulesTable() {
       { name: "Expenses", lite: true, premium: false, tierra: false },
       { name: "Payments", lite: true, premium: false, tierra: false },
       { name: "Training hours", lite: false, premium: false, tierra: true },
-      { name: "Reports", lite: false, premium: false, tierra: true }
+      { name: "Reports", lite: false, premium: false, tierra: false }
     ]
   }
 
