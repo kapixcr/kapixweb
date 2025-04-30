@@ -135,7 +135,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                     >
                       {t.hosting}
                     </Link>
-                    {/* System link temporarily disabled
+                    
                     <Link 
                       href="/sistema" 
                       className={`block px-4 py-2 text-sm ${
@@ -144,7 +144,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                     >
                       {t.system}
                     </Link>
-                    */}
+                    
                   </div>
                 </motion.div>
               </div>

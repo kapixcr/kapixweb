@@ -169,7 +169,6 @@ export default function Footer() {
                       >
                         {t.menuItems.hosting}
                       </Link>
-                      {/* System link temporarily disabled
                       <Link 
                         href="/sistema" 
                         className={`block text-sm ${
@@ -178,7 +177,6 @@ export default function Footer() {
                       >
                         {t.menuItems.system}
                       </Link>
-                      */}
                     </div>
                   </motion.div>
                 </div>

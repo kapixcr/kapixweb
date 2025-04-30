@@ -40,111 +40,74 @@ export default function SystemPage() {
       system: "SISTEMA",
       systems: [
         {
-          id: "barbershop",
-          title: "Sistema para Barberías",
-          description: "Gestiona citas, clientes, inventario y pagos en un solo lugar. Ideal para barberías y salones de belleza que buscan optimizar su operación diaria.",
+          id: "facturacion",
+          title: "Sistema de Facturación",
+          description: "Solución completa para la gestión de facturas electrónicas, control de inventario y seguimiento de pagos adaptada a la normativa fiscal.",
           features: [
-            "Gestión de citas en línea",
-            "Perfiles de clientes y preferencias",
+            "Facturación electrónica legal",
+            "Control de inventario integrado",
+            "Gestión de clientes y proveedores",
+            "Reportes financieros detallados",
+            "Múltiples formas de pago",
+            "Exportación de datos fiscales",
+            "Acceso desde cualquier dispositivo",
+            "Copias de seguridad automáticas"
+          ],
+          image: "/img/INVOICES.jpg",
+          price: 4,
+          popular: true
+        },
+        {
+          id: "vibe",
+          title: "Sistema Vibe para Barberías",
+          description: "Plataforma especializada para la gestión de barberías, reserva de citas online, control de clientes y administración del negocio.",
+          features: [
+            "Reserva de citas online",
+            "Gestión de barberos y horarios",
+            "Historial de clientes y preferencias",
+            "Fidelización de clientes",
             "Control de inventario de productos",
-            "Historial de servicios por cliente",
-            "Recordatorios automáticos por SMS/Email",
-            "Informes de ventas y comisiones",
-            "Integración con pasarelas de pago",
-            "Aplicación móvil para clientes"
+            "Estadísticas de rendimiento",
+            "Integración con redes sociales"
           ],
-          image: "/img/systems/barbershop-system.jpg",
-          price: 49,
+          image: "/img/BARBERSHOP.jpg",
+          price: 10,
           popular: true
         },
         {
-          id: "dental",
-          title: "Sistema para Clínicas Dentales",
-          description: "Solución completa para la gestión de pacientes, historiales clínicos, tratamientos y facturación en clínicas dentales de cualquier tamaño.",
+          id: "whatsapp",
+          title: "Sistema de WhatsApp",
+          description: "Plataforma para automatizar la comunicación con clientes a través de WhatsApp, gestionar conversaciones y campañas de marketing.",
           features: [
-            "Expedientes clínicos digitales",
-            "Agenda de citas con recordatorios",
-            "Odontogramas interactivos",
-            "Gestión de tratamientos y presupuestos",
-            "Facturación electrónica",
-            "Seguimiento de pagos y planes de financiamiento",
-            "Imágenes y radiografías integradas",
-            "Reportes estadísticos y financieros"
+            "Chatbot personalizable",
+            "Respuestas automáticas",
+            "Gestión de múltiples conversaciones",
+            "Plantillas de mensajes",
+            "Integración con CRM",
+            "Campañas de marketing",
+            "Análisis de conversaciones",
+            "Soporte multiusuario"
           ],
-          image: "/img/systems/dental-system.jpg",
-          price: 69,
+          image: "/img/WHATSAPP.jpg",
+          price: 0,
           popular: false
         },
         {
-          id: "restaurant",
-          title: "Sistema para Restaurantes",
-          description: "Administra pedidos, mesas, inventario, personal y finanzas de tu restaurante con nuestra solución integral adaptada al sector gastronómico.",
+          id: "webdesign",
+          title: "Diseño de Página Web",
+          description: "Diseño web profesional, personalizado y enfocado en convertir visitas en clientes.",
           features: [
-            "Gestión de mesas y reservas",
-            "Toma de pedidos desde dispositivos móviles",
-            "Control de inventario y alertas de stock",
-            "Menú digital con imágenes",
-            "Gestión de personal y turnos",
-            "Reportes de ventas y productos populares",
-            "Integración con impresoras de cocina",
-            "Programa de fidelización de clientes"
+            "Diseño responsive adaptable",
+            "Optimización SEO incluida",
+            "Integración con redes sociales",
+            "Panel de administración intuitivo",
+            "Formularios de contacto y leads",
+            "Optimización de velocidad",
+            "Certificado SSL incluido",
+            "Mantenimiento y soporte"
           ],
-          image: "/img/systems/restaurant-system.jpg",
-          price: 59,
-          popular: true
-        },
-        {
-          id: "retail",
-          title: "Sistema para Tiendas Minoristas",
-          description: "Controla inventario, ventas, proveedores y clientes con nuestra plataforma diseñada específicamente para negocios de retail y comercio.",
-          features: [
-            "Punto de venta (POS) intuitivo",
-            "Control de inventario en tiempo real",
-            "Gestión de proveedores y órdenes de compra",
-            "Programa de lealtad para clientes",
-            "Múltiples métodos de pago",
-            "Reportes de ventas y tendencias",
-            "Gestión de devoluciones y garantías",
-            "Integración con tienda en línea"
-          ],
-          image: "/img/systems/retail-system.jpg",
-          price: 55,
-          popular: false
-        },
-        {
-          id: "gym",
-          title: "Sistema para Gimnasios",
-          description: "Administra membresías, asistencias, clases, entrenadores y pagos recurrentes con nuestra solución especializada para gimnasios y centros deportivos.",
-          features: [
-            "Gestión de membresías y planes",
-            "Control de acceso con código QR/tarjetas",
-            "Reserva de clases y entrenadores",
-            "Seguimiento de progreso de usuarios",
-            "Facturación recurrente automática",
-            "Comunicación con miembros vía app",
-            "Gestión de inventario de productos",
-            "Reportes de asistencia y retención"
-          ],
-          image: "/img/systems/gym-system.jpg",
-          price: 45,
-          popular: false
-        },
-        {
-          id: "hotel",
-          title: "Sistema para Hoteles",
-          description: "Gestiona reservaciones, habitaciones, servicios, personal y facturación con nuestra plataforma integral para hoteles y alojamientos turísticos.",
-          features: [
-            "Gestión de reservaciones y disponibilidad",
-            "Check-in/check-out digital",
-            "Asignación de habitaciones",
-            "Facturación de servicios adicionales",
-            "Gestión de limpieza y mantenimiento",
-            "Portal de reservas en línea",
-            "Integración con OTAs (Booking, Airbnb)",
-            "Reportes de ocupación y revenue"
-          ],
-          image: "/img/systems/hotel-system.jpg",
-          price: 75,
+          image: "/img/WEB.jpg",
+          price: 0,
           popular: true
         }
       ]
@@ -164,191 +127,154 @@ export default function SystemPage() {
       system: "SYSTEM",
       systems: [
         {
-          id: "barbershop",
-          title: "Barbershop System",
-          description: "Manage appointments, clients, inventory, and payments in one place. Ideal for barbershops and beauty salons looking to optimize their daily operations.",
+          id: "facturacion",
+          title: "Billing System",
+          description: "Complete solution for electronic invoice management, inventory control, and payment tracking adapted to fiscal regulations.",
+          features: [
+            "Legal electronic invoicing",
+            "Integrated inventory control",
+            "Customer and supplier management",
+            "Detailed financial reports",
+            "Multiple payment methods",
+            "Fiscal data export",
+            "Access from any device",
+            "Automatic backups"
+          ],
+          image: "/img/INVOICES.jpg",
+          price: 4,
+          popular: true
+        },
+        {
+          id: "vibe",
+          title: "Vibe System for Barbershops",
+          description: "Specialized platform for barbershop management, online appointment booking, customer control, and business administration.",
           features: [
             "Online appointment booking",
-            "Client profiles and preferences",
-            "Product inventory management",
-            "Service history by client",
-            "Automatic SMS/Email reminders",
-            "Sales and commission reports",
-            "Payment gateway integration",
-            "Mobile app for clients"
+            "Barber and schedule management",
+            "Customer history and preferences",
+            "Customer loyalty programs",
+            "Product inventory control",
+            "Performance statistics",
+            "Social media integration"
           ],
-          image: "/img/systems/barbershop-system.jpg",
-          price: 49,
+          image: "/img/BARBERSHOP.jpg",
+          price: 10,
           popular: true
         },
         {
-          id: "dental",
-          title: "Dental Clinic System",
-          description: "Complete solution for patient management, clinical records, treatments, and billing in dental clinics of any size.",
+          id: "whatsapp",
+          title: "WhatsApp System",
+          description: "Platform to automate customer communication through WhatsApp, manage conversations and marketing campaigns.",
           features: [
-            "Digital clinical records",
-            "Appointment scheduling with reminders",
-            "Interactive dental charts",
-            "Treatment and budget management",
-            "Electronic billing",
-            "Payment tracking and financing plans",
-            "Integrated images and X-rays",
-            "Statistical and financial reports"
+            "Customizable chatbot",
+            "Automatic responses",
+            "Multiple conversation management",
+            "Message templates",
+            "CRM integration",
+            "Marketing campaigns",
+            "Conversation analytics",
+            "Multi-user support"
           ],
-          image: "/img/systems/dental-system.jpg",
-          price: 69,
+          image: "/img/WHATSAPP.jpg",
+          price: 0,
           popular: false
         },
         {
-          id: "restaurant",
-          title: "Restaurant System",
-          description: "Manage orders, tables, inventory, staff, and finances of your restaurant with our comprehensive solution adapted to the food service industry.",
+          id: "webdesign",
+          title: "Website Design",
+          description: "Professional, customized web design focused on converting visitors into customers.",
           features: [
-            "Table and reservation management",
-            "Mobile order taking",
-            "Inventory control and stock alerts",
-            "Digital menu with images",
-            "Staff and shift management",
-            "Sales and popular product reports",
-            "Kitchen printer integration",
-            "Customer loyalty program"
+            "Responsive adaptive design",
+            "SEO optimization included",
+            "Social media integration",
+            "Intuitive admin panel",
+            "Contact and lead forms",
+            "Speed optimization",
+            "SSL certificate included",
+            "Maintenance and support"
           ],
-          image: "/img/systems/restaurant-system.jpg",
-          price: 59,
-          popular: true
-        },
-        {
-          id: "retail",
-          title: "Retail Store System",
-          description: "Control inventory, sales, suppliers, and customers with our platform specifically designed for retail and commerce businesses.",
-          features: [
-            "Intuitive point of sale (POS)",
-            "Real-time inventory control",
-            "Supplier and purchase order management",
-            "Customer loyalty program",
-            "Multiple payment methods",
-            "Sales and trend reports",
-            "Returns and warranty management",
-            "Online store integration"
-          ],
-          image: "/img/systems/retail-system.jpg",
-          price: 55,
-          popular: false
-        },
-        {
-          id: "gym",
-          title: "Gym System",
-          description: "Manage memberships, attendance, classes, trainers, and recurring payments with our specialized solution for gyms and sports centers.",
-          features: [
-            "Membership and plan management",
-            "Access control with QR code/cards",
-            "Class and trainer booking",
-            "User progress tracking",
-            "Automatic recurring billing",
-            "Member communication via app",
-            "Product inventory management",
-            "Attendance and retention reports"
-          ],
-          image: "/img/systems/gym-system.jpg",
-          price: 45,
-          popular: false
-        },
-        {
-          id: "hotel",
-          title: "Hotel System",
-          description: "Manage reservations, rooms, services, staff, and billing with our comprehensive platform for hotels and tourist accommodations.",
-          features: [
-            "Reservation and availability management",
-            "Digital check-in/check-out",
-            "Room assignment",
-            "Additional services billing",
-            "Cleaning and maintenance management",
-            "Online booking portal",
-            "OTA integration (Booking, Airbnb)",
-            "Occupancy and revenue reports"
-          ],
-          image: "/img/systems/hotel-system.jpg",
-          price: 75,
+          image: "/img/WEB.jpg",
+          price: 0,
           popular: true
         }
       ]
+    },
+}
+
+const t = translations[language]
+
+// Ensure hydration is complete before rendering
+useEffect(() => {
+  setMounted(true)
+}, [])
+
+// Animación para los elementos que aparecen
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5
     }
   }
+}
 
-  const t = translations[language]
+if (!mounted) return null
 
-  // Ensure hydration is complete before rendering
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+return (
+  <>
+    <Head>
+      <title>{language === 'ES' ? 'Sistemas Personalizados | Kapix' : 'Custom Systems | Kapix'}</title>
+      <meta 
+        name="description" 
+        content={language === 'ES' 
+          ? 'Sistemas personalizados para diferentes industrias: barberías, clínicas dentales, restaurantes y más. Soluciones a medida para tu negocio.' 
+          : 'Custom systems for different industries: barbershops, dental clinics, restaurants, and more. Tailored solutions for your business.'
+        } 
+      />
+    </Head>
 
-  // Animación para los elementos que aparecen
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  }
+    <Navbar />
 
-  if (!mounted) return null
-
-  return (
-    <>
-      <Head>
-        <title>{language === 'ES' ? 'Sistemas Personalizados | Kapix' : 'Custom Systems | Kapix'}</title>
-        <meta 
-          name="description" 
-          content={language === 'ES' 
-            ? 'Sistemas personalizados para diferentes industrias: barberías, clínicas dentales, restaurantes y más. Soluciones a medida para tu negocio.' 
-            : 'Custom systems for different industries: barbershops, dental clinics, restaurants, and more. Tailored solutions for your business.'
-          } 
-        />
-      </Head>
-
-      <Navbar />
-
-      <main>
-        {/* Hero Section con diseño similar a planes.tsx */}
-        <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">
-          <div className="absolute inset-0 opacity-30">
-            <img 
-              src="/img/SISTEMA.jpg" 
-              alt="Background" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="container mx-auto px-4 max-w-6xl relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center"
-            >
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{t.title}</h1>
-              
-              <div className="inline-flex items-center bg-black/30 backdrop-blur-md rounded-full px-5 py-2.5 shadow-lg border border-white/10">
-                <a href="/" className="flex items-center text-white hover:text-[#01c38d] transition-colors">
-                  <div className="flex items-center justify-center h-6 w-6 mr-2">
-                    <i className="fi fi-rr-house-chimney text-lg leading-none"></i>
-                  </div>
-                  <span className="font-medium leading-none">{t.home}</span>
-                </a>
-                
-                <div className="h-5 w-px bg-white/30 mx-3"></div>
-                
-                <div className="flex items-center text-[#01c38d]">
-                  <div className="flex items-center justify-center h-6 w-6 mr-2">
-                    <i className="fi fi-rr-apps text-lg leading-none"></i>
-                  </div>
-                  <span className="font-medium leading-none">{t.system}</span>
+    <main>
+      {/* Hero Section con diseño similar a planes.tsx */}
+      <section className="relative overflow-hidden bg-[#191e29] pt-32 pb-20">
+        <div className="absolute inset-0 opacity-30">
+          <img 
+            src="/img/SISTEMA.jpg" 
+            alt="Background" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{t.title}</h1>
+            
+            <div className="inline-flex items-center bg-black/30 backdrop-blur-md rounded-full px-5 py-2.5 shadow-lg border border-white/10">
+              <a href="/" className="flex items-center text-white hover:text-[#01c38d] transition-colors">
+                <div className="flex items-center justify-center h-6 w-6 mr-2">
+                  <i className="fi fi-rr-house-chimney text-lg leading-none"></i>
                 </div>
+                <span className="font-medium leading-none">{t.home}</span>
+              </a>
+              
+              <div className="h-5 w-px bg-white/30 mx-3"></div>
+              
+              <div className="flex items-center text-[#01c38d]">
+                <div className="flex items-center justify-center h-6 w-6 mr-2">
+                  <i className="fi fi-rr-apps text-lg leading-none"></i>
+                </div>
+                <span className="font-medium leading-none">{t.system}</span>
               </div>
-            </motion.div>
-          </div>
-        </section>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
         {/* Systems Grid */}
         <section className="py-16 bg-gray-50">
@@ -395,15 +321,39 @@ export default function SystemPage() {
                     
                     <div className="flex items-center justify-between mt-6">
                       <div className="text-[#191e29]">
-                        <span className="text-sm">{t.startingFrom}</span>
-                        <div className="font-bold text-2xl">${system.price}<span className="text-sm font-normal text-gray-500">{t.month}</span></div>
+                        {system.id === 'webdesign' ? (
+                          <div>
+                            <span className="text-sm">{language === 'ES' ? 'Debes' : 'You must'}</span>
+                            <div className="font-bold text-2xl">{language === 'ES' ? 'Cotizar Proyecto' : 'Estimate Project'}</div>
+                          </div>
+                        ) : (
+                          <>
+                            <span className="text-sm">{t.startingFrom}</span>
+                            <div className="font-bold text-2xl">
+                              ${system.price} <span className="text-sm font-normal">+ IVA</span>
+                              <span className="text-sm font-normal text-gray-500">{t.month}</span>
+                            </div>
+                          </>
+                        )}
                       </div>
-                      <Link 
-                        href={`/contacto?system=${system.id}`}
-                        className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
-                      >
-                        {t.buyNow}
-                      </Link>
+                      <div className="flex space-x-2">
+                        {system.id === 'facturacion' && (
+                          <Link 
+                            href={`/sistemas/${system.id}`}
+                            className="bg-[#01c38d] border border-[#01c38d] text-white hover:bg-[#01c38d]/90 px-4 py-2 rounded-md text-sm font-medium transition-all"
+                          >
+                            {language === 'ES' ? 'Ver más' : 'See more'}
+                          </Link>
+                        )}
+                        {system.id !== 'facturacion' && (
+                          <Link 
+                            href={`/contacto?system=${system.id}`}
+                            className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
+                          >
+                            {t.buyNow}
+                          </Link>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </motion.div>

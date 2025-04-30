@@ -139,7 +139,6 @@ export default function MainNavigation() {
                         >
                           {navigationLinks[language].hosting}
                         </Link>
-                        {/* System link temporarily disabled
                         <Link 
                           href="/sistema" 
                           className={`block px-4 py-2 text-sm ${
@@ -148,7 +147,6 @@ export default function MainNavigation() {
                         >
                           {navigationLinks[language].system}
                         </Link>
-                        */}
                       </div>
                     </motion.div>
                   )}
