@@ -10,9 +10,9 @@ import Head from 'next/head'
 const companyLogos = [
   { id: 1, src: "/img/KATALVA.png", alt: "Katalva" },
   { id: 2, src: "/img/NOVOSTI.png", alt: "Novosti" },
-  { id: 3, src: "/img/MAKALA.png", alt: "Makala" },
-  { id: 4, src: "/img/PLAGAS QUINTERO.png", alt: "Plagas Quintero" },
-  { id: 5, src: "/img/LA GATA CR.png", alt: "La Gata CR" },
+  { id: 3, src: "/img/PLAGAS QUINTERO.png", alt: "Plagas Quintero" },
+  { id: 4, src: "/img/LA GATA CR.png", alt: "La Gata CR" },
+  { id: 5, src: "/img/TECNIPLAGAS.png", alt: "Tecniplagas" },
 ]
 
 export default function TestimoniosPage() {

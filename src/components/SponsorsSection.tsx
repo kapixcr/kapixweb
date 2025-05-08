@@ -15,15 +15,20 @@ const sponsors = [
     width: 100
   },
   {
-    name: "Makala",
+    name: "Plagas Quintero",
     logo: "/img/PLAGAS QUINTERO.png",
     width: 180
   },
   {
-    name: "Plagas Quintero",
-    logo: "/img/MAKALA.png",
+    name: "La Gata CR",
+    logo: "/img/LA GATA CR.png",
     width: 180
   },
+  {
+    name: "Tecniplagas",
+    logo: "/img/TECNIPLAGAS.png",
+    width: 180
+  }
 ]
 
 export default function SponsorsSection() {
@@ -31,7 +36,7 @@ export default function SponsorsSection() {
     <section className="py-12 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#01c38d]/5 to-white" />
       <div className="container mx-auto px-4 max-w-6xl relative">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 justify-items-center">
           {sponsors.map((sponsor) => (
             <motion.div
               key={sponsor.name}
