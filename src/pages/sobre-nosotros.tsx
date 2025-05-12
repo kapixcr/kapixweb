@@ -157,9 +157,15 @@ export default function SobreNosotros() {
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex flex-col lg:flex-row gap-8 items-center">
               <div className="lg:w-1/2">
-                <img 
-                  src="/img/Logo Reveal.gif" 
-                  alt="About Us" 
+                <video
+                  src="/img/Logo Reveal.webm"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onLoadedMetadata={(e) => {
+                    e.currentTarget.playbackRate = 0.5;
+                  }}
                   className="rounded-xl shadow-lg w-full h-[380px] object-cover"
                 />
               </div>
@@ -215,7 +221,7 @@ export default function SobreNosotros() {
               <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="absolute inset-0">
                   <InstagramEmbed 
-                    url="https://www.instagram.com/reel/DH3m5MiOx6N/?igsh=MW5paTIxa3dzbG1n"
+                    url="https://www.instagram.com/p/DJZ05h4NncR/?utm_source=ig_web_copy_link"
                     width="100%"
                     height="100%"
                   />
@@ -224,7 +230,7 @@ export default function SobreNosotros() {
               <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="absolute inset-0">
                   <InstagramEmbed 
-                    url="https://www.instagram.com/reel/DHcaAtwstnd/?igsh=MXc3OWlkMW0yZXlsag=="
+                    url="https://www.instagram.com/p/DJQEDAJhywc/?utm_source=ig_web_copy_link"
                     width="100%"
                     height="100%"
                   />
@@ -233,7 +239,7 @@ export default function SobreNosotros() {
               <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="absolute inset-0">
                   <InstagramEmbed 
-                    url="https://www.instagram.com/reel/DGqZbvXpcBS/?igsh=MTcyM3VoNGFlMm1tZQ=="
+                    url="https://www.instagram.com/p/DJPZkd9prJq/?utm_source=ig_web_copy_link"
                     width="100%"
                     height="100%"
                   />

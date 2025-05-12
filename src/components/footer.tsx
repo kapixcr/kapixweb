@@ -102,6 +102,7 @@ export default function Footer() {
                 href="https://wa.me/50660641906?text=Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20tu%20servicio.🚀" 
                 target="_blank" 
                 className="flex items-center hover:text-[#01c38d] transition-colors"
+                aria-label="Whatsapp Kapix"
               >
                 <i className="fi fi-rr-circle-phone-flip mr-2 text-[#01c38d] flex items-center justify-center w-5 h-5"></i>
                 <span className="text-sm">+506 6064-1906</span>
@@ -153,7 +154,7 @@ export default function Footer() {
                     } transition-colors flex items-center gap-1`}
                   >
                     {t.menuItems.services}
-                    <i className={`fi fi-rr-angle-small-down text-xs transition-transform ${servicesOpen ? 'rotate-180' : ''}`}></i>
+                    <i className={`fi fi-rr-angle-small-down text-xs transition-transform ${servicesOpen ? 'rotate-180' : ''} flex items-center`}></i>
                   </button>
                   <motion.div 
                     className="overflow-hidden"
@@ -285,7 +286,7 @@ export default function Footer() {
               />
               <motion.button
                 whileHover={{ scale: 1.02 }}
-                className="whitespace-nowrap bg-[#191e29] text-white px-4 py-2.5 rounded-md sm:rounded-l-none sm:rounded-r-md text-sm font-medium hover:bg-[#191e29]/90 transition-all"
+                className="whitespace-nowrap bg-[#191e29] text-white font-bold px-4 py-2.5 rounded-md sm:rounded-l-none sm:rounded-r-md text-sm hover:bg-[#191e29]/90 transition-all"
               >
                 {t.newsletter.subscribe}
               </motion.button>
@@ -298,6 +299,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+                aria-label="Facebook Kapix"
               >
                 <i className="fi fi-brands-facebook text-base flex items-center justify-center"></i>
               </a>
@@ -306,6 +308,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+                aria-label="Instagram Kapix"
               >
                 <i className="fi fi-brands-instagram text-base flex items-center justify-center"></i>
               </a>
@@ -314,6 +317,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+                aria-label="WhatsApp Kapix"
               >
                 <i className="fi fi-brands-whatsapp text-base flex items-center justify-center"></i>
               </a>
@@ -322,6 +326,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+                aria-label="YouTube Kapix"
               >
                 <i className="fi fi-brands-youtube text-base flex items-center justify-center"></i>
               </a>
@@ -341,6 +346,7 @@ export default function Footer() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               className="w-8 h-8 bg-[#191e29] text-white inline-flex items-center justify-center rounded-md hover:bg-[#191e29]/90 transition-all shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40 hover:-translate-y-0.5 order-3 md:order-2"
+              aria-label="Regresar al inicio"
             >
               <i className="fi fi-rr-arrow-up text-base flex items-center justify-center w-full h-full"></i>
             </Link>

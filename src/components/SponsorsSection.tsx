@@ -6,7 +6,7 @@ import Image from "next/image"
 const sponsors = [
   {
     name: "Katalva",
-    logo: "/img/KATALVA.png",
+    logo: "/img/Katalva.png",
     width: 180
   },
   {

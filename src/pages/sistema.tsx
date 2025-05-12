@@ -59,16 +59,16 @@ export default function SystemPage() {
         },
         {
           id: "vibe",
-          title: "Sistema Vibe para Barberías",
-          description: "Plataforma especializada para la gestión de barberías, reserva de citas online, control de clientes y administración del negocio.",
+          title: "Sistema Vibe para Citas",
+          description: "Plataforma especializada para la gestión de citas, reservas online, control de clientes y administración del negocio.",
           features: [
             "Reserva de citas online",
-            "Gestión de barberos y horarios",
+            "Gestión de profesionales y horarios",
             "Historial de clientes y preferencias",
             "Fidelización de clientes",
-            "Control de inventario de productos",
+            "Control de agenda",
             "Estadísticas de rendimiento",
-            "Integración con redes sociales"
+            "Notificaciones automáticas"
           ],
           image: "/img/BARBERSHOP.jpg",
           price: 10,
@@ -146,16 +146,16 @@ export default function SystemPage() {
         },
         {
           id: "vibe",
-          title: "Vibe System for Barbershops",
-          description: "Specialized platform for barbershop management, online appointment booking, customer control, and business administration.",
+          title: "Vibe Appointment System",
+          description: "Specialized platform for appointment management, online booking, customer control, and business administration.",
           features: [
             "Online appointment booking",
-            "Barber and schedule management",
+            "Professional and schedule management",
             "Customer history and preferences",
             "Customer loyalty programs",
-            "Product inventory control",
+            "Calendar management",
             "Performance statistics",
-            "Social media integration"
+            "Automatic notifications"
           ],
           image: "/img/BARBERSHOP.jpg",
           price: 10,
@@ -330,7 +330,7 @@ return (
                           <>
                             <span className="text-sm">{t.startingFrom}</span>
                             <div className="font-bold text-2xl">
-                              ${system.price} <span className="text-sm font-normal">+ IVA</span>
+                              ${system.price} <span className="text-sm font-normal">{language === 'ES' ? '+ IVA' : '+ VAT'}</span>
                               <span className="text-sm font-normal text-gray-500">{t.month}</span>
                             </div>
                           </>
@@ -345,9 +345,28 @@ return (
                             {language === 'ES' ? 'Ver más' : 'See more'}
                           </Link>
                         )}
-                        {system.id !== 'facturacion' && (
+                        {system.id === 'whatsapp' && (
                           <Link 
-                            href={`/contacto?system=${system.id}`}
+                            href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20sistema%20de%20Whatsapp"
+                            target="_blank"
+                            className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
+                          >
+                            {t.buyNow}
+                          </Link>
+                        )}
+                        {system.id === 'webdesign' && (
+                          <Link 
+                            href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20sistema%20de%20Diseño%20de%20Página%20Web"
+                            target="_blank"
+                            className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
+                          >
+                            {t.buyNow}
+                          </Link>
+                        )}
+                        {system.id === 'vibe' && (
+                          <Link 
+                            href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20sistema%20Vibe%20para%20Citas"
+                            target="_blank"
                             className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
                           >
                             {t.buyNow}

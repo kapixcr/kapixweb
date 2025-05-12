@@ -234,6 +234,7 @@ export default function MainNavigation() {
               <button
                 className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-[#191e29] hover:bg-[#01c38d] hover:text-white transition-colors"
                 onClick={() => setSideMenuOpen(!sideMenuOpen)}
+                aria-label="Abrir Menú"
               >
                 <i className="fi fi-rr-menu-burger text-lg flex items-center justify-center"></i>
               </button>

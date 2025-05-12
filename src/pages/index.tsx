@@ -299,7 +299,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="/planes"
-                className="bg-[#01c38d] text-white px-6 py-3 rounded-md font-medium hover:bg-[#01c38d]/90 transition-all shadow-md shadow-[#01c38d]/30 hover:shadow-lg hover:shadow-[#01c38d]/40 hover:-translate-y-0.5"
+                className="bg-[#01c38d] text-white px-6 py-3 rounded-md font-bold hover:bg-[#01c38d]/90 transition-all shadow-md shadow-[#01c38d]/30 hover:shadow-lg hover:shadow-[#01c38d]/40 hover:-translate-y-0.5"
               >
                 {translations[language].seeMore}
               </a>
@@ -309,6 +309,7 @@ export default function Home() {
                   <button
                     onClick={() => setIsVideoModalOpen(true)}
                     className="relative w-10 h-10 flex items-center justify-center bg-[#191e29] rounded-full hover:bg-[#191e29]/90 transition-colors cursor-pointer"
+                    aria-label="Iniciar Video"
                   >
                     <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M8 5v14l11-7z" />
@@ -378,9 +379,15 @@ export default function Home() {
             className="relative"
           >
             <div className="relative z-10 rounded-xl overflow-hidden aspect-[4/3] mx-0">
-              <img
-                src="img/ERP.gif"
-                alt="Kapix ERP"
+              <video
+                src="img/ERP.webm"
+                autoPlay
+                loop
+                muted
+                playsInline
+                onLoadedMetadata={(e) => {
+                  e.currentTarget.playbackRate = 0.5;
+                }}
                 className="w-full h-full object-contain bg-white/80 backdrop-blur-sm"
               />
 
@@ -631,7 +638,7 @@ export default function Home() {
           <div className="text-center mt-20">
             <a
               href="/planes"
-              className="bg-[#01c38d] text-white inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-medium hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer"
+              className="bg-[#01c38d] text-white font-bold inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer"
             >
               {translations[language].seeAllPlans}
               <svg

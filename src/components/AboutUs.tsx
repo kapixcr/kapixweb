@@ -83,7 +83,7 @@ export default function AboutUs() {
                 >
                   2+
                 </motion.span>
-                <span className="text-xs mt-0.5">{t.yearsExperience}</span>
+                <span className="text-xs mt-0.5 font-bold">{t.yearsExperience}</span>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function AboutUs() {
             <motion.button
               onClick={() => window.location.href = '/sobre-nosotros'}
               whileHover={{ scale: 1.05 }}
-              className="bg-[#01c38d] text-white px-6 py-3 rounded-md font-medium hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer"
+              className="bg-[#01c38d] text-white px-6 py-3 rounded-md font-bold hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer"
             >
               {t.seeMore}
             </motion.button>

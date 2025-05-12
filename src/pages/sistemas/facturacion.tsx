@@ -95,7 +95,7 @@ export default function BillingSystemPage() {
           period: "mes",
           planNumber: 5,
           popular: false,
-          image: "/img/Juridica 2.jpg" // Añadimos imagen
+          image: "/img/juridica 2.jpg" // Añadimos imagen
         },
         {
           id: "juridica-mensual-500",
