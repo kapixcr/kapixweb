@@ -658,7 +658,7 @@ export default function HostingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative rounded-3xl p-6 h-full flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all ${
+                className={`relative rounded-3xl p-6 h-full flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 transform hover:-translate-y-2 group ${
                   plan.popular ? "bg-[#191e29] text-white" : "bg-white"
                 }`}
               >
@@ -728,8 +728,8 @@ export default function HostingPage() {
                   rel="noopener noreferrer"
                   className={`mt-8 w-full py-3 rounded-xl text-center font-medium text-sm transition-all ${
                     plan.popular
-                      ? "bg-[#01c38d] text-white hover:bg-[#01c38d]/90"
-                      : "bg-[#191e29] text-white hover:bg-[#191e29]/90"
+                      ? "bg-[#01c38d] text-white hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40"
+                      : "bg-[#191e29] text-white hover:bg-[#191e29]/90 transition-all shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40"
                   }`}
                 >
                   {getButtonText(plan)}

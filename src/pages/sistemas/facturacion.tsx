@@ -656,7 +656,7 @@ export default function BillingSystemPage() {
               {sortedPlans.map((plan: BillingPlan, index: number) => (
                 <motion.div
                   key={plan.id}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 relative"
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl relative transition-all duration-500 transform hover:-translate-y-2 group"
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="visible"

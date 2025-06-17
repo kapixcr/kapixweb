@@ -141,7 +141,7 @@ export default function ContactoPage() {
                   </div>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40">
                       <i className="fi fi-rr-marker text-[#01c38d] text-lg flex items-center justify-center w-full h-full"></i>
                     </div>
                     <div>
@@ -151,7 +151,7 @@ export default function ContactoPage() {
                   </div>
   
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40">
                       <i className="fi fi-rr-phone-call text-[#01c38d] text-lg flex items-center justify-center w-full h-full"></i>
                     </div>
                     <div>
@@ -168,7 +168,7 @@ export default function ContactoPage() {
                   </div>
   
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40">
                       <i className="fi fi-rr-envelope text-[#01c38d] text-lg flex items-center justify-center w-full h-full"></i>
                     </div>
                     <div>
@@ -198,7 +198,7 @@ export default function ContactoPage() {
                     <a
                       key={social.name}
                       href={social.url}
-                      className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center hover:bg-[#01c38d] group transition-colors"
+                      className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center hover:bg-[#01c38d] group transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -248,7 +248,7 @@ export default function ContactoPage() {
                 />
                 <Button
                   type="submit"
-                  className="w-full bg-[#01c38d] hover:bg-[#01c38d]/90 text-white rounded-full h-11 text-base font-medium transition-colors"
+                  className="w-full bg-[#01c38d] hover:bg-[#01c38d]/90 text-white rounded-full h-11 text-base font-medium transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40"
                 >
                   {t.form.send}
                 </Button>

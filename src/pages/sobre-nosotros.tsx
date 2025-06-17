@@ -218,28 +218,28 @@ export default function SobreNosotros() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Added a wrapper div with fixed aspect ratio and overflow handling */}
-              <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
+              <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 transform hover:-translate-y-2 group">
                 <div className="absolute inset-0">
                   <InstagramEmbed 
-                    url="https://www.instagram.com/p/DJZ05h4NncR/?utm_source=ig_web_copy_link"
+                    url="https://www.instagram.com/p/DKswrech9eB/?igsh=ZmtjZ2Z5ZGNidnU4"
                     width="100%"
                     height="100%"
                   />
                 </div>
               </div>
-              <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
+              <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 transform hover:-translate-y-2 group">
                 <div className="absolute inset-0">
                   <InstagramEmbed 
-                    url="https://www.instagram.com/p/DJQEDAJhywc/?utm_source=ig_web_copy_link"
+                    url="https://www.instagram.com/p/DKrrQKkNzNg/?igsh=MWVicms2NzRrOWIyNQ=="
                     width="100%"
                     height="100%"
                   />
                 </div>
               </div>
-              <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden">
+              <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 transform hover:-translate-y-2 group">
                 <div className="absolute inset-0">
                   <InstagramEmbed 
-                    url="https://www.instagram.com/p/DJPZkd9prJq/?utm_source=ig_web_copy_link"
+                    url="https://www.instagram.com/p/DKcZyr6tZPu/?igsh=YWZwb3YwaTdmOHZ2"
                     width="100%"
                     height="100%"
                   />

@@ -57,7 +57,8 @@ export default function MainNavigation() {
       contact: "Contacto",
       services: "Servicios",
       hosting: "Hosting",
-      system: "Sistema"
+      system: "Sistema",
+      portfolio: "Portafolio"
     },
     EN: {
       home: "Home",
@@ -68,7 +69,8 @@ export default function MainNavigation() {
       contact: "Contact",
       services: "Services",
       hosting: "Hosting",
-      system: "System"
+      system: "System",
+      portfolio: "Portfolio"
     }
   }
 
@@ -146,6 +148,14 @@ export default function MainNavigation() {
                           }`}
                         >
                           {navigationLinks[language].system}
+                        </Link>
+                        <Link 
+                          href="/portafolio" 
+                          className={`block px-4 py-2 text-sm ${
+                            isActive('/portafolio') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
+                          }`}
+                        >
+                          {navigationLinks[language].portfolio}
                         </Link>
                       </div>
                     </motion.div>

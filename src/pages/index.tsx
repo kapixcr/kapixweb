@@ -473,7 +473,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative rounded-3xl p-6 sm:p-8 h-full flex flex-col bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow"
+              className="relative rounded-3xl p-6 sm:p-8 h-full flex flex-col bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 transform hover:-translate-y-2 group"
             >
               {/* Lite Plan Content */}
               {/* Logo y título en la izquierda */}
@@ -509,7 +509,7 @@ export default function Home() {
               <a
                 href="https://lite.kapix.co.cr/"
                 target="_blank"
-                className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20"
+                className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40"
                 rel="noreferrer"
               >
                 <span>{translations[language].startFree}</span>
@@ -522,7 +522,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative rounded-3xl p-8 bg-[#191e29] text-white shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full max-w-full"
+              className="relative rounded-3xl p-8 bg-[#191e29] text-white shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full max-w-full transition-all duration-500 transform hover:-translate-y-2 group"
             >
               {/* Premium Plan Content */}
               {/* Logo y título en la izquierda */}
@@ -559,7 +559,7 @@ export default function Home() {
               <a
                 href="https://kpixs.com/authentication/register?kx_plan=premium"
                 target="_blank"
-                className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-white text-[#191e29] hover:bg-white/90"
+                className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-white text-[#191e29] hover:bg-white/90 shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#E3EEEC]/40"
                 rel="noreferrer"
               >
                 <span>{translations[language].startNow}</span>
@@ -586,7 +586,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative rounded-3xl p-8 h-full flex flex-col bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow"
+              className="relative rounded-3xl p-8 h-full flex flex-col bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 transform hover:-translate-y-2 group"
             >
               {/* Custom Plan Content */}
               {/* Logo y título en la izquierda */}
@@ -625,7 +625,7 @@ export default function Home() {
               <a
                 href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
                 target="_blank"
-                className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20"
+                className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20 shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40"
                 rel="noreferrer"
               >
                 <span>{translations[language].contact || "Contactar"}</span>

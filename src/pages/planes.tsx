@@ -655,10 +655,10 @@ export default function PlanesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="container mx-auto" // Changed from max-w-6xl to container
+                className="container mx-auto"
               >
                 <div
-                  className={`grid gap-8 sm:gap-8 md:gap-12 lg:gap-16 items-stretch mx-auto ${
+                  className={`grid gap-8 sm:gap-8 md:gap-12 lg:gap-16 items-stretch mx-auto  ${
                     planType === "EMPRESARIAL"
                       ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]"
                       : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]"
@@ -674,7 +674,7 @@ export default function PlanesPage() {
                         plan.popular
                           ? "relative rounded-3xl p-8 bg-[#191e29] text-white shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full max-w-full"
                           : "bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
-                      } transition-all`}
+                      } transition-all duration-500 transform hover:-translate-y-2 group`}
                     >
                       {/* Logo y título en la izquierda */}
                       <div className="flex items-center gap-3 mb-6">
@@ -751,8 +751,8 @@ export default function PlanesPage() {
                         target="_blank"
                         className={`w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all ${
                           plan.popular
-                            ? "bg-white text-[#191e29] hover:bg-white/90"
-                            : "bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20"
+                            ? "bg-white text-[#191e29] hover:bg-white/90 shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#E3EEEC]/40 transition-all"
+                            : "bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40"
                         }`}
                         rel="noreferrer"
                       >

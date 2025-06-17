@@ -27,7 +27,8 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
       whatsappMessage: "Hola me gustaría obtener más información sobre tu servicio.🚀",
       services: "Servicios",
       hosting: "Hosting",
-      system: "Sistema"
+      system: "Sistema",
+      portfolio: "Portafolio"
     },
     EN: {
       description: "At Kapix ERP, we bet on a future where innovation transforms the way of doing business. Our technological solution is designed to facilitate digital transformation, allowing companies to improve their efficiency and productivity in a simple and effective way.",
@@ -41,7 +42,8 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
       whatsappMessage: "Hello, I would like to get more information about your service.🚀",
       services: "Services",
       hosting: "Hosting",
-      system: "System"
+      system: "System",
+      portfolio: "Portfolio"
     }
   }
 
@@ -129,22 +131,28 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                   <div className="py-2 space-y-2 pl-4">
                     <Link 
                       href="/hosting" 
-                      className={`block px-4 py-2 text-sm ${
-                        isActive('/hosting') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
-                      }`}
+                      className={`block text-sm ${
+                        isActive('/hosting') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                      } transition-colors`}
                     >
                       {t.hosting}
                     </Link>
-                    
                     <Link 
                       href="/sistema" 
-                      className={`block px-4 py-2 text-sm ${
-                        isActive('/sistema') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
-                      }`}
+                      className={`block text-sm ${
+                        isActive('/sistema') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                      } transition-colors`}
                     >
                       {t.system}
                     </Link>
-                    
+                    <Link 
+                      href="/portafolio" 
+                      className={`block text-sm ${
+                        isActive('/portafolio') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                      } transition-colors`}
+                    >
+                      {t.portfolio}
+                    </Link>
                   </div>
                 </motion.div>
               </div>

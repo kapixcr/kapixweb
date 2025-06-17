@@ -25,16 +25,18 @@ const translations = {
       contact: "Contacto",
       services: "Servicios",
       hosting: "Hosting",
-      system: "Sistema"
+      system: "Sistema",
+      portfolio: "Portafolio"
     },
     quickLinks: "Enlaces Rápidos",
     newsletter: {
-      title: "Boletín Informativo",
-      description: "Suscríbete al boletín semanal de Kapix para recibir las últimas novedades.",
-      placeholder: "Ingresa tu correo",
+      title: "Suscríbete a Nuestro Newsletter",
+      description: "Recibe las últimas noticias y ofertas especiales directamente en tu bandeja de entrada.",
+      placeholder: "Tu correo electrónico",
       subscribe: "Suscribirse"
     },
-    copyright: "Copyright © Kapix | Todos los Derechos Reservados"
+    copyright: "© 2025 Kapix. Todos los derechos reservados.",
+    terms: "Términos & Condiciones"
   },
   EN: {
     description: "We transform ideas into exceptional digital solutions. Custom web design and development to grow your business.",
@@ -53,17 +55,18 @@ const translations = {
       contact: "Contact",
       services: "Services",
       hosting: "Hosting",
-      system: "System"
+      system: "System",
+      portfolio: "Portfolio"
     },
     quickLinks: "Quick Links",
     newsletter: {
-      title: "Newsletter",
-      description: "Subscribe to Kapix's weekly newsletter to receive the latest updates.",
-      placeholder: "Enter your email",
+      title: "Subscribe to Our Newsletter",
+      description: "Get the latest news and special offers delivered directly to your inbox.",
+      placeholder: "Your email address",
       subscribe: "Subscribe"
     },
-    copyright: "Copyright © Kapix | All Rights Reserved",
-    termsAndConditions: "Terms and Conditions"
+    copyright: "© 2025 Kapix. All rights reserved.",
+    terms: "Terms & Conditions"
   }
 }
 
@@ -178,6 +181,14 @@ export default function Footer() {
                       >
                         {t.menuItems.system}
                       </Link>
+                      <Link 
+                        href="/portafolio" 
+                        className={`block text-sm ${
+                          isActive('/portafolio') ? 'text-[#01c38d] font-medium' : 'text-slate-700 hover:text-[#01c38d]'
+                        } transition-colors`}
+                      >
+                        {t.menuItems.portfolio}
+                      </Link>
                     </div>
                   </motion.div>
                 </div>
@@ -286,7 +297,7 @@ export default function Footer() {
               />
               <motion.button
                 whileHover={{ scale: 1.02 }}
-                className="whitespace-nowrap bg-[#191e29] text-white font-bold px-4 py-2.5 rounded-md sm:rounded-l-none sm:rounded-r-md text-sm hover:bg-[#191e29]/90 transition-all"
+                className="whitespace-nowrap bg-[#191e29] text-white font-bold px-4 py-2.5 rounded-md sm:rounded-l-none sm:rounded-r-md text-sm hover:bg-[#191e29]/90 transition-all shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40"
               >
                 {t.newsletter.subscribe}
               </motion.button>
@@ -298,7 +309,7 @@ export default function Footer() {
                 href="https://www.facebook.com/p/KAPIX-61558702651954/"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40"
                 aria-label="Facebook Kapix"
               >
                 <i className="fi fi-brands-facebook text-base flex items-center justify-center"></i>
@@ -307,7 +318,7 @@ export default function Footer() {
                 href="https://www.instagram.com/kapixlatam?igsh=eWtwODhhZ3ViOHhk"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40"
                 aria-label="Instagram Kapix"
               >
                 <i className="fi fi-brands-instagram text-base flex items-center justify-center"></i>
@@ -316,7 +327,7 @@ export default function Footer() {
                 href="https://wa.me/50660641906?text=Hola%20me%20gustaría%20obtener%20más%20información%20sobre%20tu%20servicio.🚀"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40"
                 aria-label="WhatsApp Kapix"
               >
                 <i className="fi fi-brands-whatsapp text-base flex items-center justify-center"></i>
@@ -325,7 +336,7 @@ export default function Footer() {
                 href="https://www.youtube.com/@Kapix-s6d"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all"
+                className="w-8 h-8 rounded-full bg-gray-100 text-slate-600 hover:bg-[#01c38d] hover:text-white flex items-center justify-center transition-all shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#191e29]/40"
                 aria-label="YouTube Kapix"
               >
                 <i className="fi fi-brands-youtube text-base flex items-center justify-center"></i>
@@ -355,7 +366,7 @@ export default function Footer() {
               href="/terminos-y-condiciones" 
               className="text-sm text-slate-600 hover:text-[#01c38d] transition-colors order-2 md:order-3"
             >
-              {language === 'ES' ? 'Términos & Condiciones' : 'Terms & Conditions'}
+              {t.terms}
             </Link>
           </div>
         </div>

@@ -283,7 +283,7 @@ return (
               {t.systems.map((system: SystemData, index: number) => (
                 <motion.div
                   key={system.id}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 relative"
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl relative transition-all duration-500 transform hover:-translate-y-2 group"
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="visible"
@@ -340,7 +340,7 @@ return (
                         {system.id === 'facturacion' && (
                           <Link 
                             href={`/sistemas/${system.id}`}
-                            className="bg-[#01c38d] border border-[#01c38d] text-white hover:bg-[#01c38d]/90 px-4 py-2 rounded-md text-sm font-medium transition-all"
+                            className="bg-[#01c38d] border border-[#01c38d] text-white hover:bg-[#01c38d]/90 px-4 py-2 rounded-md text-sm font-medium transition-all shadow-md shadow-[#01c38d]/30 hover:shadow-lg hover:shadow-[#01c38d]/40"
                           >
                             {language === 'ES' ? 'Ver más' : 'See more'}
                           </Link>
@@ -349,7 +349,7 @@ return (
                           <Link 
                             href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20sistema%20de%20Whatsapp"
                             target="_blank"
-                            className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
+                            className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-al shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#E3EEEC]/40"
                           >
                             {t.buyNow}
                           </Link>
@@ -358,7 +358,7 @@ return (
                           <Link 
                             href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20sistema%20de%20Diseño%20de%20Página%20Web"
                             target="_blank"
-                            className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
+                            className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-al shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#E3EEEC]/40"
                           >
                             {t.buyNow}
                           </Link>
@@ -367,7 +367,7 @@ return (
                           <Link 
                             href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20sistema%20Vibe%20para%20Citas"
                             target="_blank"
-                            className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
+                            className="bg-[#191e29] hover:bg-[#191e29]/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-al shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#E3EEEC]/40"
                           >
                             {t.buyNow}
                           </Link>

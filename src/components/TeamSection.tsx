@@ -85,7 +85,7 @@ export default function TeamSection() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="relative overflow-hidden rounded-xl bg-white shadow-md">
+              <div className="relative overflow-hidden rounded-xl bg-white shadow-md transition-all duration-500 transform hover:-translate-y-2 group">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 bg-[#01c38d]/20 rounded-full filter blur-lg" />
                 
                 <div className="relative aspect-[4/5]">
