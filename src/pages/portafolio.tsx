@@ -21,7 +21,7 @@ const translations = {
         title: "KAPIX ERP",
         description: "Sistema de planificación de recursos empresariales (ERP) para la gestión integral de tu negocio.",
         image: "/img/KAPIX ERP.jpg",
-        link: "#contact" // Placeholder, replace with actual contact link or function
+        link: "/contacto"
       },
       {
         id: "kapix-lite",
@@ -35,7 +35,7 @@ const translations = {
         title: "KAPIX API",
         description: "API robusta para integrar nuestros servicios con otras plataformas y sistemas.",
         image: "/img/KAPIX API.png",
-        link: "#contact" // Placeholder, replace with actual contact link or function
+        link: "/contacto"
       },
       {
         id: "tecniplagas",
@@ -58,7 +58,7 @@ const translations = {
         title: "KAPIX ERP",
         description: "Enterprise Resource Planning (ERP) system for the comprehensive management of your business.",
         image: "/img/KAPIX ERP.jpg",
-        link: "#contact" // Placeholder, replace with actual contact link or function
+        link: "/contacto"
       },
       {
         id: "kapix-lite",
@@ -72,7 +72,7 @@ const translations = {
         title: "KAPIX API",
         description: "Robust API to integrate our services with other platforms and systems.",
         image: "/img/KAPIX API.png",
-        link: "#contact" // Placeholder, replace with actual contact link or function
+        link: "/contacto"
       },
       {
         id: "tecniplagas",
@@ -359,9 +359,15 @@ export default function PortfolioPage() {
             {/* View Project Button (in flow) */}
             <div className="flex justify-center mt-4">
               <div className="bg-[#01c38d] text-white rounded-md px-6 py-3 hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer font-bold">
-                <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">
-                  {language === 'ES' ? 'Ver Proyecto' : 'View Project'}
-                </a>
+                {selectedProject.link === "/contacto" ? (
+                  <a href={selectedProject.link}>
+                    {language === 'ES' ? 'Ver Proyecto' : 'View Project'}
+                  </a>
+                ) : (
+                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">
+                    {language === 'ES' ? 'Ver Proyecto' : 'View Project'}
+                  </a>
+                )}
               </div>
             </div>
           </motion.div>
