@@ -607,30 +607,28 @@ export default function BillingSystemPage() {
             >
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{t.title}</h1>
               
-              <div className="inline-flex items-center bg-black/30 backdrop-blur-md rounded-full px-5 py-2.5 shadow-lg border border-white/10">
-                <a href="/" className="flex items-center text-white hover:text-[#01c38d] transition-colors">
-                  <div className="flex items-center justify-center h-6 w-6 mr-2">
-                    <i className="fi fi-rr-house-chimney text-lg leading-none"></i>
+              <div className="w-full flex justify-center">
+                <div className="inline-flex items-center bg-black/30 backdrop-blur-md rounded-full px-5 py-2.5 shadow-lg border border-white/10 facturacion-hero-nav text-sm sm:text-base">
+                  <a href="/" className="flex items-center text-white hover:text-[#01c38d] transition-colors">
+                    <div className="flex items-center justify-center h-6 w-6 mr-2">
+                      <i className="fi fi-rr-house-chimney text-lg leading-none"></i>
+                    </div>
+                    <span className="font-medium leading-none">{t.home}</span>
+                  </a>
+                  <div className="h-5 w-px bg-white/30 mx-3"></div>
+                  <a href="/sistema" className="flex items-center text-white hover:text-[#01c38d] transition-colors">
+                    <div className="flex items-center justify-center h-6 w-6 mr-2">
+                      <i className="fi fi-rr-apps text-lg leading-none"></i>
+                    </div>
+                    <span className="font-medium leading-none">{t.system}</span>
+                  </a>
+                  <div className="h-5 w-px bg-white/30 mx-3"></div>
+                  <div className="flex items-center text-[#01c38d]">
+                    <div className="flex items-center justify-center h-6 w-6 mr-2">
+                      <i className="fi fi-rr-receipt text-lg leading-none"></i>
+                    </div>
+                    <span className="font-medium leading-none">{t.billing}</span>
                   </div>
-                  <span className="font-medium leading-none">{t.home}</span>
-                </a>
-                
-                <div className="h-5 w-px bg-white/30 mx-3"></div>
-                
-                <a href="/sistema" className="flex items-center text-white hover:text-[#01c38d] transition-colors">
-                  <div className="flex items-center justify-center h-6 w-6 mr-2">
-                    <i className="fi fi-rr-apps text-lg leading-none"></i>
-                  </div>
-                  <span className="font-medium leading-none">{t.system}</span>
-                </a>
-                
-                <div className="h-5 w-px bg-white/30 mx-3"></div>
-                
-                <div className="flex items-center text-[#01c38d]">
-                  <div className="flex items-center justify-center h-6 w-6 mr-2">
-                    <i className="fi fi-rr-receipt text-lg leading-none"></i>
-                  </div>
-                  <span className="font-medium leading-none">{t.billing}</span>
                 </div>
               </div>
             </motion.div>
