@@ -469,12 +469,6 @@ export default function PlanesPage() {
   const originalPlansData = {
     PERSONAL: [
       {
-        tag: "Lite",
-        price: 0,
-        popular: false,
-        description: translations[language].descriptions.lite,
-      },
-      {
         tag: "Premium",
         price: 30,
         popular: true,
@@ -661,7 +655,7 @@ export default function PlanesPage() {
                   className={`grid gap-8 sm:gap-8 md:gap-12 lg:gap-16 items-stretch mx-auto  ${
                     planType === "EMPRESARIAL"
                       ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]"
-                      : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px]"
+                      : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-[960px]"
                   }`}
                 >
                   {plansData[planType as keyof typeof plansData].map((plan, index: number) => (

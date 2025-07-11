@@ -35,6 +35,9 @@ export default function Home() {
       choosePlan: "Escoge el plan que mejor se adapte a tus necesidades",
       planDescription:
         "Ofrecemos planes flexibles diseñados para adaptarse a las necesidades específicas de tu empresa, desde pequeños negocios hasta grandes corporaciones.",
+      modules: "Módulos",
+      selectModules: "Selecciona tus Módulos",
+      modulesDescription: "Elige los módulos que necesitas para tu empresa. Puedes seleccionar múltiples opciones.",
       startFree: "Comenzar Gratis",
       startNow: "Comenzar Ahora",
       seeAllPlans: "Ver todos los planes",
@@ -48,11 +51,11 @@ export default function Home() {
         contracts: "30 Contratos",
         invoices: "100 Facturas",
         creditNotes: "100 Notas de Crédito",
-        unlimitedProposals: "Sin límites Propuestas",
+        unlimitedProposals: "Propuestas Ilimitadas",
         projects: "5 Proyectos",
         projectsEarth: "Proyectos",
         tasks: "100 Tareas",
-        unlimitedProspects: "Sin límites Prospectos",
+        unlimitedProspects: "Clientes Potenciales Ilimitados",
         products: "30 Productos",
         storage: "1 GB Almacenamiento",
         documents: "Documentos",
@@ -61,25 +64,25 @@ export default function Home() {
         payments: "Pagos",
         // Premium plan additional features
         moreClients: "100 Clientes",
-        unlimitedContacts: "Sin límites Contactos",
+        unlimitedContacts: "Contactos Ilimitados",
         moreContracts: "50 Contratos",
         moreInvoices: "200 Facturas",
-        unlimitedBudgets: "Sin límites Presupuestos",
-        unlimitedCreditNotes: "Sin límites Notas de Crédito",
+        unlimitedBudgets: "Presupuestos Ilimitados",
+        unlimitedCreditNotes: "Notas de Crédito Ilimitadas",
         moreProjects: "20 Proyectos",
         moreTasks: "200 Tareas",
-        unlimitedSupportTickets: "Sin límites Tickets de Soporte",
-        unlimitedProducts: "Sin límites Productos",
+        unlimitedSupportTickets: "Tickets de Soporte Ilimitados",
+        unlimitedProducts: "Productos Ilimitados",
         moreStorage: "10 GB Almacenamiento",
         appointments: "Citas",
         additionalConfig: "Configuración Adicional",
         emailCanvas: "Email Canvas",
         objectives: "Objetivos",
-        stateManagement: "Manejo de Estados",
-        tableManagement: "Manejo de Tablas",
+        stateManagement: "Gestión de Estado",
+        tableManagement: "Gestión de Tablas",
         projectKanban: "Kanban de Proyectos",
-        projectManagementImprovements: "Mejoras de Gestión de Proyectos",
-        spreadsheets: "Hojas de Cálculo en Línea",
+        projectManagementImprovements: "Mejoras en Gestión de Proyectos",
+        spreadsheets: "Hojas de Cálculo Online",
       },
       custom:
         "Arma tu plan por medio de nuestro sistema modular, escoge cuáles módulos necesita tu negocio y arma tu plan personalizado",
@@ -92,6 +95,108 @@ export default function Home() {
         personalizado: "Personalizado",
       },
       contact: "Contactar",
+      modulesList: {
+        compras: {
+          title: "Compras",
+          description: "Controla las órdenes de compra, gestiona proveedores y optimiza el abastecimiento de tu negocio fácilmente."
+        },
+        facturaElectronica: {
+          title: "Factura Electrónica",
+          description: "Genera, firma y envía facturas electrónicas validadas por Hacienda cumpliendo con la normativa local automáticamente."
+        },
+        metas: {
+          title: "Metas",
+          description: "Establece, monitorea y alcanza objetivos estratégicos con seguimiento de metas por usuario, equipo o proyecto."
+        },
+        recordatorio: {
+          title: "Recordatorio",
+          description: "Envía alertas automáticas a clientes para pagos, vencimientos y cualquier notificación importante que necesiten."
+        },
+        stripe: {
+          title: "Stripe",
+          description: "Integra la pasarela de pago Stripe para procesar pagos seguros y rápidos desde tu ERP con soporte mejorado."
+        },
+        encuestas: {
+          title: "Encuestas",
+          description: "Diseña y envía encuestas personalizadas para recopilar opiniones y retroalimentación de clientes y empleados fácilmente."
+        },
+        woocommerce: {
+          title: "WooCommerce",
+          description: "Sincroniza productos, pedidos y clientes entre tu tienda en línea y el ERP para una gestión unificada del negocio."
+        },
+        exportarXml: {
+          title: "Exportar XML",
+          description: "Exporta información del sistema en formato XML para integraciones, reportes oficiales o respaldo estructurado de datos."
+        },
+        contratos: {
+          title: "Contratos",
+          description: "Crea, gestiona y da seguimiento a contratos con clientes o proveedores, incluyendo renovaciones, alertas y adjuntos."
+        },
+        notasCredito: {
+          title: "Notas de Crédito",
+          description: "Emite y gestiona notas de crédito para corregir facturas, realizar devoluciones o aplicar descuentos según la normativa fiscal."
+        },
+        camposPersonalizados: {
+          title: "Campos Personalizados",
+          description: "Añade y gestiona campos personalizados en formularios y registros para adaptar el ERP a las necesidades específicas de tu negocio."
+        },
+        solicitudPresupuesto: {
+          title: "Solicitud de presupuesto",
+          description: "Permite a los clientes o usuarios internos generar solicitudes de presupuesto para productos o servicios de forma ordenada y centralizada."
+        },
+        presupuesto: {
+          title: "Presupuesto",
+          description: "Crea y gestiona presupuestos comerciales para clientes, con posibilidad de convertirlos en facturas o contratos en pocos clics."
+        },
+        gastos: {
+          title: "Gastos",
+          description: "Registra, clasifica y controla los gastos del negocio para llevar un mejor seguimiento financiero y contable."
+        },
+        facturas: {
+          title: "Facturas",
+          description: "Genera, envía y administra facturas de ventas con control de pagos, vencimientos y seguimiento desde el ERP."
+        },
+        articulos: {
+          title: "Artículos",
+          description: "Administra todos los productos o servicios de tu negocio con información detallada, precios, stock y clasificaciones."
+        },
+        baseConocimiento: {
+          title: "Base de conocimiento",
+          description: "Crea y organiza artículos en categorías para consultas frecuentes. Disponible para uso interno o como centro de ayuda externo."
+        },
+        clientesPotenciales: {
+          title: "Clientes potenciales",
+          description: "Registra, clasifica y da seguimiento a prospectos para convertirlos en clientes mediante flujos comerciales definidos."
+        },
+        pagos: {
+          title: "Pagos",
+          description: "Registra y gestiona pagos recibidos o realizados, vinculándolos con facturas, gastos o contratos para mantener el control financiero."
+        },
+        proyectos: {
+          title: "Proyectos",
+          description: "Planifica, organiza y da seguimiento a proyectos con tareas, hitos, responsables, fechas clave y progreso en tiempo real."
+        },
+        propuestas: {
+          title: "Propuestas",
+          description: "Crea y envía propuestas comerciales personalizadas a tus clientes, con opción de aprobación en línea y conversión a contrato o factura."
+        },
+        reportes: {
+          title: "Reportes",
+          description: "Genera informes detallados y personalizados para analizar el desempeño financiero, ventas, proyectos y más."
+        },
+        suscripciones: {
+          title: "Suscripciones",
+          description: "Gestiona planes de suscripción, pagos recurrentes y renovaciones automáticas para tus clientes de forma sencilla."
+        },
+        tareas: {
+          title: "Tareas",
+          description: "Crea, asigna y supervisa tareas con fechas límite, prioridades y comentarios para un mejor control del trabajo diario."
+        },
+        tickets: {
+          title: "Tickets",
+          description: "Gestiona solicitudes y reportes de clientes con un sistema de tickets para atención rápida y seguimiento eficiente."
+        }
+      }
     },
     EN: {
       welcome: "Welcome to",
@@ -104,6 +209,9 @@ export default function Home() {
       choosePlan: "Choose the plan that best suits your needs",
       planDescription:
         "We offer flexible plans designed to adapt to your company's specific needs, from small businesses to large corporations.",
+      modules: "Modules",
+      selectModules: "Select your Modules",
+      modulesDescription: "Choose the modules you need for your company. You can select multiple options.",
       startFree: "Start Free",
       startNow: "Start Now",
       seeAllPlans: "See all plans",
@@ -161,6 +269,108 @@ export default function Home() {
         personalizado: "Custom",
       },
       contact: "Contact Us",
+      modulesList: {
+        compras: {
+          title: "Purchases",
+          description: "Control purchase orders, manage suppliers and optimize your business supply chain easily."
+        },
+        facturaElectronica: {
+          title: "Electronic Invoice",
+          description: "Generate, sign and send electronic invoices validated by the Tax Office complying with local regulations automatically."
+        },
+        metas: {
+          title: "Goals",
+          description: "Set, monitor and achieve strategic objectives with goal tracking by user, team or project."
+        },
+        recordatorio: {
+          title: "Reminder",
+          description: "Send automatic alerts to customers for payments, due dates and any important notification they need."
+        },
+        stripe: {
+          title: "Stripe",
+          description: "Integrate the Stripe payment gateway to process secure and fast payments from your ERP with enhanced support."
+        },
+        encuestas: {
+          title: "Surveys",
+          description: "Design and send personalized surveys to collect opinions and feedback from customers and employees easily."
+        },
+        woocommerce: {
+          title: "WooCommerce",
+          description: "Synchronize products, orders and customers between your online store and ERP for unified business management."
+        },
+        exportarXml: {
+          title: "Export XML",
+          description: "Export system information in XML format for integrations, official reports or structured data backup."
+        },
+        contratos: {
+          title: "Contracts",
+          description: "Create, manage and track contracts with customers or suppliers, including renewals, alerts and attachments."
+        },
+        notasCredito: {
+          title: "Credit Notes",
+          description: "Issue and manage credit notes to correct invoices, make returns or apply discounts according to tax regulations."
+        },
+        camposPersonalizados: {
+          title: "Custom Fields",
+          description: "Add and manage custom fields in forms and records to adapt the ERP to your business specific needs."
+        },
+        solicitudPresupuesto: {
+          title: "Budget Request",
+          description: "Allows customers or internal users to generate budget requests for products or services in an organized and centralized way."
+        },
+        presupuesto: {
+          title: "Budget",
+          description: "Create and manage commercial budgets for customers, with the possibility of converting them into invoices or contracts in a few clicks."
+        },
+        gastos: {
+          title: "Expenses",
+          description: "Record, classify and control business expenses to maintain better financial and accounting tracking."
+        },
+        facturas: {
+          title: "Invoices",
+          description: "Generate, send and manage sales invoices with payment control, due dates and tracking from the ERP."
+        },
+        articulos: {
+          title: "Articles",
+          description: "Manage all your business products or services with detailed information, prices, stock and classifications."
+        },
+        baseConocimiento: {
+          title: "Knowledge Base",
+          description: "Create and organize articles in categories for frequent queries. Available for internal use or as external help center."
+        },
+        clientesPotenciales: {
+          title: "Leads",
+          description: "Register, classify and track prospects to convert them into customers through defined commercial flows."
+        },
+        pagos: {
+          title: "Payments",
+          description: "Record and manage payments received or made, linking them with invoices, expenses or contracts to maintain financial control."
+        },
+        proyectos: {
+          title: "Projects",
+          description: "Plan, organize and track projects with tasks, milestones, responsible parties, key dates and real-time progress."
+        },
+        propuestas: {
+          title: "Proposals",
+          description: "Create and send personalized commercial proposals to your customers, with online approval option and conversion to contract or invoice."
+        },
+        reportes: {
+          title: "Reports",
+          description: "Generate detailed and personalized reports to analyze financial performance, sales, projects and more."
+        },
+        suscripciones: {
+          title: "Subscriptions",
+          description: "Manage subscription plans, recurring payments and automatic renewals for your customers easily."
+        },
+        tareas: {
+          title: "Tasks",
+          description: "Create, assign and supervise tasks with deadlines, priorities and comments for better daily work control."
+        },
+        tickets: {
+          title: "Tickets",
+          description: "Manage customer requests and reports with a ticket system for quick attention and efficient follow-up."
+        }
+      }
     },
   }
 
@@ -467,56 +677,7 @@ export default function Home() {
           </div>
 
           {/* Pricing Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 gap-12 sm:gap-8">
-            {/* Lite Plan */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="relative rounded-3xl p-6 sm:p-8 h-full flex flex-col bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 transform hover:-translate-y-2 group"
-            >
-              {/* Lite Plan Content */}
-              {/* Logo y título en la izquierda */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full bg-[#01c38d]/10 flex items-center justify-center">
-                  <i className="fi fi-rr-diamond text-[#01c38d] text-xl flex items-center justify-center"></i>
-                </div>
-                <div className="px-3 py-1.5 rounded-full bg-[#01c38d]/10">
-                  <h3 className="text-lg font-semibold text-[#191e29]">Lite</h3>
-                </div>
-              </div>
-
-              {/* Price */}
-              <div className="mb-6">
-                <span className="text-5xl font-bold text-[#191e29]">$0</span>
-                <span className="text-sm ml-1 text-gray-600">{translations[language].month}</span>
-              </div>
-
-              <ul className="space-y-4 flex-grow">
-                {litePlanFeatures.map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-[#01c38d]/10 flex items-center justify-center flex-shrink-0">
-                      <i
-                        className={`${getFeatureIcon(feature)} text-[#01c38d] text-xs flex items-center justify-center w-full h-full`}
-                      ></i>
-                    </div>
-                    <span className="text-sm text-gray-600">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Lite Plan Button */}
-              <a
-                href="https://lite.kapix.co.cr/"
-                target="_blank"
-                className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40"
-                rel="noreferrer"
-              >
-                <span>{translations[language].startFree}</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </motion.div>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 mb-8 gap-12 sm:gap-8 max-w-4xl mx-auto">
             {/* Premium Plan */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -657,6 +818,44 @@ export default function Home() {
                 <path d="m12 5 7 7-7 7" />
               </svg>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Banner de sistema adaptable a la medida */}
+      <section className="py-12">
+        <div className="w-full px-0 bg-gradient-to-r from-[#191e29] to-[#01c38d] shadow-xl">
+          <div className="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center justify-between p-8 md:p-12 gap-8">
+            {/* Texto y botón */}
+            <div className="flex-1 min-w-[250px]">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+                {language === 'ES'
+                  ? '¿Quieres un sistema adaptable a la medida?'
+                  : 'Do you want a tailor-made adaptable system?'}
+              </h2>
+              <p className="text-white/90 mb-6 max-w-xl">
+                {language === 'ES'
+                  ? 'Descubre cómo puedes personalizar tu ERP seleccionando solo los módulos que tu empresa necesita. ¡Haz crecer tu negocio con flexibilidad y tecnología de punta!'
+                  : 'Discover how you can customize your ERP by selecting only the modules your company needs. Grow your business with flexibility and cutting-edge technology!'}
+              </p>
+              <a
+                href="https://new.kapix.co.cr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-white text-[#191e29] font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-white/90 transition-all text-base"
+              >
+                {language === 'ES' ? 'Explorar Módulos' : 'Explore Modules'}
+              </a>
+            </div>
+            {/* Imagen */}
+            <div className="flex-1 flex justify-center items-center min-w-[200px]">
+              <img
+                src="/img/ERP.png"
+                alt="Sistema Modular ERP"
+                className="max-w-xs w-full h-auto object-contain rounded-xl shadow-2xl drop-shadow-xl"
+                style={{ minWidth: '180px' }}
+              />
+            </div>
           </div>
         </div>
       </section>

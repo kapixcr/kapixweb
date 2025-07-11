@@ -38,60 +38,64 @@ export default function ModulesTable() {
 
   const features = {
     ES: [
-      { name: "Equipo", lite: "1", premium: "1", tierra: "7" },
-      { name: "Clientes", lite: "50", premium: "100", tierra: true },
-      { name: "Contactos", lite: "50", premium: "Sin límites", tierra: false },
-      { name: "Contratos", lite: "30", premium: "50", tierra: false },
-      { name: "Facturas", lite: "100", premium: "200", tierra: false },
-      { name: "Presupuestos", lite: false, premium: "Sin límites", tierra: false },
-      { name: "Notas de Crédito", lite: "100", premium: "Sin límites", tierra: false },
-      { name: "Propuestas", lite: "Sin límites", premium: "100", tierra: false },
-      { name: "Proyectos", lite: "5", premium: "20", tierra: false },
-      { name: "Tareas", lite: "100", premium: "200", tierra: false },
-      { name: "Tickets de Soporte", lite: false, premium: "3", tierra: "5" },
-      { name: "Clientes potenciales", lite: "Sin límites", premium: "Sin límites", tierra: false },
-      { name: "Productos", lite: "30", premium: "200", tierra: false },
-      { name: "Almacenamiento", lite: "1GB", premium: "10GB", tierra: "75GB" },
-      { name: "CRM", lite: false, premium: false, tierra: false },
-      { name: "Contabilidad", lite: false, premium: false, tierra: true },
-      { name: "Ventas", lite: false, premium: false, tierra: true },
-      { name: "Compras", lite: false, premium: false, tierra: true },
-      { name: "Inventario", lite: false, premium: false, tierra: true },
-      { name: "Punto de Venta", lite: false, premium: false, tierra: true },
-      { name: "Documentos", lite: true, premium: false, tierra: false },
-      { name: "Recordatorio", lite: true, premium: true, tierra: false },
-      { name: "Gastos", lite: true, premium: false, tierra: false },
-      { name: "Pagos", lite: true, premium: false, tierra: false },
-      { name: "Horas de capacitación", lite: false, premium: false, tierra: true },
-      { name: "Informes", lite: false, premium: false, tierra: false }
+      { name: "Equipo", vibe: "3", premium: "1", tierra: "7" },
+      { name: "Clientes", vibe: true, premium: "100", tierra: true },
+      { name: "Ventas", vibe: true, premium: false, tierra: true },
+      { name: "Citas", vibe: true, premium: false, tierra: false },
+      { name: "Panel Cliente", vibe: true, premium: false, tierra: false },
+      { name: "Tickets de Soporte", vibe: "3", premium: "3", tierra: "5" },
+      { name: "Almacenamiento", vibe: "30GB", premium: "10GB", tierra: "75GB" },
+      { name: "Horas de capacitación", vibe: true, premium: false, tierra: true },
+      { name: "Contactos", vibe: false, premium: "Sin límites", tierra: false },
+      { name: "Contratos", vibe: false, premium: "50", tierra: false },
+      { name: "Facturas", vibe: false, premium: "200", tierra: false },
+      { name: "Presupuestos", vibe: false, premium: "Sin límites", tierra: false },
+      { name: "Notas de Crédito", vibe: false, premium: "Sin límites", tierra: false },
+      { name: "Propuestas", vibe: false, premium: "100", tierra: false },
+      { name: "Proyectos", vibe: false, premium: "20", tierra: false },
+      { name: "Tareas", vibe: false, premium: "200", tierra: false },
+      { name: "Clientes potenciales", vibe: false, premium: "Sin límites", tierra: false },
+      { name: "Productos", vibe: false, premium: "200", tierra: false },
+      { name: "CRM", vibe: false, premium: false, tierra: false },
+      { name: "Contabilidad", vibe: false, premium: false, tierra: true },
+      { name: "Compras", vibe: false, premium: false, tierra: true },
+      { name: "Inventario", vibe: false, premium: false, tierra: true },
+      { name: "Punto de Venta", vibe: false, premium: false, tierra: true },
+      { name: "Documentos", vibe: false, premium: false, tierra: false },
+      { name: "Recordatorio", vibe: false, premium: true, tierra: false },
+      { name: "Gastos", vibe: false, premium: false, tierra: false },
+      { name: "Pagos", vibe: false, premium: false, tierra: false },
+      { name: "Informes", vibe: false, premium: false, tierra: false }
     ],
     EN: [
-      { name: "Team", lite: "1", premium: "1", tierra: "7" },
-      { name: "Clients", lite: "50", premium: "100", tierra: true },
-      { name: "Contacts", lite: "50", premium: "Unlimited", tierra: false },
-      { name: "Contracts", lite: "30", premium: "50", tierra: false },
-      { name: "Invoices", lite: "100", premium: "200", tierra: false },
-      { name: "Budgets", lite: false, premium: "Unlimited", tierra: false },
-      { name: "Credit Notes", lite: "100", premium: "Unlimited", tierra: false },
-      { name: "Proposals", lite: "Unlimited", premium: "100", tierra: false },
-      { name: "Projects", lite: "5", premium: "20", tierra: false },
-      { name: "Tasks", lite: "100", premium: "200", tierra: false },
-      { name: "Support Tickets", lite: false, premium: "3", tierra: "5" },
-      { name: "Leads", lite: "Unlimited", premium: "Unlimited", tierra: false },
-      { name: "Products", lite: "30", premium: "200", tierra: false },
-      { name: "Storage", lite: "1GB", premium: "10GB", tierra: "75GB" },
-      { name: "CRM", lite: false, premium: false, tierra: false },
-      { name: "Accounting", lite: false, premium: false, tierra: true },
-      { name: "Sales", lite: false, premium: false, tierra: true },
-      { name: "Purchases", lite: false, premium: false, tierra: true },
-      { name: "Inventory", lite: false, premium: false, tierra: true },
-      { name: "Point of Sale", lite: false, premium: false, tierra: true },
-      { name: "Documents", lite: true, premium: false, tierra: false },
-      { name: "Reminder", lite: true, premium: true, tierra: false },
-      { name: "Expenses", lite: true, premium: false, tierra: false },
-      { name: "Payments", lite: true, premium: false, tierra: false },
-      { name: "Training hours", lite: false, premium: false, tierra: true },
-      { name: "Reports", lite: false, premium: false, tierra: false }
+      { name: "Team", vibe: "3", premium: "1", tierra: "7" },
+      { name: "Clients", vibe: true, premium: "100", tierra: true },
+      { name: "Sales", vibe: true, premium: false, tierra: true },
+      { name: "Appointments", vibe: true, premium: false, tierra: false },
+      { name: "Client Panel", vibe: true, premium: false, tierra: false },
+      { name: "Support Tickets", vibe: "3", premium: "3", tierra: "5" },
+      { name: "Storage", vibe: "30GB", premium: "10GB", tierra: "75GB" },
+      { name: "Training hours", vibe: true, premium: false, tierra: true },
+      { name: "Contacts", vibe: false, premium: "Unlimited", tierra: false },
+      { name: "Contracts", vibe: false, premium: "50", tierra: false },
+      { name: "Invoices", vibe: false, premium: "200", tierra: false },
+      { name: "Budgets", vibe: false, premium: "Unlimited", tierra: false },
+      { name: "Credit Notes", vibe: false, premium: "Unlimited", tierra: false },
+      { name: "Proposals", vibe: false, premium: "100", tierra: false },
+      { name: "Projects", vibe: false, premium: "20", tierra: false },
+      { name: "Tasks", vibe: false, premium: "200", tierra: false },
+      { name: "Leads", vibe: false, premium: "Unlimited", tierra: false },
+      { name: "Products", vibe: false, premium: "200", tierra: false },
+      { name: "CRM", vibe: false, premium: false, tierra: false },
+      { name: "Accounting", vibe: false, premium: false, tierra: true },
+      { name: "Purchases", vibe: false, premium: false, tierra: true },
+      { name: "Inventory", vibe: false, premium: false, tierra: true },
+      { name: "Point of Sale", vibe: false, premium: false, tierra: true },
+      { name: "Documents", vibe: false, premium: false, tierra: false },
+      { name: "Reminder", vibe: false, premium: true, tierra: false },
+      { name: "Expenses", vibe: false, premium: false, tierra: false },
+      { name: "Payments", vibe: false, premium: false, tierra: false },
+      { name: "Reports", vibe: false, premium: false, tierra: false }
     ]
   }
 
@@ -195,10 +199,10 @@ export default function ModulesTable() {
               <th className="py-6 px-6 last:rounded-tr-3xl">
                 <div className="flex flex-col items-center gap-2">
                   <span className="bg-[#01c38d] text-white px-6 py-2 rounded-full font-medium">
-                    Lite
+                    Vibe
                   </span>
                   <span className="bg-[#01c38d]/10 text-[#01c38d] px-4 py-1 rounded-full text-sm">
-                    Gratis
+                    $100{t.month}
                   </span>
                 </div>
               </th>
@@ -250,15 +254,15 @@ export default function ModulesTable() {
                   )}
                 </td>
                 <td className="py-4 px-6 text-center">
-                  {typeof feature.lite === "boolean" ? (
-                    feature.lite ? (
+                  {typeof feature.vibe === "boolean" ? (
+                    feature.vibe ? (
                       <Check className="w-5 h-5 text-[#191e29] mx-auto" />
                     ) : (
                       <X className="w-5 h-5 text-gray-300 mx-auto" />
                     )
                   ) : (
                     <span className="inline-block bg-[#191e29]/10 text-[#191e29] px-3 py-1 rounded-full text-sm">
-                      {feature.lite}
+                      {feature.vibe}
                     </span>
                   )}
                 </td>
