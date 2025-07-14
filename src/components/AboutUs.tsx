@@ -51,7 +51,7 @@ export default function AboutUs() {
                   src="/img/ABOUT-US.png"
                   alt="Kapix Logo"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_40px_rgba(1,195,141,0.25)]"
                   priority
                 />
               </div>

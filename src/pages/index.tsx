@@ -663,6 +663,67 @@ export default function Home() {
       {/* Agregar el About Section */}
       <AboutUs />
 
+      {/* Banner de sistema adaptable a la medida */}
+      <section className="py-12">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-0">
+            {/* Texto y botón */}
+            <div className="flex flex-col justify-center bg-transparent px-0 md:px-0 order-1 lg:order-1">
+              <div className="mb-0 text-left bg-transparent">
+                <span className="inline-block px-4 py-2 rounded-full bg-[#191e29] text-white font-medium text-sm mb-2 shadow-sm">
+                  {language === 'ES' ? 'Módulos' : 'Modules'}
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-[#191e29] to-[#01c38d] bg-clip-text text-transparent max-w-lg leading-tight md:mx-0 text-left">
+                  {language === 'ES'
+                    ? 'Obten tu propio ERP desde $10 al mes'
+                    : 'Get your own ERP from $10 per month'}
+                </h2>
+              </div>
+              <p className="text-gray-700 mb-6 max-w-xl md:mx-0 text-left">
+                {language === 'ES'
+                  ? (<>
+                      <b>Solo paga por lo que realmente usas.</b><br />
+                      Personaliza tu sistema ERP seleccionando únicamente los módulos que tu empresa necesita. Desde solo <b>$10 mensuales por usuario</b>, accede a herramientas específicas que optimizan cada área de tu operación: ventas, inventario, contabilidad, facturación y más.<br /><br />
+                      <ul className="space-y-2 mb-3">
+                        <li className="flex items-center gap-2"><span className='inline-block bg-[#01c38d]/10 p-1.5 rounded-full text-[#01c38d]'><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#01c38d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span><b>Añade usuarios según tu estructura.</b></span></li>
+                        <li className="flex items-center gap-2"><span className='inline-block bg-[#01c38d]/10 p-1.5 rounded-full text-[#01c38d]'><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#01c38d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span><b>Activa solo los módulos que te aportan valor.</b></span></li>
+                        <li className="flex items-center gap-2"><span className='inline-block bg-[#01c38d]/10 p-1.5 rounded-full text-[#01c38d]'><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#01c38d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span><b>Incorpora soporte técnico si lo necesitas.</b></span></li>
+                      </ul>
+                      Olvídate de pagar de más por funciones que no utilizas.<br />
+                      Con nuestro modelo flexible, tu ERP crece contigo, a tu ritmo y sin complicaciones.
+                    </>)
+                  : (<>
+                      <b>Only pay for what you really use.</b><br />
+                      Customize your ERP system by selecting only the modules your company needs. From just <b>$10 per user per month</b>, access specific tools that optimize every area of your operation: sales, inventory, accounting, invoicing, and more.<br /><br />
+                      <ul className="space-y-2 mb-3">
+                        <li className="flex items-center gap-2"><span className='inline-block bg-[#01c38d]/10 p-1.5 rounded-full text-[#01c38d]'><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#01c38d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span><b>Add users according to your structure.</b></span></li>
+                        <li className="flex items-center gap-2"><span className='inline-block bg-[#01c38d]/10 p-1.5 rounded-full text-[#01c38d]'><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#01c38d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span><b>Activate only the modules that bring you value.</b></span></li>
+                        <li className="flex items-center gap-2"><span className='inline-block bg-[#01c38d]/10 p-1.5 rounded-full text-[#01c38d]'><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="#01c38d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span><b>Include technical support if you need it.</b></span></li>
+                      </ul>
+                      Forget about overpaying for features you don't use.<br />
+                      With our flexible model, your ERP grows with you, at your pace and without complications.
+                    </>)}
+              </p>
+              <motion.button
+                onClick={() => window.open('https://new.kapix.co.cr/', '_blank')}
+                whileHover={{ scale: 1.05 }}
+                className="bg-[#01c38d] text-white px-6 py-3 rounded-md font-bold hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer w-48"
+              >
+                {language === 'ES' ? 'Explorar Módulos' : 'Explore Modules'}
+              </motion.button>
+            </div>
+            {/* Imagen */}
+            <div className="relative w-full h-[400px] rounded-3xl overflow-hidden order-2 lg:order-2">
+              <img
+                src="/img/ERP.png"
+                alt="Sistema Modular ERP"
+                className="object-cover w-full h-full absolute inset-0 rounded-2xl shadow-2xl drop-shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_40px_rgba(1,195,141,0.25)]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Cards Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
@@ -818,44 +879,6 @@ export default function Home() {
                 <path d="m12 5 7 7-7 7" />
               </svg>
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Banner de sistema adaptable a la medida */}
-      <section className="py-12">
-        <div className="w-full px-0 bg-gradient-to-r from-[#191e29] to-[#01c38d] shadow-xl">
-          <div className="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center justify-between p-8 md:p-12 gap-8">
-            {/* Texto y botón */}
-            <div className="flex-1 min-w-[250px]">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-                {language === 'ES'
-                  ? '¿Quieres un sistema adaptable a la medida?'
-                  : 'Do you want a tailor-made adaptable system?'}
-              </h2>
-              <p className="text-white/90 mb-6 max-w-xl">
-                {language === 'ES'
-                  ? 'Descubre cómo puedes personalizar tu ERP seleccionando solo los módulos que tu empresa necesita. ¡Haz crecer tu negocio con flexibilidad y tecnología de punta!'
-                  : 'Discover how you can customize your ERP by selecting only the modules your company needs. Grow your business with flexibility and cutting-edge technology!'}
-              </p>
-              <a
-                href="https://new.kapix.co.cr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-white text-[#191e29] font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-white/90 transition-all text-base"
-              >
-                {language === 'ES' ? 'Explorar Módulos' : 'Explore Modules'}
-              </a>
-            </div>
-            {/* Imagen */}
-            <div className="flex-1 flex justify-center items-center min-w-[200px]">
-              <img
-                src="/img/ERP.png"
-                alt="Sistema Modular ERP"
-                className="max-w-xs w-full h-auto object-contain rounded-xl shadow-2xl drop-shadow-xl"
-                style={{ minWidth: '180px' }}
-              />
-            </div>
           </div>
         </div>
       </section>
