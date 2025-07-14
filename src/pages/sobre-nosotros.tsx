@@ -221,7 +221,7 @@ export default function SobreNosotros() {
               <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 transform hover:-translate-y-2 group">
                 <div className="absolute inset-0">
                   <InstagramEmbed 
-                    url="https://www.instagram.com/p/DKswrech9eB/?igsh=ZmtjZ2Z5ZGNidnU4"
+                    url="https://www.instagram.com/p/DL-1fTCB9nd/?igsh=MW51NDdrdXppZjZobA=="
                     width="100%"
                     height="100%"
                   />
@@ -230,7 +230,7 @@ export default function SobreNosotros() {
               <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 transform hover:-translate-y-2 group">
                 <div className="absolute inset-0">
                   <InstagramEmbed 
-                    url="https://www.instagram.com/p/DKrrQKkNzNg/?igsh=MWVicms2NzRrOWIyNQ=="
+                    url="https://www.instagram.com/p/DL-udu6p-XZ/?igsh=MXE1anlxcjdzd25ocA=="
                     width="100%"
                     height="100%"
                   />
@@ -239,7 +239,7 @@ export default function SobreNosotros() {
               <div className="aspect-[4/5] relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 transform hover:-translate-y-2 group">
                 <div className="absolute inset-0">
                   <InstagramEmbed 
-                    url="https://www.instagram.com/p/DKcZyr6tZPu/?igsh=YWZwb3YwaTdmOHZ2"
+                    url="https://www.instagram.com/p/DL8MN9FpIQV/?igsh=dGJ4Z3A1dDdkZ21y"
                     width="100%"
                     height="100%"
                   />
