@@ -181,8 +181,8 @@ export default function ModulesTable() {
                   <span className="bg-[#01c38d] text-white px-6 py-2 rounded-full font-medium">
                     {t.earth}
                   </span>
-                  <span className="bg-[#01c38d]/10 text-[#01c38d] px-4 py-1 rounded-full text-sm">
-                    $200{t.month}
+                  <span className="bg-[#01c38d]/10 text-[#01c38d] px-4 py-1 rounded-full text-base font-semibold">
+                    {language === "ES" ? "Cotizar" : "Get Estimate"}
                   </span>
                 </div>
               </th>
@@ -191,8 +191,8 @@ export default function ModulesTable() {
                   <span className="bg-[#01c38d] text-white px-6 py-2 rounded-full font-medium">
                     Premium
                   </span>
-                  <span className="bg-[#01c38d]/10 text-[#01c38d] px-4 py-1 rounded-full text-sm">
-                    $30/mes
+                  <span className="bg-[#01c38d]/10 text-[#01c38d] px-4 py-1 rounded-full text-base font-semibold">
+                    {language === "ES" ? "Cotizar" : "Get Estimate"}
                   </span>
                 </div>
               </th>
@@ -201,8 +201,8 @@ export default function ModulesTable() {
                   <span className="bg-[#01c38d] text-white px-6 py-2 rounded-full font-medium">
                     Vibe
                   </span>
-                  <span className="bg-[#01c38d]/10 text-[#01c38d] px-4 py-1 rounded-full text-sm">
-                    $100{t.month}
+                  <span className="bg-[#01c38d]/10 text-[#01c38d] px-4 py-1 rounded-full text-base font-semibold">
+                    {language === "ES" ? "Cotizar" : "Get Estimate"}
                   </span>
                 </div>
               </th>

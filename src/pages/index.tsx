@@ -759,9 +759,9 @@ export default function Home() {
 
               {/* Price */}
               <div className="mb-6">
-                <span className="text-5xl font-bold text-white">$30</span>
-                <span className="text-base ml-1 text-white/90">+ {language === "ES" ? "IVA" : "VAT"}</span>
-                <span className="text-sm ml-1 text-white/90">{translations[language].month}</span>
+                <span className="text-3xl font-semibold text-white">
+                  {language === "ES" ? "Cotizar" : "Get Estimate"}
+                </span>
               </div>
 
               <ul className="space-y-4 flex-grow">
@@ -779,27 +779,13 @@ export default function Home() {
 
               {/* Button */}
               <a
-                href="https://kpixs.com/authentication/register?kx_plan=premium"
+                href="https://kpixs.com/forms/quote/f116b3913afc09d2517949e0d933c0e2?styled=1&with_logo=1"
                 target="_blank"
                 className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-white text-[#191e29] hover:bg-white/90 shadow-lg shadow-[#191e29]/30 hover:shadow-xl hover:shadow-[#E3EEEC]/40"
                 rel="noreferrer"
               >
-                <span>{translations[language].startNow}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-arrow-right"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
+                <span>{language === 'ES' ? 'Contactar' : 'Contact'}</span>
+                <ArrowRight className="w-4 h-4" />
               </a>
             </motion.div>
 
@@ -825,9 +811,9 @@ export default function Home() {
 
               {/* Price */}
               <div className="mb-6">
-                <span className="text-5xl font-bold text-[#191e29]">$100</span>
-                <span className="text-base ml-1 text-gray-600">+ {language === "ES" ? "IVA" : "VAT"}</span>
-                <span className="text-sm ml-1 text-gray-600">{translations[language].month}</span>
+                <span className="text-3xl font-semibold text-[#191e29]">
+                  {language === "ES" ? "Cotizar" : "Get Estimate"}
+                </span>
               </div>
 
               <ul className="space-y-4 flex-grow">
@@ -845,12 +831,12 @@ export default function Home() {
 
               {/* Button */}
               <a
-                href="https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
+                href="https://kpixs.com/forms/quote/f116b3913afc09d2517949e0d933c0e2?styled=1&with_logo=1"
                 target="_blank"
                 className="w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all bg-[#01c38d]/10 text-[#01c38d] hover:bg-[#01c38d]/20 shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40"
                 rel="noreferrer"
               >
-                <span>{translations[language].contact || "Contactar"}</span>
+                <span>{language === 'ES' ? 'Contactar' : 'Contact'}</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
             </motion.div>

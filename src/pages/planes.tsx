@@ -688,16 +688,8 @@ export default function PlanesPage() {
 
                       {/* Price */}
                       <div className="mb-6">
-                        <span className={`text-5xl font-bold ${plan.popular ? "text-white" : "text-[#191e29]"}`}>
-                          ${plan.price}
-                        </span>
-                        {plan.price > 0 && (
-                          <span className={`text-sm ${plan.popular ? "text-white/90" : "text-gray-600"}`}>
-                            {" " + translations[language].tax}
-                          </span>
-                        )}
-                        <span className={`text-sm ml-1 ${plan.popular ? "text-white/90" : "text-gray-600"}`}>
-                          {translations[language].month}
+                        <span className={`text-3xl font-semibold ${plan.popular ? "text-white" : "text-[#191e29]"}`}>
+                          {language === "ES" ? "Cotizar" : "Get Estimate"}
                         </span>
                       </div>
 
@@ -723,25 +715,7 @@ export default function PlanesPage() {
 
                       {/* Button */}
                       <a
-                        href={
-                          plan.originalTag === "Lite"
-                            ? "https://lite.kapix.co.cr/"
-                            : plan.originalTag === "Premium"
-                              ? "https://kpixs.com/authentication/register?kx_plan=premium"
-                              : plan.originalTag === "NEXUS"
-                                ? "https://kpixs.com/authentication/register?kx_plan=sol"
-                                : plan.originalTag === "VIBE"
-                                  ? "https://kpixs.com/authentication/register?kx_plan=vibe"
-                                  : plan.originalTag === "CRAFT"
-                                    ? "https://kpixs.com/authentication/register?kx_plan=venus"
-                                    : plan.originalTag === "HUB"
-                                      ? "https://kpixs.com/authentication/register?kx_plan=tierra"
-                                      : plan.originalTag === "ZONE"
-                                        ? "https://kpixs.com/authentication/register?kx_plan=zone"
-                                        : plan.originalTag === "Personalizado"
-                                          ? "https://wa.me/50660641906?text=Hola%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tu%20plan%20personalizado"
-                                          : "https://kpixs.com/authentication/register?kx_plan"
-                        }
+                        href="https://kpixs.com/forms/quote/f116b3913afc09d2517949e0d933c0e2?styled=1&with_logo=1"
                         target="_blank"
                         className={`w-full mt-8 py-3 px-4 rounded-full flex items-center justify-center gap-2 transition-all ${
                           plan.popular
@@ -750,7 +724,7 @@ export default function PlanesPage() {
                         }`}
                         rel="noreferrer"
                       >
-                        <span>{getButtonText(plan)}</span>
+                        <span>{language === 'ES' ? 'Contactar' : 'Contact'}</span>
                         <ArrowRight className="w-4 h-4" />
                       </a>
                     </motion.div>
