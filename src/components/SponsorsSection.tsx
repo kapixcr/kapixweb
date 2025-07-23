@@ -28,6 +28,11 @@ const sponsors = [
     name: "Tecniplagas",
     logo: "/img/TECNIPLAGAS.png",
     width: 180
+  },
+  {
+    name: "Sazón & Sabor en Boca de Todos",
+    logo: "/img/SAZÓN & SABOR.png",
+    width: 180
   }
 ]
 
