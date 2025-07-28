@@ -31,7 +31,7 @@ const sponsors = [
   },
   {
     name: "Sazón & Sabor en Boca de Todos",
-    logo: "/img/SAZÓN & SABOR.png",
+    logo: "/img/SAZON Y SABOR.png",
     width: 180
   }
 ]
