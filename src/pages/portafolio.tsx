@@ -31,13 +31,6 @@ const translations = {
         link: "https://lite.kapix.co.cr/"
       },
       {
-        id: "kapix-api",
-        title: "KAPIX API",
-        description: "API robusta para integrar nuestros servicios con otras plataformas y sistemas.",
-        image: "/img/KAPIX API.png",
-        link: "/contacto"
-      },
-      {
         id: "tecniplagas",
         title: "Tecniplagas",
         description: "Sitio web corporativo para empresa de control de plagas y servicios de fumigación.",

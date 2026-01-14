@@ -10,12 +10,12 @@ export interface BlogPost {
   
   export async function fetchBlogPosts(): Promise<BlogPost[]> {
     try {
-      const response = await fetch("https://cohete.kapix.co.cr/api/noticias")
-  
+      const response = await fetch("/api/noticias")
+
       if (!response.ok) {
         throw new Error(`Error fetching blog posts: ${response.status}`)
       }
-  
+
       const data = await response.json()
       return Array.isArray(data) ? data : []
     } catch (error) {
