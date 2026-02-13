@@ -31,6 +31,22 @@ const translations = {
         link: "https://lite.kapix.co.cr/"
       },
       {
+        id: "ruhpa",
+        title: "Ruhpa",
+        description: "Desarrollo de app multitienda enfocada en experiencia móvil y gestión de tiendas.",
+        image: "/img/ruhpa.png",
+        link: "https://play.google.com/store/apps/details?id=com.ruhpa.client&hl=es_419",
+        images: ["/img/ruhpa1.jpg", "/img/ruhpa2.jpg", "/img/ruhpa3.jpg", "/img/ruhpa4.jpg", "/img/ruhpa5.jpg"]
+      },
+      {
+        id: "bionote",
+        title: "BioNote",
+        description: "App para generación de resultados de pruebas rápidas.",
+        image: "/img/Bionote logo.png",
+        link: "https://play.google.com/store/search?q=bionote&c=apps&hl=es_419",
+        images: ["/img/bionote1.jpg", "/img/bionote2.jpg", "/img/bionote3.jpg", "/img/bionote4.jpg", "/img/bionote5.jpg", "/img/bionote6.jpg"]
+      },
+      {
         id: "tecniplagas",
         title: "Tecniplagas",
         description: "Sitio web corporativo para empresa de control de plagas y servicios de fumigación.",
@@ -61,6 +77,22 @@ const translations = {
         link: "https://lite.kapix.co.cr/"
       },
       {
+        id: "ruhpa",
+        title: "Ruhpa",
+        description: "Multi-store mobile app development with a focus on mobile UX and store management.",
+        image: "/img/ruhpa.png",
+        link: "https://play.google.com/store/apps/details?id=com.ruhpa.client&hl=es_419",
+        images: ["/img/ruhpa1.jpg", "/img/ruhpa2.jpg", "/img/ruhpa3.jpg", "/img/ruhpa4.jpg", "/img/ruhpa5.jpg"]
+      },
+      {
+        id: "bionote",
+        title: "BioNote",
+        description: "Rapid test result generation app.",
+        image: "/img/Bionote logo.png",
+        link: "https://play.google.com/store/search?q=bionote&c=apps&hl=es_419",
+        images: ["/img/bionote1.jpg", "/img/bionote2.jpg", "/img/bionote3.jpg", "/img/bionote4.jpg", "/img/bionote5.jpg", "/img/bionote6.jpg"]
+      },
+      {
         id: "kapix-api",
         title: "KAPIX API",
         description: "Robust API to integrate our services with other platforms and systems.",
@@ -81,15 +113,17 @@ const translations = {
 export default function PortfolioPage() {
   const { language } = useLanguage()
   const t = translations[language]
-  const [selectedProject, setSelectedProject] = useState<{ image: string, link: string, title: string, description: string } | null>(null);
+  const [selectedProject, setSelectedProject] = useState<{ image: string, link: string, title: string, description: string, images?: string[] } | null>(null);
   const [scale, setScale] = useState(1);
   const [isDragging, setIsDragging] = useState(false);
   const [origin, setOrigin] = useState({ x: 0, y: 0 });
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const imageContainerRef = useRef<HTMLDivElement>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const handleImageClick = (project: { image: string, link: string, title: string, description: string }) => {
+  const handleImageClick = (project: { image: string, link: string, title: string, description: string, images?: string[] }) => {
     setSelectedProject(project);
+    setCurrentImageIndex(0);
   };
 
   const handleCloseModal = () => {
@@ -310,7 +344,7 @@ export default function PortfolioPage() {
                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
               >
                 <Image
-                  src={selectedProject.image}
+                  src={selectedProject.images && selectedProject.images.length > 0 ? selectedProject.images[currentImageIndex] : selectedProject.image}
                   alt="Full Screen"
                   width={768}
                   height={768}
@@ -319,6 +353,34 @@ export default function PortfolioPage() {
                 />
               </motion.div>
             </div>
+
+            {selectedProject.images && selectedProject.images.length > 1 && (
+              <div className="flex items-center justify-center gap-4 mt-4">
+                <button
+                  className="bg-gray-200 rounded-full px-3 py-1 text-gray-600 hover:text-gray-800 cursor-pointer hover:shadow-md"
+                  onClick={() => {
+                    setCurrentImageIndex((prev) => (prev - 1 + (selectedProject.images ? selectedProject.images.length : 1)) % (selectedProject.images ? selectedProject.images.length : 1));
+                    resetPosition();
+                  }}
+                  aria-label={language === 'ES' ? 'Anterior' : 'Previous'}
+                >
+                  {language === 'ES' ? 'Anterior' : 'Previous'}
+                </button>
+                <span className="text-sm text-slate-600">
+                  {(currentImageIndex + 1).toString()}/{selectedProject.images.length.toString()}
+                </span>
+                <button
+                  className="bg-gray-200 rounded-full px-3 py-1 text-gray-600 hover:text-gray-800 cursor-pointer hover:shadow-md"
+                  onClick={() => {
+                    setCurrentImageIndex((prev) => (prev + 1) % (selectedProject.images ? selectedProject.images.length : 1));
+                    resetPosition();
+                  }}
+                  aria-label={language === 'ES' ? 'Siguiente' : 'Next'}
+                >
+                  {language === 'ES' ? 'Siguiente' : 'Next'}
+                </button>
+              </div>
+            )}
 
             {/* Zoom Controls (Reset, Zoom In/Out) */}
             <div className="flex justify-between items-center w-full mt-4">

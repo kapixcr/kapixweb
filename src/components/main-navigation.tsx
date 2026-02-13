@@ -43,6 +43,8 @@ export default function MainNavigation() {
     setLanguageMenuOpen(false)
   }
 
+  const pathname = usePathname()  
+
   if (!mounted) {
     return null
   }
@@ -58,7 +60,8 @@ export default function MainNavigation() {
       services: "Servicios",
       hosting: "Hosting",
       system: "Sistema",
-      portfolio: "Portafolio"
+      portfolio: "Portafolio",
+      integrations: "Integraciones"
     },
     EN: {
       home: "Home",
@@ -70,11 +73,10 @@ export default function MainNavigation() {
       services: "Services",
       hosting: "Hosting",
       system: "System",
-      portfolio: "Portfolio"
+      portfolio: "Portfolio",
+      integrations: "Integrations"
     }
   }
-
-  const pathname = usePathname()  
 
   const isActive = (path: string) => pathname === path
 
@@ -117,7 +119,7 @@ export default function MainNavigation() {
                 <button 
                   onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
                   className={`px-3 py-2 font-medium ${
-                    isActive('/hosting') || isActive('/sistema') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
+                    isActive('/hosting') || isActive('/sistema') || isActive('/portafolio') || isActive('/integraciones') ? 'text-[#01c38d]' : 'text-[#191e29] hover:text-[#01c38d]'
                   } flex items-center`}
                 >
                   {navigationLinks[language].services}
@@ -148,6 +150,14 @@ export default function MainNavigation() {
                           }`}
                         >
                           {navigationLinks[language].system}
+                        </Link>
+                        <Link 
+                          href="/integraciones" 
+                          className={`block px-4 py-2 text-sm ${
+                            isActive('/integraciones') ? 'text-[#01c38d] bg-gray-50' : 'text-[#191e29] hover:text-[#01c38d] hover:bg-gray-50'
+                          }`}
+                        >
+                          {navigationLinks[language].integrations}
                         </Link>
                         <Link 
                           href="/portafolio" 
