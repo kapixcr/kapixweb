@@ -44,7 +44,29 @@ const translations = {
         description: "App para generación de resultados de pruebas rápidas.",
         image: "/img/Bionote logo.png",
         link: "https://play.google.com/store/search?q=bionote&c=apps&hl=es_419",
-        images: ["/img/bionote1.jpg", "/img/bionote2.jpg", "/img/bionote3.jpg", "/img/bionote4.jpg", "/img/bionote5.jpg", "/img/bionote6.jpg"]
+        images: ["/img/bionote1.jpg", "/img/bionote2.jpg", "/img/bionote3.jpg", "/img/bionote4.jpg", "/img/bionote5.jpg", "/img/bionote6.jpg"],
+        isLogo: true
+      },
+      {
+        id: "pollocrix",
+        title: "Pollocrix",
+        description: "Sistema completo de pedidos de comida: app para clientes y app para conductores de entrega.",
+        image: "/img/pollocrix.png",
+        isLogo: true,
+        apps: [
+          {
+            name: "App Clientes",
+            nameEn: "Customer App",
+            link: "https://play.google.com/store/apps/details?id=com.pollocrix.client&hl=es_419",
+            images: ["/img/pollocrix1.jpg", "/img/pollocrix2.jpg", "/img/pollocrix3.jpg", "/img/pollocrix4.jpg", "/img/pollocrix5.jpg"]
+          },
+          {
+            name: "App Conductores",
+            nameEn: "Driver App",
+            link: "https://play.google.com/store/apps/details?id=com.pollocrix.conductor&hl=es_419",
+            images: ["/img/pollodriver1.jpg", "/img/pollodriver2.jpg", "/img/pollodriver3.jpg", "/img/pollodriver4.jpg"]
+          }
+        ]
       },
       {
         id: "tecniplagas",
@@ -90,7 +112,29 @@ const translations = {
         description: "Rapid test result generation app.",
         image: "/img/Bionote logo.png",
         link: "https://play.google.com/store/search?q=bionote&c=apps&hl=es_419",
-        images: ["/img/bionote1.jpg", "/img/bionote2.jpg", "/img/bionote3.jpg", "/img/bionote4.jpg", "/img/bionote5.jpg", "/img/bionote6.jpg"]
+        images: ["/img/bionote1.jpg", "/img/bionote2.jpg", "/img/bionote3.jpg", "/img/bionote4.jpg", "/img/bionote5.jpg", "/img/bionote6.jpg"],
+        isLogo: true
+      },
+      {
+        id: "pollocrix",
+        title: "Pollocrix",
+        description: "Complete food ordering system: customer app and delivery driver app.",
+        image: "/img/pollocrix.png",
+        isLogo: true,
+        apps: [
+          {
+            name: "Customer App",
+            nameEn: "Customer App",
+            link: "https://play.google.com/store/apps/details?id=com.pollocrix.client&hl=es_419",
+            images: ["/img/pollocrix1.jpg", "/img/pollocrix2.jpg", "/img/pollocrix3.jpg", "/img/pollocrix4.jpg", "/img/pollocrix5.jpg"]
+          },
+          {
+            name: "Driver App",
+            nameEn: "Driver App",
+            link: "https://play.google.com/store/apps/details?id=com.pollocrix.conductor&hl=es_419",
+            images: ["/img/pollodriver1.jpg", "/img/pollodriver2.jpg", "/img/pollodriver3.jpg", "/img/pollodriver4.jpg"]
+          }
+        ]
       },
       {
         id: "kapix-api",
@@ -113,7 +157,8 @@ const translations = {
 export default function PortfolioPage() {
   const { language } = useLanguage()
   const t = translations[language]
-  const [selectedProject, setSelectedProject] = useState<{ image: string, link: string, title: string, description: string, images?: string[] } | null>(null);
+  const [selectedProject, setSelectedProject] = useState<{ image: string, link?: string, title: string, description: string, images?: string[], isLogo?: boolean, apps?: { name: string, nameEn: string, link: string, images: string[] }[] } | null>(null);
+  const [activeAppTab, setActiveAppTab] = useState(0);
   const [scale, setScale] = useState(1);
   const [isDragging, setIsDragging] = useState(false);
   const [origin, setOrigin] = useState({ x: 0, y: 0 });
@@ -121,13 +166,16 @@ export default function PortfolioPage() {
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const handleImageClick = (project: { image: string, link: string, title: string, description: string, images?: string[] }) => {
+  const handleImageClick = (project: { image: string, link?: string, title: string, description: string, images?: string[], isLogo?: boolean, apps?: { name: string, nameEn: string, link: string, images: string[] }[] }) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
   };
 
   const handleCloseModal = () => {
     setSelectedProject(null);
+    setActiveAppTab(0);
+    setCurrentImageIndex(0);
+    resetPosition();
   };
 
   useEffect(() => {
@@ -279,12 +327,12 @@ export default function PortfolioPage() {
                   e.stopPropagation();
                   handleImageClick(project);
                 }}>
-                  <div className="relative h-[400px] w-full"> {/* Increased height here */}
+                <div className={`relative h-[400px] w-full ${project.isLogo ? 'bg-white flex items-center justify-center p-8' : ''}`}> {/* Increased height here */}
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      style={{ objectFit: 'cover' }}
+                      style={{ objectFit: project.isLogo ? 'contain' : 'cover' }}
                       className="transition-transform duration-500 ease-in-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -324,6 +372,29 @@ export default function PortfolioPage() {
               &times;
             </button>
 
+            {/* Tabs for multiple apps */}
+            {selectedProject.apps && selectedProject.apps.length > 0 && (
+              <div className="flex justify-center gap-2 mb-4">
+                {selectedProject.apps.map((app, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setActiveAppTab(index);
+                      setCurrentImageIndex(0);
+                      resetPosition();
+                    }}
+                    className={`px-4 py-2 rounded-full font-medium transition-all ${
+                      activeAppTab === index
+                        ? 'bg-[#01c38d] text-white shadow-lg'
+                        : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                    }`}
+                  >
+                    {language === 'ES' ? app.name : app.nameEn}
+                  </button>
+                ))}
+              </div>
+            )}
+
             {/* Image Container with zoom and drag functionality */}
             <div
               className="flex items-center justify-center flex-shrink-0 overflow-hidden"
@@ -344,7 +415,11 @@ export default function PortfolioPage() {
                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
               >
                 <Image
-                  src={selectedProject.images && selectedProject.images.length > 0 ? selectedProject.images[currentImageIndex] : selectedProject.image}
+                  src={selectedProject.apps && selectedProject.apps.length > 0 
+                    ? selectedProject.apps[activeAppTab].images[currentImageIndex]
+                    : selectedProject.images && selectedProject.images.length > 0 
+                      ? selectedProject.images[currentImageIndex] 
+                      : selectedProject.image}
                   alt="Full Screen"
                   width={768}
                   height={768}
@@ -354,12 +429,19 @@ export default function PortfolioPage() {
               </motion.div>
             </div>
 
-            {selectedProject.images && selectedProject.images.length > 1 && (
+            {/* Carousel Controls */}
+            {(selectedProject.apps && selectedProject.apps.length > 0 
+              ? selectedProject.apps[activeAppTab].images.length > 1
+              : selectedProject.images && selectedProject.images.length > 1
+            ) && (
               <div className="flex items-center justify-center gap-4 mt-4">
                 <button
                   className="bg-gray-200 rounded-full px-3 py-1 text-gray-600 hover:text-gray-800 cursor-pointer hover:shadow-md"
                   onClick={() => {
-                    setCurrentImageIndex((prev) => (prev - 1 + (selectedProject.images ? selectedProject.images.length : 1)) % (selectedProject.images ? selectedProject.images.length : 1));
+                    const images = selectedProject.apps && selectedProject.apps.length > 0
+                      ? selectedProject.apps[activeAppTab].images
+                      : selectedProject.images || [];
+                    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
                     resetPosition();
                   }}
                   aria-label={language === 'ES' ? 'Anterior' : 'Previous'}
@@ -367,12 +449,19 @@ export default function PortfolioPage() {
                   {language === 'ES' ? 'Anterior' : 'Previous'}
                 </button>
                 <span className="text-sm text-slate-600">
-                  {(currentImageIndex + 1).toString()}/{selectedProject.images.length.toString()}
+                  {(currentImageIndex + 1).toString()}/
+                  {(selectedProject.apps && selectedProject.apps.length > 0
+                    ? selectedProject.apps[activeAppTab].images.length
+                    : selectedProject.images?.length || 1
+                  ).toString()}
                 </span>
                 <button
                   className="bg-gray-200 rounded-full px-3 py-1 text-gray-600 hover:text-gray-800 cursor-pointer hover:shadow-md"
                   onClick={() => {
-                    setCurrentImageIndex((prev) => (prev + 1) % (selectedProject.images ? selectedProject.images.length : 1));
+                    const images = selectedProject.apps && selectedProject.apps.length > 0
+                      ? selectedProject.apps[activeAppTab].images
+                      : selectedProject.images || [];
+                    setCurrentImageIndex((prev) => (prev + 1) % images.length);
                     resetPosition();
                   }}
                   aria-label={language === 'ES' ? 'Siguiente' : 'Next'}
@@ -411,20 +500,36 @@ export default function PortfolioPage() {
               <p className="text-slate-600 text-base leading-relaxed mb-4">{selectedProject.description}</p>
             </div>
 
-            {/* View Project Button (in flow) */}
-            <div className="flex justify-center mt-4">
-              <div className="bg-[#01c38d] text-white rounded-md px-6 py-3 hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer font-bold">
-                {selectedProject.link === "/contacto" ? (
-                  <a href={selectedProject.link}>
-                    {language === 'ES' ? 'Ver Proyecto' : 'View Project'}
+            {/* View Project Button(s) */}
+            {selectedProject.apps && selectedProject.apps.length > 0 ? (
+              <div className="flex justify-center gap-4 mt-4">
+                {selectedProject.apps.map((app, index) => (
+                  <a
+                    key={index}
+                    href={app.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#01c38d] text-white rounded-md px-6 py-3 hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer font-bold"
+                  >
+                    {language === 'ES' ? `Ver Proyecto - ${app.name}` : `View Project - ${app.nameEn}`}
                   </a>
-                ) : (
-                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">
-                    {language === 'ES' ? 'Ver Proyecto' : 'View Project'}
-                  </a>
-                )}
+                ))}
               </div>
-            </div>
+            ) : (
+              <div className="flex justify-center mt-4">
+                <div className="bg-[#01c38d] text-white rounded-md px-6 py-3 hover:bg-[#01c38d]/90 transition-all shadow-lg shadow-[#01c38d]/30 hover:shadow-xl hover:shadow-[#01c38d]/40 cursor-pointer font-bold">
+                  {selectedProject.link === "/contacto" ? (
+                    <a href={selectedProject.link}>
+                      {language === 'ES' ? 'Ver Proyecto' : 'View Project'}
+                    </a>
+                  ) : (
+                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">
+                      {language === 'ES' ? 'Ver Proyecto' : 'View Project'}
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
       )}
